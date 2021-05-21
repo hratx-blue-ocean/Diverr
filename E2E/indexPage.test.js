@@ -1,4 +1,4 @@
-describe("Home", () => {
+xdescribe("Home", () => {
   beforeAll(async () => {
     await page.goto("http://localhost:3000/");
   });
