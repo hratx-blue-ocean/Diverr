@@ -2,9 +2,9 @@ const PORT = 14000;
 
 module.exports = {
   launch: {
-    headless: 'true',
+    headless: "true",
   },
-  browserContext: process.env.INCOGNITO ? 'incognito' : 'default',
+  browserContext: process.env.INCOGNITO ? "incognito" : "default",
   server: {
     command: `yarn run dev --port ${PORT}`,
     port: PORT,
