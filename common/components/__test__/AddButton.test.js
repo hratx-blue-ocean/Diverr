@@ -7,7 +7,7 @@ describe("AddButton", () => {
     const button = shallow(<AddButton text={"Log Dive!"} />);
     expect(button.find(MuiButton)).toHaveLength(1);
   });
-  test("This test will fail to test Github Actions", () => {
-    expect(false).toBe(true);
-  });
+  // test("This test will fail to test Github Actions", () => {
+  //   expect(false).toBe(true);
+  // });
 });
