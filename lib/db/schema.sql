@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS diverr;
+USE diverr;
 
 CREATE TABLE IF NOT EXISTS users (
   id int AUTO_INCREMENT UNIQUE PRIMARY KEY,
@@ -40,17 +41,8 @@ CREATE TABLE IF NOT EXISTS logs (
   notes text,
   dive_center varchar(50),
   dive_instructor varchar(50),
-  instructor_cert int,
-  FOREIGN KEY id_user REFERENCES users(id)
-);
-
-CREATE TABLE IF NOT EXISTS photos (
-  id int AUTO_INCREMENT UNIQUE PRIMARY KEY,
-  url varchar(100),
-  id_log int,
-  id_tags int,
-  FOREIGN KEY id_log REFERENCES logs(id),
-  FOREIGN KEY id_tags REFERENCES tags(id)
+  instructor_cert varchar(50),
+  FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS tags (
@@ -58,3 +50,11 @@ CREATE TABLE IF NOT EXISTS tags (
   name varchar(50)
 );
 
+CREATE TABLE IF NOT EXISTS photos (
+  id int AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  url varchar(100),
+  id_log int,
+  id_tags int,
+  FOREIGN KEY (id_log) REFERENCES logs(id),
+  FOREIGN KEY (id_tags) REFERENCES tags(id)
+);
