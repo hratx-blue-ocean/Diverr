@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Caspian</title>
+        <title>Diverr</title>
         <meta name="home" content="caspian-holder" />
       </Head>
       <Grid
@@ -26,6 +26,7 @@ export default function Home() {
         justify="center"
         alignItems="center"
       >
+        <div>Test</div>
         <AddButton text={"Log Dive"} />
       </Grid>
     </div>
