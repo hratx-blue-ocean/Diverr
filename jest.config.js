@@ -1,7 +1,16 @@
 module.exports = {
-  collectCoverageFrom: ["**/*.{js,jsx}", "!**/node_modules/**"],
+  collectCoverageFrom: [
+    "**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/.next/**",
+    "!**/jest-puppeteer.config.js/**",
+    "!**/jest.config.js/**",
+    "!**/coverage/**",
+    "!**/pages/**",
+    "**/pages/api/**",
+  ],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   transform: {
     "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
   },
