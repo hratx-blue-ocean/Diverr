@@ -14,5 +14,5 @@ export default function Theme({ children }) {
 }
 
 Theme.propTypes = {
-  children: PropTypes.children.isRequired,
+  children: PropTypes.element.isRequired,
 };
