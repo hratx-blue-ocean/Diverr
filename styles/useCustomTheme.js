@@ -6,12 +6,12 @@ import {
 } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Blue from "@material-ui/core/colors/Blue";
+import blue from "@material-ui/core/colors/blue";
 import deepOrange from "@material-ui/core/colors/deepOrange";
-import Orange from "@material-ui/core/colors/Orange";
-import Red from "@material-ui/core/colors/Red";
-import Purple from "@material-ui/core/colors/Purple";
-import Yellow from "@material-ui/core/colors/Yellow";
+import orange from "@material-ui/core/colors/orange";
+import red from "@material-ui/core/colors/red";
+import purple from "@material-ui/core/colors/purple";
+import yellow from "@material-ui/core/colors/yellow";
 
 export default function useCustomTheme() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -22,22 +22,22 @@ export default function useCustomTheme() {
         palette: {
           type: prefersDarkMode ? "dark" : "light",
           primary: {
-            main: Blue[300],
+            main: blue[300],
           },
           secondary: {
             main: deepOrange[300],
           },
           warning: {
-            main: Orange[500],
+            main: orange[500],
           },
           error: {
-            main: Red[500],
+            main: red[500],
           },
           info: {
-            main: Purple[300],
+            main: purple[300],
           },
           success: {
-            main: Yellow[600],
+            main: yellow[600],
           },
         },
         typography: {
