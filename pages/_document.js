@@ -7,9 +7,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
+            href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600&display=swap"
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
         <body>
@@ -20,20 +21,16 @@ export default class MyDocument extends Document {
     );
   }
 }
-
-// `getInitialProps` belongs to `_document` (instead of `_app`),
-// it's compatible with server-side generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
-  // Render app and page and get the context of the page with collected side effects.
+MyDocument.getInitialProps = async (context) => {
   const sheets = new ServerStyleSheets();
-  const originalRenderPage = ctx.renderPage;
+  const originalRenderPage = context.renderPage;
 
-  ctx.renderPage = () =>
+  context.renderPage = () =>
     originalRenderPage({
       enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     });
 
-  const initialProps = await Document.getInitialProps(ctx);
+  const initialProps = await Document.getInitialProps(context);
 
   return {
     ...initialProps,

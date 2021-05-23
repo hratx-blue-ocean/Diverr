@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 
 export default function Button({ text }) {
   return (
-    <MuiButton variant="outlined" endIcon={<AddIcon />}>
+    <MuiButton color="secondary" variant="outlined" endIcon={<AddIcon />}>
       {text}
     </MuiButton>
   );
