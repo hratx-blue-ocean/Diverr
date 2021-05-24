@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { Chip } from '@material-ui/core';
 import splitArrayRows from "common/utils/splitArray.js"
 export default function renderCarousel(log, changeCurrentPhotos) {
   if (log.photos.length < 4) {
