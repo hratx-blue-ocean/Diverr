@@ -1,9 +1,8 @@
-import Grid from "@material-ui/core/Grid";
-import Image from "next/image";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Grid from "@material-ui/core/Grid";
+import Error404 from "common/widgets/Error404";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -12,9 +11,6 @@ const useStyles = makeStyles((theme) => {
       width: "100vw",
       overflow: "hidden",
       backgroundImage: "linear-gradient(#DEF2FD, #89DCFF, #74C6BE, #88E2DA)",
-    },
-    message: {
-      fontWeight: 700,
     },
   };
 });
@@ -36,21 +32,7 @@ export default function FourOhFour() {
         alignItems="center"
         className={classes.root}
       >
-        <Typography color="error" variant="h1">
-          404
-        </Typography>
-        <Grid container direction="column" alignItems="center">
-          <Typography color="error" variant="body1" className={classes.message}>
-            Whoops! Looks like you're in a little too deep. Let's send you back
-            to shore in... {timer}
-          </Typography>
-          <Image
-            src="/drowning-drown-svgrepo-com.svg"
-            width={300}
-            height={300}
-            alt="drowning"
-          />
-        </Grid>
+        <Error404 timer={timer} />
       </Grid>
     </>
   );
