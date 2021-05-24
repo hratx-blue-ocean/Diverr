@@ -143,18 +143,21 @@ export default function AddNewLogForm() {
                 id="outlined-number"
                 label="Actual Bottom Time"
                 variant="outlined"
+                helperText="In minutes"
               />
               <TextField
                 className={classes.textfield}
                 id="outlined-number"
                 label="Residual Nitrogen Time"
                 variant="outlined"
+                helperText="In minutes"
               />
               <TextField
                 className={classes.textfield}
                 id="outlined-number"
                 label="Total Bottom Time"
                 variant="outlined"
+                helperText="In minutes"
               />
             </div>
           </Grid>
