@@ -1,5 +1,5 @@
 import React from "react";
-export default ({tags, selectedTags, addTag, removeTag}) => {
+export default ({tags, selectedTags, toggleSelected}) => {
   return (
     <>
     <div className="selectedTagList">

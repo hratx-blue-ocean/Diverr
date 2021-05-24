@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Home() {
+export default function Home(props) {
   const classes = useStyles();
   const [session, loading] = useSession();
   return (
@@ -31,3 +31,31 @@ export default function Home() {
     </main>
   );
 }
+// export async function getServerSideProps(context) {
+//   const resTags = await fetch(`route-for-user-tags`)
+//   const tagsData = await resTags.json()
+
+//   if (!tagsData) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
+// export async function getServerSideProps(context) {
+//   const resLogs = await fetch(`route-for-user-logs`)
+//   const logsData = await resLogs.json()
+
+//   if (!logsData) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
