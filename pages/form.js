@@ -5,6 +5,7 @@ import Header from "common/components/Header";
 import Grid from "@material-ui/core/Grid";
 import { useSession } from "next-auth/client";
 import { Typography, TextField, Checkbox, FormControlLabel, FormGroup, FormControl, FormLabel, Radio, RadioGroup } from '@material-ui/core';
+import AddButton from "common/components//buttons/AddButton.js";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -153,6 +154,13 @@ export default function AddNewLogForm() {
                 label="Weight"
                 variant="outlined"
               />
+              <TextField
+                multiline
+                rows={10}
+                id="outlined-multiline-static"
+                label="Notes"
+                variant="outlined"
+              />
             </div>
           </Grid>
 
@@ -239,6 +247,8 @@ export default function AddNewLogForm() {
             </div>
           </Grid>
         </Grid>
+        <h1>Placeholder for tags</h1>
+        <AddButton text={"Add Photos or Videos"}/>
       </form>
     </>
   )
