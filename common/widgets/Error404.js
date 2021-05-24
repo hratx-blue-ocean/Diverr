@@ -2,6 +2,7 @@ import Image from "next/image";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -15,11 +16,16 @@ export default function Error404({ timer }) {
   const classes = useStyles();
   return (
     <>
-      <Typography color="error" variant="h1">
+      <Typography data-testId="status" color="error" variant="h1">
         404
       </Typography>
       <Grid container direction="column" alignItems="center">
-        <Typography color="error" variant="body1" className={classes.message}>
+        <Typography
+          data-testId="message"
+          color="error"
+          variant="body1"
+          className={classes.message}
+        >
           Whoops! Looks like you're in a little too deep. Let's send you back to
           shore in... {timer}
         </Typography>
@@ -28,8 +34,17 @@ export default function Error404({ timer }) {
           width={300}
           height={300}
           alt="drowning"
+          data-testId="img"
         />
       </Grid>
     </>
   );
 }
+
+Error404.propTypes = {
+  timer: PropTypes.number.isRequired,
+};
+
+Error404.defaultProps = {
+  timer: 0,
+};
