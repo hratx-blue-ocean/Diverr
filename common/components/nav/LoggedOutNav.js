@@ -10,11 +10,16 @@ export default function LoggedOutNav({ classes }) {
       aria-label="breadcrumbs"
       className={classes.menu}
       separator={<span>&middot;</span>}
+      data-testId="menu"
     >
       <Button
         startIcon={<AssignmentIndOutlinedIcon className={classes.icon} />}
       >
-        <Link onClick={signIn} className={classes.menuItem}>
+        <Link
+          onClick={signIn}
+          className={classes.menuItem}
+          data-testId="signIn"
+        >
           SIGN IN
         </Link>
       </Button>

@@ -12,15 +12,24 @@ export default function LoggedInNav({ classes }) {
       aria-label="breadcrumbs"
       className={classes.menu}
       separator={<span>&middot;</span>}
+      data-testId="menu"
     >
       <Button startIcon={<OpacityOutlinedIcon className={classes.icon} />}>
-        <Link className={classes.menuItem}>Feed</Link>
+        <Link className={classes.menuItem} data-testId="feed">
+          Feed
+        </Link>
       </Button>
       <Button startIcon={<DescriptionOutlinedIcon className={classes.icon} />}>
-        <Link className={classes.menuItem}>Your Logs</Link>
+        <Link className={classes.menuItem} data-testId="logs">
+          Your Logs
+        </Link>
       </Button>
       <Button startIcon={<ExitToAppOutlinedIcon className={classes.icon} />}>
-        <Link onClick={signOut} className={classes.menuItem}>
+        <Link
+          onClick={signOut}
+          className={classes.menuItem}
+          data-testId="signOut"
+        >
           SIGN OUT
         </Link>
       </Button>
