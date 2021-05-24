@@ -4,8 +4,7 @@ USE diverr;
 CREATE TABLE IF NOT EXISTS users (
   id int AUTO_INCREMENT UNIQUE PRIMARY KEY,
   email varchar(40),
-  first_name varchar(25),
-  last_name varchar(25),
+  name varchar(100),
   signup varchar(25),
   cumulative_time int
 );
