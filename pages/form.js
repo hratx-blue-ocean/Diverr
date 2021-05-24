@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   checkboxes: {
     display: "inline-flex",
     flexDirection: "row"
+  },
+  textfield: {
+    margin: 5
   }
 }));
 
@@ -33,42 +36,49 @@ export default function AddNewLogForm() {
           <Grid item xs={3}>
             <div className={classes.col}>
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Date"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="City"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Country"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Dive Site"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Dive Center"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Dive Instructor Name"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Instructor Cert No."
@@ -82,47 +92,55 @@ export default function AddNewLogForm() {
           <Grid item xs={3}>
             <div className={classes.col}>
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Time In"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Time Out"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Start air pressure"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="End air pressure"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-required"
                 label="Maximum Depth"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 required
                 id="outlined-number"
                 label="Actual Bottom Time"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 id="outlined-number"
                 label="Residual Nitrogen Time"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 id="outlined-number"
                 label="Total Bottom Time"
                 variant="outlined"
@@ -135,26 +153,31 @@ export default function AddNewLogForm() {
           <Grid item xs={3}>
             <div className={classes.col}>
               <TextField
+                className={classes.textfield}
                 id="outlined"
                 label="Visibility"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 id="outlined"
                 label="Air Temperature"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 id="outlined-required"
                 label="Water Temperature"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 id="outlined"
                 label="Weight"
                 variant="outlined"
               />
               <TextField
+                className={classes.textfield}
                 multiline
                 rows={10}
                 id="outlined-multiline-static"
@@ -247,8 +270,11 @@ export default function AddNewLogForm() {
             </div>
           </Grid>
         </Grid>
-        <h1>Placeholder for tags</h1>
-        <AddButton text={"Add Photos or Videos"}/>
+        <div className={classes.col}>
+          <h1>Placeholder for tags</h1>
+          <AddButton text={"Add Photos or Videos"}/>
+          <AddButton text={"Submit New Log"}/>
+        </div>
       </form>
     </>
   )
