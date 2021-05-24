@@ -1,48 +1,9 @@
 import React, {useState} from "react";
 import { Chip } from '@material-ui/core';
+import renderTags from "common/components/dashboard/renderTags";
+import renderCarousel from "common/components/dashboard/renderCarousel";
 export default function LogDisplay({log}) {
-  let saltWater = log.salt_water? 'Salt-Water' : 'Fresh-Water?';
-  let boat = log.boat? 'Boat' : 'No Boat';
-  let current = log.current? 'Current' : 'No Current';
   const [currentPhotos, changeCurrentPhotos] = useState(4);
-  const renderTags = () => {
-    return <div className="displayTags">
-      {log.tags.map((tag, tagIndex) => {
-        return <Chip key={tagIndex} className="dashboardDisplayTag" label={tag} />
-      })}
-    </div>
-  }
-  const renderCarousel = () => {
-    if (log.photos.length < 4) {
-      return (
-        <div className="logDisplayCarousel">
-          {log.photos.map((photo, i) => {
-            return (
-              <div className="displayCarouselPhoto">
-                <img src={photo.url}/>
-              </div>
-            );
-          })}
-        </div>
-      )
-    } else {
-      return (
-        <div className="logDisplayCarousel">
-          <span onClick={() => {changeCurrentPhotos((prev) => prev - 1)}}>Left arrow</span>
-          <div className="photos">
-            {log.photos.slice(currentPhotos - 4, currentPhotos).map((photo, i) => {
-              return (
-                <div className="displayCarouselPhoto">
-                  <img src={photo.url}/>
-                </div>
-              );
-            })}
-          </div>
-          <span onClick={() => {changeCurrentPhotos((prev) => {prev + 1})}}>right arrow</span>
-        </div>
-      )
-    }
-  }
   return (
     <div className="logDisplay">
       <div className="logDisplayColumn1">
@@ -74,7 +35,7 @@ export default function LogDisplay({log}) {
           <div>Visibility: {log.visibility}</div>
           <div>Air Temp: {log.air_temp}</div>
           <div>Water Temp: {log.water_temp}</div>
-          <div>Conditions: {saltWater}, {boat}, {current}</div>
+          <div>Conditions: {log.salt_water? 'Salt-Water' : 'Fresh-Water?'}, {log.boat? 'Boat' : 'No Boat'}, {log.current? 'Current' : 'No Current'}</div>
         </div>
         <div className="gear">
           <h3>Dive Gear</h3>
@@ -91,8 +52,8 @@ export default function LogDisplay({log}) {
         </div>
       </div>
       <div className="logDisplayCarousel">
-        {renderTags()}
-        {renderCarousel()}
+        {renderTags(log)}
+        {renderCarousel(log, changeCurrentPhotos)}
       </div>
     </div>
   )

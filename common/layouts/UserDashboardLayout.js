@@ -1,9 +1,9 @@
 import Typography from "@material-ui/core/Typography";
 import React, {useState, useEffect} from "react";
 import data from "lib/dummyData/dummyData.js";
-import TagList from "common/components/DashboardTagList";
-import LogList from "common/components/DashboardLogList";
-import LogDisplay from "common/components/DashboardLogDisplay";
+import TagList from "common/components/dashboard/DashboardTagList";
+import LogList from "common/components/dashboard/DashboardLogList";
+import LogDisplay from "common/components/dashboard/DashboardLogDisplay";
 
 export default function UserDashboardLayout({ email }) {
   const [tagList, changeTagList] = useState(data.userTags.tags);
