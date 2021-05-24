@@ -30,7 +30,9 @@ export default function UserDashboardLayout({ email }) {
         {`Hello, ${email}`}
       </Typography>
       <TagList tags={tagList} selectedTags={selectedTags} toggleSelected={toggleSelected}/>
+      <br/>
       <LogList logs={logList} selectLog={selectLog} selectedTags={selectedTags}/>
+      <br/>
       <LogDisplay log={logList[currentLog]}/>
     </>
   );
