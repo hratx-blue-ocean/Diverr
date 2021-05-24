@@ -39,8 +39,11 @@ export default function AddNewLogForm() {
                 className={classes.textfield}
                 required
                 id="outlined-required"
+                type="date"
                 label="Date"
                 variant="outlined"
+                defaultValue=""
+                InputLabelProps={{ shrink: true }}
               />
               <TextField
                 className={classes.textfield}
@@ -95,14 +98,22 @@ export default function AddNewLogForm() {
                 className={classes.textfield}
                 required
                 id="outlined-required"
+                type="time"
                 label="Time In"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 variant="outlined"
               />
               <TextField
                 className={classes.textfield}
                 required
                 id="outlined-required"
+                type="time"
                 label="Time Out"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 variant="outlined"
               />
               <TextField
