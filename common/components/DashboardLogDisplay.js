@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Chip } from '@material-ui/core';
-export default function LogList({log}) {
+export default function LogDisplay({log}) {
   let saltWater = log.salt_water? 'Salt-Water' : 'Fresh-Water?';
   let boat = log.boat? 'Boat' : 'No Boat';
   let current = log.current? 'Current' : 'No Current';
