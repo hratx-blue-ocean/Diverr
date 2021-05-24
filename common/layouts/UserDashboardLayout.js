@@ -5,7 +5,7 @@ import TagList from "common/components/DashboardTagList";
 
 
 export default function UserDashboardLayout({ email }) {
-  const [tagList, changeTagList] = useState(data.userTags);
+  const [tagList, changeTagList] = useState(data.userTags.tags);
   const [logList, changeLogList] = useState(data.userLogs);
   const [selectedTags, changeSelectedTags] = useState({});
   const toggleSelected = (tag) => {
