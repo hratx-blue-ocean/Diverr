@@ -1,6 +1,7 @@
 import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
+import { Provider } from "next-auth/client";
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <main className={classes.root}>
       <ThemeWrapper>
-        <Component {...pageProps} />
+        <Provider session={pageProps.session}>
+          <Component {...pageProps} />
+        </Provider>
       </ThemeWrapper>
     </main>
   );

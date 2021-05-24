@@ -3,6 +3,8 @@ import Image from "next/image";
 import AddButton from "common/components/buttons/AddButton";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
+import { useSession } from "next-auth/client";
+import Dashboard from "/common/layouts/Dashboard";
 
 const useStyles = makeStyles({
   root: {
@@ -14,20 +16,18 @@ const useStyles = makeStyles({
 
 export default function Home() {
   const classes = useStyles();
+  const [session, loading] = useSession();
   return (
-    <div>
+    <main>
       <Head>
         <title>Caspian</title>
         <meta name="home" content="caspian-holder" />
       </Head>
-      <Grid
-        className={classes.root}
-        container
-        justify="center"
-        alignItems="center"
-      >
-        <AddButton text={"Log Dive"} />
-      </Grid>
-    </div>
+      <div className={classes.root}>
+        {!session && <Dashboard selection={"noUser"} />}
+        {session && <Dashboard selection={"user"} email={session.user.email} />}
+        {session && loading && <Dashboard selection={"loading"} />}
+      </div>
+    </main>
   );
 }
