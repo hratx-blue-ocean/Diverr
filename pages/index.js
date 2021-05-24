@@ -34,28 +34,16 @@ export default function Home(props) {
 // export async function getServerSideProps(context) {
 //   const resTags = await fetch(`route-for-user-tags`)
 //   const tagsData = await resTags.json()
-
-//   if (!tagsData) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {}, // will be passed to the page component as props
-//   }
-// }
-// export async function getServerSideProps(context) {
 //   const resLogs = await fetch(`route-for-user-logs`)
 //   const logsData = await resLogs.json()
-
-//   if (!logsData) {
+//   if (!tagsData || !logsData) {
 //     return {
 //       notFound: true,
 //     }
 //   }
 
 //   return {
-//     props: {}, // will be passed to the page component as props
+//     props: {tagsData: tagsData, logsData: logsData},
 //   }
 // }
+
