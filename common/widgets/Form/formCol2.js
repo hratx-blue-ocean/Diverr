@@ -2,17 +2,17 @@ import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { TextField } from '@material-ui/core';
+import { TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   col: {
     display: "inline-flex",
     flexDirection: "column",
-    margin: 50
+    margin: 50,
   },
   textfield: {
-    margin: 5
-  }
+    margin: 5,
+  },
 }));
 
 export default function ColumnTwo() {
@@ -79,5 +79,5 @@ export default function ColumnTwo() {
         />
       </div>
     </Grid>
-  )
-};
+  );
+}
