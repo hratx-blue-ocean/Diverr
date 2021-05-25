@@ -38,7 +38,12 @@ export default function AddNewLogForm() {
       depth: '',
       abt: '',
       rnt: '',
-      tbt: ''
+      tbt: '',
+      visibility: '',
+      airTemp: '',
+      waterTemp: '',
+      weight: '',
+      notes: ''
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
