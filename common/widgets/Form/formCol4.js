@@ -1,7 +1,6 @@
 import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
-import Header from "common/components/Header";
 import Grid from "@material-ui/core/Grid";
 import { useSession } from "next-auth/client";
 import {
