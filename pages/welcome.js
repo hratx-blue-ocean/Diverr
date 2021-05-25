@@ -37,14 +37,3 @@ export default function Welcome() {
     </Grid>
   );
 }
-
-export async function getServerSideProps(context) {
-  const { req, res } = context;
-  const session = await getSession({ req });
-  console.log('session', session);
-
-  if (session) {
-  }
-
-  return { props: {} };
-}
