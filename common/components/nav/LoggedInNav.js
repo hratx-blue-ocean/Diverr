@@ -13,14 +13,14 @@ export default function LoggedInNav({ classes }) {
       aria-label="breadcrumbs"
       className={classes.menu}
       separator={<span>&middot;</span>}
-      data-testId="menu"
+      data-testid="menu"
     >
       <Button
         startIcon={
           <OpacityOutlinedIcon className={classes.icon} href="/feed" />
         }
       >
-        <Link className={classes.menuItem} data-testId="feed" href="/feed">
+        <Link className={classes.menuItem} data-testid="feed" href="/feed">
           Feed
         </Link>
       </Button>
@@ -28,14 +28,14 @@ export default function LoggedInNav({ classes }) {
         startIcon={<DescriptionOutlinedIcon className={classes.icon} />}
         href="/dashboard"
       >
-        <Link className={classes.menuItem} data-testId="logs" href="/dashboard">
+        <Link className={classes.menuItem} data-testid="logs" href="/dashboard">
           View Logs
         </Link>
       </Button>
       <Button
         startIcon={<AddSharpIcon className={classes.icon} href="/form" />}
       >
-        <Link className={classes.menuItem} data-testId="form" href="/form">
+        <Link className={classes.menuItem} data-testid="form" href="/form">
           Create Log
         </Link>
       </Button>
@@ -46,7 +46,7 @@ export default function LoggedInNav({ classes }) {
         <Link
           onClick={signOut}
           className={classes.menuItem}
-          data-testId="signOut"
+          data-testid="signOut"
         >
           SIGN OUT
         </Link>

@@ -19,7 +19,7 @@ export default function LoggedOutNav({ classes }) {
         <Link
           onClick={signIn}
           className={classes.menuItem}
-          data-testId="signIn"
+          data-testid="signIn"
         >
           SIGN IN
         </Link>
