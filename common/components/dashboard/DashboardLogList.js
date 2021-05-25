@@ -1,8 +1,11 @@
 import React, {useState} from "react";
-import Box from '@material-ui/core/Box';
+import {Box, Typography} from '@material-ui/core';
 export default function LogList({logs, selectLog, selectedTags}) {
   return (
     <Box className="logList">
+      <Typography variant="h5">
+        Dive Logs:
+      </Typography>
       {logs.map((log, i) => {
         if (Object.keys(selectedTags).length === 0) {
           return (

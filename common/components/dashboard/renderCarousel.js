@@ -16,19 +16,21 @@ export default function renderCarousel(log, changeCurrentPhotos) {
     )
   } else {
     return (
-      <Box className="logDisplayCarousel">
-        <Box onClick={() => {changeCurrentPhotos((prev) => prev - 1)}}>Left arrow</Box>
-        <Box className="photos">
-          {log.photos.slice(currentPhotos - 4, currentPhotos).map((photo, i) => {
-            return (
-              <Box className="displayCarouselPhoto">
-                <img src={photo.url}/>
-              </Box>
-            );
-          })}
+      <Grid item container xs={12}>
+        <Box className="logDisplayCarousel">
+          <Box onClick={() => {changeCurrentPhotos((prev) => prev - 1)}}>Left arrow</Box>
+          <Box className="photos">
+            {log.photos.slice(currentPhotos - 4, currentPhotos).map((photo, i) => {
+              return (
+                <Box className="displayCarouselPhoto">
+                  <img src={photo.url}/>
+                </Box>
+              );
+            })}
+          </Box>
+          <Box onClick={() => {changeCurrentPhotos((prev) => {prev + 1})}}>right arrow</Box>
         </Box>
-        <Box onClick={() => {changeCurrentPhotos((prev) => {prev + 1})}}>right arrow</Box>
-      </Box>
+      </Grid>
     )
   }
 }

@@ -11,7 +11,7 @@ export default function TagList({tags, selectedTags, toggleSelected}) {
         {
           /* will map over selectedTags, and display them in a list*/
           Object.keys(selectedTags).map((tag, index) => {
-            return <Chip key={index} className="selectedListTag" label={tag} onDelete={() => {toggleSelected(tag)}}/>;
+            return <Chip key={index} className="selectedListTag" color="primary" label={tag} onDelete={() => {toggleSelected(tag)}}/>;
           })
         }
       </Box>
