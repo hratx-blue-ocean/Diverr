@@ -20,6 +20,8 @@ export default function Dashboard(props) {
   );
 }
 
+// getServerSideProps to get email
+
 // {!session && <Dashboard selection={"noUser"} />}
 // {session && <Dashboard selection={"user"} email={session.user.email} />}
 // {session && loading && <Dashboard selection={"loading"} />}
