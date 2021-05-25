@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/client";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
-import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 import AssignmentIndOutlinedIcon from "@material-ui/icons/AssignmentIndOutlined";
 import Button from "@material-ui/core/Button";
 
@@ -10,18 +10,15 @@ export default function LoggedOutNav({ classes }) {
       aria-label="breadcrumbs"
       className={classes.menu}
       separator={<span>&middot;</span>}
-      data-testId="menu"
+      data-testid="menu"
     >
       <Button
         startIcon={<AssignmentIndOutlinedIcon className={classes.icon} />}
+        onClick={signIn}
       >
-        <Link
-          onClick={signIn}
-          className={classes.menuItem}
-          data-testId="signIn"
-        >
+        <Typography className={classes.menuItem} data-testid="signIn">
           SIGN IN
-        </Link>
+        </Typography>
       </Button>
     </Breadcrumbs>
   );

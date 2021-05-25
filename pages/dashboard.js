@@ -17,3 +17,7 @@ export default function Dashboard(props) {
     </main>
   );
 }
+
+// {!session && <Dashboard selection={"noUser"} />}
+// {session && <Dashboard selection={"user"} email={session.user.email} />}
+// {session && loading && <Dashboard selection={"loading"} />}

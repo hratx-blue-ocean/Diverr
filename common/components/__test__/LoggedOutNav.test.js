@@ -25,7 +25,7 @@ describe("LoggedOutNav", () => {
 
   describe("Links", () => {
     it("should contain a button to sign in", () => {
-      expect(wrapper.find('[data-testId="signIn"]').text()).toMatch(
+      expect(wrapper.find('[data-testid="signIn"]').text()).toMatch(
         /sign in/gi
       );
     });

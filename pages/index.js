@@ -4,7 +4,9 @@ import AddButton from "common/components/buttons/AddButton";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 import { useSession } from "next-auth/client";
-import Dashboard from "/common/layouts/Dashboard";
+import Dashboard from "common/layouts/Dashboard";
+import Typography from "@material-ui/core/Typography";
+import Header from "common/widgets/Header";
 
 const useStyles = makeStyles({
   root: {
@@ -23,11 +25,17 @@ export default function Home(props) {
         <title>Caspian</title>
         <meta name="home" content="caspian-holder" />
       </Head>
-      <div className={classes.root}>
-        {!session && <Dashboard selection={"noUser"} />}
-        {session && <Dashboard selection={"user"} email={session.user.email} />}
-        {session && loading && <Dashboard selection={"loading"} />}
-      </div>
+      <Header />
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        className={classes.root}
+      >
+        <Grid container justify="center" alignItems="center">
+          <Typography variant="h1">Welcome to Diverr!</Typography>
+        </Grid>
+      </Grid>
     </main>
   );
 }
