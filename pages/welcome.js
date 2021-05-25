@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { useSession } from "next-auth/client";
+import { useSession, getSession } from "next-auth/client";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
