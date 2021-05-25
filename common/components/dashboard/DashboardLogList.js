@@ -1,15 +1,16 @@
 import React, {useState} from "react";
+import Box from '@material-ui/core/Box';
 export default function LogList({logs, selectLog, selectedTags}) {
   return (
-    <div className="logList">
+    <Box className="logList">
       {logs.map((log, i) => {
         if (Object.keys(selectedTags).length === 0) {
           return (
-            <div key={i} className="logTitle" onClick={() => {
+            <Box key={i} className="logTitle" onClick={() => {
               selectLog(i);
             }}>
-              <span>Log No. {log.id}: {log.date} @ {log.dive_site} </span>
-            </div>
+              <Box component="span">Log No. {log.id}: {log.date} @ {log.dive_site} </Box>
+            </Box>
           );
         }
         let doesInclude = false;
@@ -23,14 +24,14 @@ export default function LogList({logs, selectLog, selectedTags}) {
         }
         if (doesInclude) {
           return (
-            <div key={i} className="logTitle" onClick={() => {
+            <Box key={i} className="logTitle" onClick={() => {
               selectLog(i);
             }}>
-                <span>Log No. {log.id}: {log.date} @ {log.dive_site} </span>
-            </div>
+                <Box component="span">Log No. {log.id}: {log.date} @ {log.dive_site} </Box>
+            </Box>
           );
         }
       })}
-    </div>
+    </Box>
   )
 };
