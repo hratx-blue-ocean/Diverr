@@ -1,7 +1,7 @@
 import executeQuery from 'lib/db/index';
 
 export default function getUser(req, res) {
-  res.send(executeQuery((err, response) => {
+  res.send(executeQuery('19ccrow99@gmail.com', (err, response) => {
     if (err) {
       console.error(err);
     } else {

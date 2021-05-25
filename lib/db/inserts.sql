@@ -13,20 +13,20 @@ insert into logs (public, id_user, date, dive_site, city, country, visibility, a
 insert into logs (public, id_user, date, dive_site, city, country, visibility, air_temp, water_temp, weight, hood, gloves, wet_suit, waves, current, controlled_env, salt_water, boat, max_depth, time_in, time_out, rnt, abt, tbt, start_pressure, end_pressure, notes, dive_center, dive_instructor, instructor_cert) values (false, 2, '2021-06-24T16:02:16.530Z', 'Bob''s Fun Dives', 'San Francisco', 'United States', '13 feet', '90 degrees F', '65 degrees F', '14 pounds', true, true, false, false, false, true, true, false, '40 feet', '2021-05-24T16:02:16.530Z', '2021-06-24T16:02:16.530Z', 20, 15, 35, '6 psi', '12 psi', 'I saw a turtle and jellyfish!', 'Big Island Divers', 'Ferb', '789012');
 
 -- id 1
-insert into photos (url, id_log) values ('https://unsplash.com/photos/Uu1CtKngEXY', 1);
+insert into photos (url, id_log) values ('https://images.unsplash.com/photo-1589634749362-a8ef3056cbe9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80', 1);
 -- id 2
-insert into photos (url, id_log) values ('https://unsplash.com/photos/_AjqGGafofE', 1);
+insert into photos (url, id_log) values ('https://images.unsplash.com/photo-1495012379376-194a416fcc5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1934&q=80', 1);
 -- id 3
-insert into photos (url, id_log) values ('https://unsplash.com/photos/Uu1CtKngEXY', 2);
+insert into photos (url, id_log) values ('https://images.unsplash.com/photo-1589634749362-a8ef3056cbe9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80', 2);
 -- id 4
-insert into photos (url, id_log) values ('https://unsplash.com/photos/_AjqGGafofE', 2);
+insert into photos (url, id_log) values ('https://images.unsplash.com/photo-1495012379376-194a416fcc5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1934&q=80', 2);
 -- id 5
-insert into photos (url, id_log) values ('https://unsplash.com/photos/L-2p8fapOA8', 3);
+insert into photos (url, id_log) values (ç, 3);
 -- id 6
-insert into photos (url, id_log) values ('https://unsplash.com/photos/nL-UM6zyxIk', 3);
+insert into photos (url, id_log) values ('https://images.unsplash.com/photo-1610981263015-ef95481e9ffb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=675&q=80', 3);
 
 -- id 1
-insert into tags (name) values ('borbor's lagoon');
+insert into tags (name) values ('borbor''s lagoon');
 -- id 2
 insert into tags (name) values ('galveston');
 -- id 3
@@ -36,7 +36,7 @@ insert into tags (name) values ('turtle');
 -- id 5
 insert into tags (name) values ('jellyfish');
 -- id 6
-insert into tags (name) values ('bob's fun dives');
+insert into tags (name) values ('bob''s fun dives');
 -- id 7
 insert into tags (name) values ('san francisco');
 -- id 8
