@@ -2,7 +2,6 @@ import { providers, signIn, getSession } from "next-auth/client";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import LoginBox from "common/widgets/LoginBox";
-import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   videoContainer: {
@@ -47,15 +46,15 @@ export async function getServerSideProps(context) {
   // Redirect user if visiting signIn page while signed in
   if (session) {
     res.writeHead(302, {
-      Location: process.env.NEXTAUTH_URL,
+      Location: "/welcome",
     });
     res.end();
-    return {};
+    return { props: {} };
   }
   return {
     props: {
       session: null,
-      providers: await providers(context),
+      providers: (await providers(context)) || {},
     },
   };
 }
