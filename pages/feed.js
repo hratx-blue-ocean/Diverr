@@ -12,7 +12,6 @@ export default function Feed() {
         direction="column"
         justify="flex-start"
         alignItems="center"
-        spacing={2}
       >
         <Post />
         <Post />
