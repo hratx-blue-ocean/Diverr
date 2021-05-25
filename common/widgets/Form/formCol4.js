@@ -15,7 +15,7 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import AddButton from "common/components/buttons/AddButton.js";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnFour({formik}) {
+export default function ColumnFour({ formik }) {
   const classes = useStyles();
 
   return (
@@ -55,31 +55,45 @@ export default function ColumnFour({formik}) {
               />
             </RadioGroup>
           </FormControl>
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox onChange={formik.handleChange} name="checked" value="hood"/>}
-                label="Hood"
-              />
-              <FormControlLabel
-                control={<Checkbox onChange={formik.handleChange} name="checked" value="gloves"/>}
-                label="Gloves"
-              />
-              <FormControlLabel
-                control={<Checkbox onChange={formik.handleChange} name="checked" value="boots"/>}
-                label="Boots"
-              />
-            </FormGroup>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={formik.handleChange}
+                  name="checked"
+                  value="hood"
+                />
+              }
+              label="Hood"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={formik.handleChange}
+                  name="checked"
+                  value="gloves"
+                />
+              }
+              label="Gloves"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  onChange={formik.handleChange}
+                  name="checked"
+                  value="boots"
+                />
+              }
+              label="Boots"
+            />
+          </FormGroup>
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h6">Conditions</Typography>
           <FormControl>
             <FormLabel component="legend">Environment</FormLabel>
             <RadioGroup onChange={formik.handleChange} name="environment">
-              <FormControlLabel
-                value="boat"
-                control={<Radio />}
-                label="Boat"
-              />
+              <FormControlLabel value="boat" control={<Radio />} label="Boat" />
               <FormControlLabel
                 value="shore"
                 control={<Radio />}
@@ -100,20 +114,28 @@ export default function ColumnFour({formik}) {
                 control={<Radio />}
                 label="Fresh"
               />
-              <FormControlLabel
-                value="salt"
-                control={<Radio />}
-                label="Salt"
-              />
+              <FormControlLabel value="salt" control={<Radio />} label="Salt" />
             </RadioGroup>
           </FormControl>
           <FormGroup>
             <FormControlLabel
-              control={<Checkbox onChange={formik.handleChange} name="checked" value="waves"/>}
+              control={
+                <Checkbox
+                  onChange={formik.handleChange}
+                  name="checked"
+                  value="waves"
+                />
+              }
               label="Waves"
             />
             <FormControlLabel
-              control={<Checkbox onChange={formik.handleChange} name="checked" value="current"/>}
+              control={
+                <Checkbox
+                  onChange={formik.handleChange}
+                  name="checked"
+                  value="current"
+                />
+              }
               label="Current"
             />
           </FormGroup>
@@ -122,4 +144,3 @@ export default function ColumnFour({formik}) {
     </Grid>
   );
 }
-

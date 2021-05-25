@@ -9,7 +9,7 @@ import Column1 from "common/widgets/Form/formCol1.js";
 import Column2 from "common/widgets/Form/formCol2.js";
 import Column3 from "common/widgets/Form/formCol3.js";
 import Column4 from "common/widgets/Form/formCol4.js";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -24,30 +24,30 @@ export default function AddNewLogForm() {
 
   const formik = useFormik({
     initialValues: {
-      date: '',
-      city: '',
-      country: '',
-      site: '',
-      center: '',
-      instructor: '',
-      instructorCert: '',
-      timeIn: '',
-      timeOut: '',
-      startPressure: '',
-      endPressure: '',
-      depth: '',
-      abt: '',
-      rnt: '',
-      tbt: '',
-      visibility: '',
-      airTemp: '',
-      waterTemp: '',
-      weight: '',
-      notes: ''
+      date: "",
+      city: "",
+      country: "",
+      site: "",
+      center: "",
+      instructor: "",
+      instructorCert: "",
+      timeIn: "",
+      timeOut: "",
+      startPressure: "",
+      endPressure: "",
+      depth: "",
+      abt: "",
+      rnt: "",
+      tbt: "",
+      visibility: "",
+      airTemp: "",
+      waterTemp: "",
+      weight: "",
+      notes: "",
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      console.log(JSON.stringify(values, null, 2))
+      console.log(JSON.stringify(values, null, 2));
     },
   });
 
@@ -56,10 +56,10 @@ export default function AddNewLogForm() {
       <Header />
       <form onSubmit={formik.handleSubmit}>
         <Grid container spacing={3} direction="row">
-          <Column1 formik={formik}/>
-          <Column2 formik={formik}/>
-          <Column3 formik={formik}/>
-          <Column4 formik={formik}/>
+          <Column1 formik={formik} />
+          <Column2 formik={formik} />
+          <Column3 formik={formik} />
+          <Column4 formik={formik} />
           <div className={classes.col}>
             <h1>Placeholder for tags</h1>
             <AddButton text={"Add Photos or Videos"} />

@@ -9,7 +9,5 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SmallTag({ tagName }) {
   const classes = useStyles();
-  return (
-    <Chip label={tagName} size="small" className={classes.chip} />
-  );
+  return <Chip label={tagName} size="small" className={classes.chip} />;
 }

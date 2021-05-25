@@ -16,9 +16,8 @@ export default function LoggedInNav({ classes }) {
       data-testid="menu"
     >
       <Button
-        startIcon={
-          <OpacityOutlinedIcon className={classes.icon} href="/feed" />
-        }
+        startIcon={<OpacityOutlinedIcon className={classes.icon} />}
+        href="/feed"
       >
         <Typography className={classes.menuItem} data-testid="feed">
           Feed
