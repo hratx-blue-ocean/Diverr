@@ -17,21 +17,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ColumnThree() {
+export default function ColumnThree({formik}) {
   const classes = useStyles();
-
-  const formik = useFormik({
-    initialValues: {
-      visibility: '',
-      airTemp: '',
-      waterTemp: '',
-      weight: '',
-      notes: ''
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   return (
     <Grid item xs={3}>

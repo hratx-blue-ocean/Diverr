@@ -16,23 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnOne() {
+export default function ColumnOne({formik}) {
   const classes = useStyles();
-
-  const formik = useFormik({
-    initialValues: {
-      date: '',
-      city: '',
-      country: '',
-      site: '',
-      center: '',
-      instructor: '',
-      instructorCert: ''
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   return (
     <Grid item xs={3}>

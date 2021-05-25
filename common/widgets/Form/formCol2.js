@@ -16,24 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnTwo() {
+export default function ColumnTwo({formik}) {
   const classes = useStyles();
-
-  const formik = useFormik({
-    initialValues: {
-      timeIn: '',
-      timeOut: '',
-      startPressure: '',
-      endPressure: '',
-      depth: '',
-      abt: '',
-      rnt: '',
-      tbt: ''
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   return (
     <Grid item xs={3}>

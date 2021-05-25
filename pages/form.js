@@ -47,7 +47,7 @@ export default function AddNewLogForm() {
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      console.log('Data submitted')
+      console.log(JSON.stringify(values, null, 2))
     },
   });
 
@@ -56,10 +56,10 @@ export default function AddNewLogForm() {
       <Header />
       <form onSubmit={formik.handleSubmit}>
         <Grid container spacing={3} direction="row">
-          <Column1 />
-          <Column2 />
-          <Column3 />
-          <Column4 />
+          <Column1 formik={formik}/>
+          <Column2 formik={formik}/>
+          <Column3 formik={formik}/>
+          <Column4 formik={formik}/>
           <div className={classes.col}>
             <h1>Placeholder for tags</h1>
             <AddButton text={"Add Photos or Videos"} />
