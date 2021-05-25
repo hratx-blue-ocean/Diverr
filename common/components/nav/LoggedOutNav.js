@@ -14,6 +14,7 @@ export default function LoggedOutNav({ classes }) {
     >
       <Button
         startIcon={<AssignmentIndOutlinedIcon className={classes.icon} />}
+        onClick={signIn}
       >
         <Link
           onClick={signIn}
