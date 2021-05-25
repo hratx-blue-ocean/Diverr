@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "20px",
     paddingRight: "20px",
     backgroundColor: "#D1FFFC",
+    minHeight: "90px",
   },
   menuItem: {
     margin: "auto",
