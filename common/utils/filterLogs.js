@@ -8,5 +8,5 @@ const filterLogs = (selectedTags, logTags) => {
   }
   // return true
   return true;
-}
+};
 export default filterLogs;

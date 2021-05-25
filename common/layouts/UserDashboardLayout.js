@@ -1,10 +1,10 @@
 import Typography from "@material-ui/core/Typography";
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import data from "lib/dummyData/dummyData.js";
 import TagList from "common/components/dashboard/DashboardTagList";
 import LogList from "common/components/dashboard/DashboardLogList";
 import LogDisplay from "common/components/dashboard/DashboardLogDisplay";
-import {Grid, Card} from '@material-ui/core';
+import { Grid, Card } from "@material-ui/core";
 
 export default function UserDashboardLayout({ email }) {
   const [tagList, changeTagList] = useState(data.userTags.tags);
@@ -13,17 +13,17 @@ export default function UserDashboardLayout({ email }) {
   const [currentLog, changeLog] = useState(0);
   const toggleSelected = (tag) => {
     changeSelectedTags((prev) => {
-      let newSelected = {...prev};
+      let newSelected = { ...prev };
       if (newSelected[tag]) {
         delete newSelected[tag];
       } else {
         newSelected[tag] = tag;
       }
       return newSelected;
-    })
-  }
+    });
+  };
   const selectLog = (logListIndex) => {
-    changeLog(logListIndex)
+    changeLog(logListIndex);
   };
   return (
     <Grid container spacing={2}>
@@ -36,14 +36,22 @@ export default function UserDashboardLayout({ email }) {
           </Card>
         </Grid>
         <Grid item xs={12}>
-          <TagList tags={tagList} selectedTags={selectedTags} toggleSelected={toggleSelected}/>
+          <TagList
+            tags={tagList}
+            selectedTags={selectedTags}
+            toggleSelected={toggleSelected}
+          />
         </Grid>
         <Grid item xs={12}>
-          <LogList logs={logList} selectLog={selectLog} selectedTags={selectedTags}/>
+          <LogList
+            logs={logList}
+            selectLog={selectLog}
+            selectedTags={selectedTags}
+          />
         </Grid>
       </Grid>
       <Grid item xs={8}>
-        <LogDisplay log={logList[currentLog]}/>
+        <LogDisplay log={logList[currentLog]} />
       </Grid>
     </Grid>
   );

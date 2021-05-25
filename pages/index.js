@@ -46,4 +46,3 @@ export default function Home(props) {
 //     props: {tagsData: tagsData, logsData: logsData},
 //   }
 // }
-
