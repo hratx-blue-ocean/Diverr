@@ -2,7 +2,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography,Grid } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

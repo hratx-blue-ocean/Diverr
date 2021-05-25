@@ -2,7 +2,7 @@ import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 import {
   TextField,
   FormControlLabel,
