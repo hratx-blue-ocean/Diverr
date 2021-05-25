@@ -31,7 +31,7 @@ export default function SignIn({ session, providers }) {
     <>
       <Box className={classes.videoContainer}>
         <video autoPlay muted loop id="dive-video" className={classes.video}>
-          <source src="/diving-video.mp4" type="video/mp4" />
+          <source src="/diving-video-compressed.mp4" type="video/mp4" />
         </video>
       </Box>
       <LoginBox provider={providers.google} signIn={signIn} />

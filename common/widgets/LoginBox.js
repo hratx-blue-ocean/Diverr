@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgba(0, 0, 0, 0.2)",
   },
   login: {
-    minHeight: "300px",
+    minHeight: "400px",
     minWidth: "200px",
     height: "35%",
     width: "25%",
