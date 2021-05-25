@@ -15,6 +15,7 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
               <Chip
                 key={index}
                 className="selectedListTag"
+                color="primary"
                 label={tag}
                 onDelete={() => {
                   toggleSelected(tag);
