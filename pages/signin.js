@@ -1,0 +1,61 @@
+import { providers, signIn, getSession } from "next-auth/client";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import LoginBox from "common/widgets/LoginBox";
+import { useRouter } from "next/router";
+
+const useStyles = makeStyles((theme) => ({
+  videoContainer: {
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    height: "100%",
+    width: "100%",
+    zIndex: "-1",
+    overflow: "hidden",
+  },
+  video: {
+    minWidth: "100%",
+    minHeight: "100%",
+    width: "auto",
+    height: "auto",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+}));
+
+export default function SignIn({ session, providers }) {
+  const classes = useStyles();
+  return (
+    <>
+      <Box className={classes.videoContainer}>
+        <video autoPlay muted loop id="dive-video" className={classes.video}>
+          <source src="/diving-video.mp4" type="video/mp4" />
+        </video>
+      </Box>
+      <LoginBox provider={providers.google} signIn={signIn} />
+    </>
+  );
+}
+
+export async function getServerSideProps(context) {
+  const { req, res } = context;
+  const session = await getSession({ req });
+
+  // Redirect user if visiting signIn page while signed in
+  if (session) {
+    res.writeHead(302, {
+      Location: process.env.NEXTAUTH_URL,
+    });
+    res.end();
+    return {};
+  }
+  return {
+    props: {
+      session: null,
+      providers: await providers(context),
+    },
+  };
+}
