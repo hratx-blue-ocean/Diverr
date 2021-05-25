@@ -2,8 +2,15 @@ import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import { TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
+import {
+  TextField,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+  Radio,
+  RadioGroup,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -16,12 +23,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnOne({formik}) {
+export default function ColumnOne({ formik }) {
   const classes = useStyles();
 
   return (
     <Grid item xs={3}>
       <div className={classes.col}>
+        <FormControl>
+          <FormLabel component="legend">Privacy</FormLabel>
+          <RadioGroup onChange={formik.handleChange} name="privacy">
+            <FormControlLabel
+              value="private"
+              control={<Radio />}
+              label="Private"
+            />
+            <FormControlLabel
+              value="public"
+              control={<Radio />}
+              label="Public"
+            />
+          </RadioGroup>
+        </FormControl>
         <TextField
           className={classes.textfield}
           required
