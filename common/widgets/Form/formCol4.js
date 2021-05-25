@@ -15,6 +15,7 @@ import {
   RadioGroup,
 } from "@material-ui/core";
 import AddButton from "common/components/buttons/AddButton.js";
+import { useFormik } from 'formik';
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -31,8 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnFour() {
+export default function ColumnFour({formik}) {
   const classes = useStyles();
+
   return (
     <Grid item xs={3}>
       <div className={classes.checkboxes}>
@@ -40,47 +42,51 @@ export default function ColumnFour() {
           <Typography variant="h6">Exposure Protection</Typography>
           <FormControl>
             <FormLabel component="legend">Thermal Insulation</FormLabel>
-            <RadioGroup>
+            <RadioGroup onChange={formik.handleChange} name="suitUp">
               <FormControlLabel
-                value="Wet Suit"
+                value="wetsuit"
                 control={<Radio />}
                 label="Wet Suit"
               />
               <FormControlLabel
-                value="Dry Suit"
+                value="drysuit"
                 control={<Radio />}
                 label="Dry Suit"
               />
             </RadioGroup>
           </FormControl>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox checked={false} name="Hood" />}
-              label="Hood"
-            />
-            <FormControlLabel
-              control={<Checkbox checked={false} name="Gloves" />}
-              label="Gloves"
-            />
-            <FormControlLabel
-              control={<Checkbox checked={false} name="Boots" />}
-              label="Boots"
-            />
-          </FormGroup>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox onChange={formik.handleChange} name="checked" value="hood"/>}
+                label="Hood"
+              />
+              <FormControlLabel
+                control={<Checkbox onChange={formik.handleChange} name="checked" value="gloves"/>}
+                label="Gloves"
+              />
+              <FormControlLabel
+                control={<Checkbox onChange={formik.handleChange} name="checked" value="boots"/>}
+                label="Boots"
+              />
+            </FormGroup>
         </Grid>
         <Grid item xs={6}>
           <Typography variant="h6">Conditions</Typography>
           <FormControl>
             <FormLabel component="legend">Environment</FormLabel>
-            <RadioGroup>
-              <FormControlLabel value="Boat" control={<Radio />} label="Boat" />
+            <RadioGroup onChange={formik.handleChange} name="environment">
               <FormControlLabel
-                value="Shore"
+                value="boat"
+                control={<Radio />}
+                label="Boat"
+              />
+              <FormControlLabel
+                value="shore"
                 control={<Radio />}
                 label="Shore"
               />
               <FormControlLabel
-                value="Controlled"
+                value="controlled"
                 control={<Radio />}
                 label="Controlled Environment"
               />
@@ -88,22 +94,26 @@ export default function ColumnFour() {
           </FormControl>
           <FormControl>
             <FormLabel component="legend">Water</FormLabel>
-            <RadioGroup>
+            <RadioGroup onChange={formik.handleChange} name="water">
               <FormControlLabel
-                value="Fresh"
+                value="fresh"
                 control={<Radio />}
                 label="Fresh"
               />
-              <FormControlLabel value="Salt" control={<Radio />} label="Salt" />
+              <FormControlLabel
+                value="salt"
+                control={<Radio />}
+                label="Salt"
+              />
             </RadioGroup>
           </FormControl>
           <FormGroup>
             <FormControlLabel
-              control={<Checkbox checked={false} name="Waves" />}
+              control={<Checkbox onChange={formik.handleChange} name="checked" value="waves"/>}
               label="Waves"
             />
             <FormControlLabel
-              control={<Checkbox checked={false} name="Current" />}
+              control={<Checkbox onChange={formik.handleChange} name="checked" value="current"/>}
               label="Current"
             />
           </FormGroup>
@@ -112,3 +122,4 @@ export default function ColumnFour() {
     </Grid>
   );
 }
+
