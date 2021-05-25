@@ -58,7 +58,7 @@ export default function ColumnThree({formik}) {
         <TextField
           className={classes.textfield}
           multiline
-          rows={10}
+          rows={14}
           label="Notes"
           name="notes"
           value={formik.values.notes}
