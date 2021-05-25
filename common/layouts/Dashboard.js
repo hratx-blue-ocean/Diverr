@@ -1,7 +1,7 @@
 import NoUserDashboardLayout from "common/layouts/NoUserDashboardLayout";
 import UserDashboardLayout from "common/layouts/UserDashboardLayout";
 import LoadingDashboardLayout from "common/layouts/LoadingDashboardLayout";
-import Header from "common/components/Header";
+import Header from "common/widgets/Header";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 
