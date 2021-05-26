@@ -10,17 +10,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar({tags}) {
+export default function SearchBar({ tags, onSelect }) {
   const classes = useStyles();
   return (
     <Autocomplete
-    className={classes.root}
+      onChange={(event, value) => onSelect(value)}
+      className={classes.root}
       id="search box"
       options={tags}
       getOptionLabel={(option) => option}
       style={{ width: 300 }}
       renderInput={(params) => (
-        <TextField {...params} label="Search the tag you like" variant="outlined" />
+        <TextField
+          {...params}
+          label="Search the tag you like"
+          variant="outlined"
+        />
       )}
     />
   );
