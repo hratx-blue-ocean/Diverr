@@ -6,6 +6,7 @@ import SearchBar from "common/widgets/SearchBar.js";
 import data from "lib/dummyData/dummyData.js";
 
 export default function Feed() {
+  console.log(data.tags)
   return (
     <>
       <Header />
@@ -15,7 +16,7 @@ export default function Feed() {
         justify="flex-start"
         alignItems="center"
       >
-        <SearchBar />
+        <SearchBar tags={data.tags}/>
         {data.allLogs.logs.map((log) => (
           <div key={log.id}>
             <Post log={log} />
