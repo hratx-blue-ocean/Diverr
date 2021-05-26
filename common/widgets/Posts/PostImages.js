@@ -17,15 +17,16 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    maxHeight: 500,
+    maxHeight: 450,
     overflow: "hidden",
     display: "block",
     width: "100%",
-    objectFit: "cover"
+    objectFit: "cover",
   },
 }));
 
-{/* <img
+{
+  /* <img
 className={classes.img}
 src={photos[activeStep].url}
 alt={photos[activeStep].id}
@@ -37,7 +38,8 @@ alt={photos[activeStep].id}
   width={500}
   height={500}
 />
-*/}
+*/
+}
 
 export default function PostImages({ photos }) {
   const classes = useStyles();
@@ -45,11 +47,19 @@ export default function PostImages({ photos }) {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = photos.length;
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (activeStep === maxSteps - 1) {
+      setActiveStep(0);
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep === 0) {
+      setActiveStep(maxSteps - 1);
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    }
   };
 
   if (photos.length === 0) {
@@ -57,7 +67,7 @@ export default function PostImages({ photos }) {
       id: 1,
       url: "https://images.unsplash.com/photo-1589634749362-a8ef3056cbe9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2775&q=80",
       id_log: 1,
-    })
+    });
   }
 
   return (
@@ -73,11 +83,7 @@ export default function PostImages({ photos }) {
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
+          <Button size="small" onClick={handleNext}>
             Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
@@ -87,7 +93,7 @@ export default function PostImages({ photos }) {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="small" onClick={handleBack}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
