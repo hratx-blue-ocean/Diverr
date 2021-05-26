@@ -1,9 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import MobileStepper from "@material-ui/core/MobileStepper";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import { Button, Typography, Paper, MobileStepper } from "@material-ui/core";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
@@ -28,12 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PostImages({photos}) {
+export default function PostImages({ photos }) {
   const classes = useStyles();
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const maxSteps = photos.length;
-  console.log(photos)
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
