@@ -19,12 +19,12 @@ export default function Feed() {
         justify="flex-start"
         alignItems="center"
       >
-        <SearchBar tags={data.tags} onSelect={setSearch} />
+        <SearchBar tags={data.tags} onSelect={setSearch} search={search}/>
         {data.allLogs.logs.map((log) => {
           if (log.tags.includes(search) || search === null) {
             return (
               <div key={log.id}>
-                <Post log={log} />
+                <Post log={log} handleClick={setSearch}/>
               </div>
             );
           }

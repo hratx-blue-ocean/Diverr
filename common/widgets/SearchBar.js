@@ -10,10 +10,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchBar({ tags, onSelect }) {
+export default function SearchBar({ tags, onSelect, search }) {
   const classes = useStyles();
   return (
     <Autocomplete
+      value={search}
       onChange={(event, value) => onSelect(value)}
       className={classes.root}
       id="search box"
