@@ -5,6 +5,7 @@ import Post from "common/widgets/Post.js";
 import SearchBar from "common/widgets/SearchBar.js";
 import data from "lib/dummyData/dummyData.js";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 export default function Feed() {
   console.log(data.tags);
