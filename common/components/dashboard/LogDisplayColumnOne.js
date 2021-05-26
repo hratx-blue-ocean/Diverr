@@ -4,9 +4,17 @@ import Tags from 'common/components/dashboard/Tags.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
-  item: {
+  itemOne: {
     padding: "8px",
-    minHeight: '30%'
+    minHeight: '25%'
+  },
+  itemTwo: {
+    padding: "8px",
+    minHeight: '25%'
+  },
+  itemThree: {
+    padding: "8px",
+    minHeight: '35%'
   },
   spacer: {
     height: "10px",
@@ -17,7 +25,7 @@ export default function logDisplayColumn1({ log }) {
   const classes = useStyles();
   return (
     <>
-      <Card className={classes.item}>
+      <Card className={classes.itemOne}>
         <Typography variant="body1" data-testid="date">
           Date: {new Date(log.date).toDateString()} Dive Number: {log.id}
         </Typography>
@@ -29,7 +37,7 @@ export default function logDisplayColumn1({ log }) {
         </Typography>
       </Card>
       <Box className={classes.spacer} />
-      <Card className={classes.item}>
+      <Card className={classes.itemTwo}>
         <Typography variant="body1" data-testid="rnt">
           {" "}
           RNT {log.rnt}
@@ -48,7 +56,7 @@ export default function logDisplayColumn1({ log }) {
         </Typography>
       </Card>
       <Box className={classes.spacer} />
-      <Card className={classes.item}>
+      <Card className={classes.itemThree}>
         <Typography variant="h6" data-testid="notes">
           Notes:{" "}
         </Typography>

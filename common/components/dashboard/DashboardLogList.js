@@ -5,8 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   spacer: {
-    height: "5%",
+    height: 5,
   },
+  log: {
+    cursor: 'pointer'
+  }
 }));
 export default function LogList({ logs, selectLog, selectedTags }) {
   const classes = useStyles();
@@ -22,7 +25,7 @@ export default function LogList({ logs, selectLog, selectedTags }) {
             <>
               <Card
                 key={i}
-                className="logTitle"
+                className={classes.log}
                 onClick={() => {
                   selectLog(i);
                 }}>

@@ -111,14 +111,3 @@ export default function UserDashboardLayout({ }) {
     );
   }
 }
-
-/*
-Grid Container for whole page
-  Grid Container Item for page: direction column, xs 12
-    Grid Container Item : Column 1 xs 3
-      Grid Item for column 1: User Info xs 12
-      Grid Item for column 1: Tag List xs 12
-      Grid Item for column 1: Log List xs 12
-    Grid Item For Column 2: Log Display xs 9
-
-*/
