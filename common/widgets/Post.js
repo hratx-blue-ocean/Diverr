@@ -21,7 +21,7 @@ import PostImages from "common/widgets/Posts/PostImages.js";
 import SmallTagContainer from "common/widgets/SmallTagContainer.js";
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 600,
+    maxWidth: 500,
     margin: theme.spacing(2),
   },
   media: {
