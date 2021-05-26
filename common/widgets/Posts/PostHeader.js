@@ -1,6 +1,7 @@
 import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Grid, Avatar, CardHeader } from "@material-ui/core";
+import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -25,7 +26,7 @@ export default function FeedHeader({ firstName, lastName, location, date }) {
           alignItems="center"
         >
           <Typography>{`${firstName} ${lastName}`}</Typography>
-          <Typography>{date}</Typography>
+          <Typography>{moment(date).fromNow()}</Typography>
         </Grid>
       }
       subheader={location}
