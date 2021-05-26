@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import { CardContent, Card } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
 import PostHeader from "common/widgets/Posts/PostHeader.js";
