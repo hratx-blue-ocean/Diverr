@@ -1,9 +1,11 @@
 import Typography from "@material-ui/core/Typography";
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/client";
 import data from "lib/dummyData/dummyData.js";
 import TagList from "common/components/dashboard/DashboardTagList";
 import LogList from "common/components/dashboard/DashboardLogList";
 import LogDisplay from "common/components/dashboard/DashboardLogDisplay";
+import UserInfo from 'common/components/dashboard/UserInfo.js';
 import { Grid, Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
@@ -48,6 +50,7 @@ export default function UserDashboardLayout({ email }) {
   const [logList, changeLogList] = useState(data.userLogs.user.logs);
   const [selectedTags, changeSelectedTags] = useState({});
   const [currentLog, changeLog] = useState(0);
+  const [session, loading] = useSession();
   const toggleSelected = (tag) => {
     changeSelectedTags((prev) => {
       let newSelected = { ...prev };
@@ -65,11 +68,7 @@ export default function UserDashboardLayout({ email }) {
   return (
     <Grid container direction="row" className={classes.root}>
       <Grid item xs={3} className={classes.col1Container}>
-        <Card className={classes.col1Item}>
-          <Typography variant="h6" color="primary">
-            {`Hello, ${email}`}
-          </Typography>
-        </Card>
+        {<UserInfo name={session.user.name} logs={logList}/>}
         <Box className={classes.spacer} />
         <Box className={classes.scrollTags}>
           <TagList
