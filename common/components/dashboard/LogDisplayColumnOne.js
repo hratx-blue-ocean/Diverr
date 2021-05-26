@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Typography, Grid, Card, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import Tags from 'common/components/dashboard/Tags.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   item: {
-    height: "25%",
     padding: "8px",
+    minHeight: '31%'
   },
   spacer: {
     height: "10px",
@@ -54,6 +55,7 @@ export default function logDisplayColumn1({ log }) {
         </Typography>
         <Typography variant="body1" data-testid="notes-text">
           {log.notes}
+          <Tags log={log} />
         </Typography>
       </Card>
     </>
