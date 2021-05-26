@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserDashboardLayout({ email }) {
+export default function UserDashboardLayout({ }) {
   const classes = useStyles();
   const [tagList, changeTagList] = useState(data.userTags.tags);
   const [logList, changeLogList] = useState(data.userLogs.user.logs);
@@ -65,41 +65,51 @@ export default function UserDashboardLayout({ email }) {
   const selectLog = (logListIndex) => {
     changeLog(logListIndex);
   };
-  return (
-    <Grid container direction="row" className={classes.root}>
-      <Grid item xs={3} className={classes.col1Container}>
-        {<UserInfo name={session.user.name} logs={logList}/>}
-        <Box className={classes.spacer} />
-        <Box className={classes.scrollTags}>
-          <TagList
-            tags={tagList}
-            selectedTags={selectedTags}
-            toggleSelected={toggleSelected}
-          />
-        </Box>
-        <Box className={classes.spacer} />
-        <Box className={classes.scrollLogs}>
-          <LogList
-            logs={logList}
-            selectLog={selectLog}
-            selectedTags={selectedTags}
-          />
-        </Box>
+  if (session) {
+    return (
+      <Grid container direction="row" className={classes.root}>
+        <Grid item xs={3} className={classes.col1Container}>
+          {<UserInfo name={session.user.name} logs={logList}/>}
+          <Box className={classes.spacer} />
+          <Box className={classes.scrollTags}>
+            <TagList
+              tags={tagList}
+              selectedTags={selectedTags}
+              toggleSelected={toggleSelected}
+            />
+          </Box>
+          <Box className={classes.spacer} />
+          <Box className={classes.scrollLogs}>
+            <LogList
+              logs={logList}
+              selectLog={selectLog}
+              selectedTags={selectedTags}
+            />
+          </Box>
+        </Grid>
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          item
+          xs={8}
+          className={classes.col2Container}
+        >
+          <Box className={classes.logContainer}>
+            <LogDisplay log={logList[currentLog]} />
+          </Box>
+        </Grid>
       </Grid>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        item
-        xs={8}
-        className={classes.col2Container}
-      >
-        <Box className={classes.logContainer}>
-          <LogDisplay log={logList[currentLog]} />
-        </Box>
-      </Grid>
-    </Grid>
-  );
+    );
+  } else {
+    return (
+      <>
+        <Typography variant="h2" color="primary">
+          Loading...
+        </Typography>
+      </>
+    );
+  }
 }
 
 /*

@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   item: {
     padding: "8px",
-    minHeight: '31%'
+    minHeight: '30%'
   },
   spacer: {
     height: "10px",
@@ -19,7 +19,7 @@ export default function logDisplayColumn1({ log }) {
     <>
       <Card className={classes.item}>
         <Typography variant="body1" data-testid="date">
-          Date: {log.date} Dive Number: {log.id}
+          Date: {new Date(log.date).toDateString()} Dive Number: {log.id}
         </Typography>
         <Typography variant="body1" data-testid="location">
           {log.dive_site}, {log.city}, {log.country} {"\n"}
