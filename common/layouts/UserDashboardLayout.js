@@ -1,5 +1,5 @@
 import Typography from "@material-ui/core/Typography";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import data from "lib/dummyData/dummyData.js";
 import TagList from "common/components/dashboard/DashboardTagList";
 import LogList from "common/components/dashboard/DashboardLogList";
@@ -9,7 +9,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
-  col2: {},
   root: {
     height: "100vh",
     width: "100vw",
@@ -23,18 +22,23 @@ const useStyles = makeStyles((theme) => ({
   col1Container: {
     padding: "25px",
   },
-  col1Item: {
-    backgroundColor: "blue",
-  },
   scrollTags: {
-    backgroundColor: "blue",
     overflowX: "scroll",
     height: "30%",
+    boxShadow: "1px 1px 1px 1px black",
   },
   scrollLogs: {
-    backgroundColor: "blue",
     overflowX: "scroll",
     height: "60%",
+    boxShadow: "1px 1px 1px 1px black",
+  },
+  logContainer: {
+    height: "85%",
+    width: "85%",
+  },
+  col2Container: {
+    height: "100%",
+    width: "100%",
   },
 }));
 
@@ -60,7 +64,7 @@ export default function UserDashboardLayout({ email }) {
   };
   return (
     <Grid container direction="row" className={classes.root}>
-      <Grid item xs={4} direction="column" className={classes.col1Container}>
+      <Grid item xs={4} className={classes.col1Container}>
         <Card className={classes.col1Item}>
           <Typography variant="span" color="primary">
             {`Hello, ${email}`}
@@ -83,9 +87,17 @@ export default function UserDashboardLayout({ email }) {
           />
         </Box>
       </Grid>
-      <Grid container item xs={8} style={{ backgroundColor: "black" }}>
-        {/* <Box style={{ width: '300px', height: '300px', backgroundColor: 'black'}}>Hello</Box> */}
-        {/* <LogDisplay log={logList[currentLog]} /> */}
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        item
+        xs={8}
+        className={classes.col2Container}
+      >
+        <Box className={classes.logContainer}>
+          <LogDisplay log={logList[currentLog]} />
+        </Box>
       </Grid>
     </Grid>
   );

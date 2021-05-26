@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import splitArrayRows from "common/utils/splitArray.js";
-import Box from "@material-ui/core/Box";
-import Image from "next/image";
+import { Box, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 const useStyles = makeStyles((theme) => ({
   imageContainer: {
-    height: "150px",
     width: "150px",
+    height: "150px",
   },
   image: {
     height: "100%",
-    width: "auto",
+    width: "100%",
   },
 }));
-
-export default function renderCarousel(log, changeCurrentPhotos) {
-  const classes = useStyles();
-
+export default function Carousel({ log, changeCurrentPhotos }) {
+  const styles = useStyles();
   if (log.photos.length < 4) {
     return (
-      <Box className="logDisplayCarousel">
+      <Grid container spacing={4}>
         {log.photos.map((photo, i) => {
           return (
-            <Box className={classes.imageContainer}>
-              <img className={classes.image} src={photo.url} alt="" />
-            </Box>
+            <Grid
+              className={styles.imageContainer}
+              item
+              xs={12 / log.photos.length}
+            >
+              <img className={styles.image} src={photo.url} />
+            </Grid>
           );
         })}
-      </Box>
+      </Grid>
     );
   } else {
     return (
@@ -46,8 +46,8 @@ export default function renderCarousel(log, changeCurrentPhotos) {
               .slice(currentPhotos - 4, currentPhotos)
               .map((photo, i) => {
                 return (
-                  <Box className={classes.imageContainer}>
-                    <img className={classes.image} src={photo.url} alt="" />
+                  <Box className={styles.imageContainer}>
+                    <img className={styles.image} src={photo.url} />
                   </Box>
                 );
               })}

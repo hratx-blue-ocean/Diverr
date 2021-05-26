@@ -1,42 +1,57 @@
-import React, { useState } from "react";
 import splitArrayRows from "common/utils/splitArray.js";
 import { Box, Grid, Card, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {},
+  item: {
+    height: "25%",
+    padding: "8px",
+  },
+  spacer: {
+    height: "10px",
+  },
+}));
+
 export default function logDisplayColumn1({ log }) {
+  const classes = useStyles();
   return (
-    <Grid className="logDisplayColumn2" container item xs={4} spacing={3}>
-      <Grid className="diveConditions" item xs={12}>
-        <Card>
-          <Typography variant="h4">Dive Conditions</Typography>
-          <Box>Visibility: {log.visibility}</Box>
-          <Box>Air Temp: {log.air_temp}</Box>
-          <Box>Water Temp: {log.water_temp}</Box>
-          <Box>
-            Conditions: {log.salt_water ? "Salt-Water" : "Fresh-Water?"},{" "}
-            {log.boat ? "Boat" : "No Boat"},{" "}
-            {log.current ? "Current" : "No Current"}
-          </Box>
-        </Card>
-      </Grid>
-      <Grid className="gear" item xs={12}>
-        <Card>
-          <Typography variant="h4">Dive Gear</Typography>
-          <Box>{log.wetsuit ? "Wet Suit" : "Dry Suit"}</Box>
-          <Box>
-            {log.hood ? "Hood, " : "No Hood,"}
-            {log.gloves ? "Gloves " : "No Gloves"}
-          </Box>
-          <Box>{log.weight}</Box>
-        </Card>
-      </Grid>
-      <Grid className="diveMetrics" item xs={12}>
-        <Card>
-          <Typography variant="h4">Dive Metrics</Typography>
-          <Box>Start Pressure: {log.start_pressure}</Box>
-          <Box>End Pressure: {log.end_pressure}</Box>
-          <Box>Start Time: {log.time_in}</Box>
-          <Box>End Time: {log.time_out}</Box>
-        </Card>
-      </Grid>
-    </Grid>
+    <>
+      <Card className={classes.item}>
+        <Typography variant="h6">Dive Conditions</Typography>
+        <Typography variant="body1">Visibility: {log.visibility}</Typography>
+        <Typography variant="body1">Air Temp: {log.air_temp}</Typography>
+        <Typography variant="body1">Water Temp: {log.water_temp}</Typography>
+        <Typography variant="body1">
+          Conditions: {log.salt_water ? "Salt-Water" : "Fresh-Water?"},{" "}
+          {log.boat ? "Boat" : "No Boat"},{" "}
+          {log.current ? "Current" : "No Current"}
+        </Typography>
+      </Card>
+      <Box className={classes.spacer} />
+      <Card className={classes.item}>
+        <Typography variant="h6">Dive Gear</Typography>
+        <Typography variant="body1">
+          {log.wetsuit ? "Wet Suit" : "Dry Suit"}
+        </Typography>
+        <Typography variant="body1">
+          {log.hood ? "Hood, " : "No Hood,"}
+          {log.gloves ? "Gloves " : "No Gloves"}
+        </Typography>
+        <Typography variant="body1">{log.weight}</Typography>
+      </Card>
+      <Box className={classes.spacer} />
+      <Card className={classes.item}>
+        <Typography variant="h6">Dive Metrics</Typography>
+        <Typography variant="body1">
+          Start Pressure: {log.start_pressure}
+        </Typography>
+        <Typography variant="body1">
+          End Pressure: {log.end_pressure}
+        </Typography>
+        <Typography variant="body1">Start Time: {log.time_in}</Typography>
+        <Typography variant="body1">End Time: {log.time_out}</Typography>
+      </Card>
+    </>
   );
 }

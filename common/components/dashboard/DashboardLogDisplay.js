@@ -1,21 +1,38 @@
 import React, { useState } from "react";
 import { Chip, Box, Grid, Card, Typography } from "@material-ui/core";
-import renderTags from "common/components/dashboard/renderTags";
-import renderCarousel from "common/components/dashboard/renderCarousel";
+import Tags from "common/components/dashboard/Tags";
+import Carousel from "common/components/dashboard/Carousel";
 import LogDisplayColumn1 from "common/components/dashboard/LogDisplayColumnOne";
 import LogDisplayColumn2 from "common/components/dashboard/LogDisplayColumnTwo";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  widthSpacer: {
+    width: "5px",
+  },
+  heightSpacer: {
+    height: "15px",
+  },
+}));
+
 export default function LogDisplay({ log }) {
   const [currentPhotos, changeCurrentPhotos] = useState(4);
+  const classes = useStyles();
   return (
-    <Grid container spacing={3}>
-      <Grid className="logDisplay" container item xs={12} spacing={2}>
-        <LogDisplayColumn1 log={log} />
-        <LogDisplayColumn2 log={log} />
-        <Grid className="logDisplayCarousel" item container xs={12}>
-          {renderTags(log)}
-          {renderCarousel(log, changeCurrentPhotos)}
+    <>
+      <Grid container>
+        <Grid container direction="column" item xs={7}>
+          <LogDisplayColumn1 log={log} />
+        </Grid>
+        <Grid item xs={1} />
+        <Grid container direction="column" item xs={4}>
+          <LogDisplayColumn2 log={log} />
+        </Grid>
+        <Grid container item xs={12}>
+          <Tags log={log} />
+          <Carousel log={log} changeCurrentPhotos={changeCurrentPhotos} />
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }

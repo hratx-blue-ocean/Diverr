@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Chip } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import splitArrayRows from "common/utils/splitArray.js";
+
 export default function TagList({ tags, selectedTags, toggleSelected }) {
   let tagRows = splitArrayRows(tags, 3);
   return (
@@ -39,6 +40,7 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                       toggleSelected(tag);
                     }}
                     color={selectedTags[tag] ? "primary" : "secondary"}
+                    size="small"
                   />
                 );
               })}
