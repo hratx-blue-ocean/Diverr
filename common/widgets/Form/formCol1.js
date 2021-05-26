@@ -93,8 +93,7 @@ export default function ColumnOne({ formik }) {
         />
         <TextField
           className={classes.textfield}
-          required
-          label="Dive Instructor Name"
+          label="Dive Instructor/Guide"
           name="instructor"
           value={formik.values.instructor}
           onChange={formik.handleChange}
@@ -102,8 +101,7 @@ export default function ColumnOne({ formik }) {
         />
         <TextField
           className={classes.textfield}
-          required
-          label="Instructor Cert No."
+          label="Instructor/Guide Cert No."
           name="instructorCert"
           value={formik.values.instructorCert}
           onChange={formik.handleChange}
