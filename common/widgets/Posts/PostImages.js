@@ -21,11 +21,12 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     display: "block",
     width: "100%",
-    objectFit: "cover"
+    objectFit: "cover",
   },
 }));
 
-{/* <img
+{
+  /* <img
 className={classes.img}
 src={photos[activeStep].url}
 alt={photos[activeStep].id}
@@ -37,7 +38,8 @@ alt={photos[activeStep].id}
   width={500}
   height={500}
 />
-*/}
+*/
+}
 
 export default function PostImages({ photos }) {
   const classes = useStyles();

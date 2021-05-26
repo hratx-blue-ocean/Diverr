@@ -14,13 +14,11 @@ import purple from "@material-ui/core/colors/purple";
 import yellow from "@material-ui/core/colors/yellow";
 
 export default function useCustomTheme() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
   const theme = useMemo(() => {
     return responsiveFontSizes(
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? "dark" : "light",
+          type: "light",
           primary: {
             main: blue[300],
           },
@@ -43,16 +41,24 @@ export default function useCustomTheme() {
         typography: {
           fontFamily: ["Rajdhani", "sans-serif"],
         },
-        "@overrides": {
-          MuiCssBaseLine: {
+        overrides: {
+          MuiCssBaseline: {
             "@global": {
+              body: {
+                maxHeight: "100vh",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundAttachment: "scroll",
+                overflowX: "hidden",
+                backgroundColor: "rgb(0, 0,20)",
+              },
               "@font-face": ["Rajdhani"],
             },
           },
         },
       })
     );
-  }, [prefersDarkMode]);
+  }, []);
 
   return theme;
 }

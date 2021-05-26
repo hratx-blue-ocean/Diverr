@@ -14,13 +14,17 @@ export default function SearchBar() {
   const classes = useStyles();
   return (
     <Autocomplete
-    className={classes.root}
+      className={classes.root}
       id="search box"
       options={top100Films}
       getOptionLabel={(option) => option.title}
       style={{ width: 300 }}
       renderInput={(params) => (
-        <TextField {...params} label="Search the tag you like" variant="outlined" />
+        <TextField
+          {...params}
+          label="Search the tag you like"
+          variant="outlined"
+        />
       )}
     />
   );

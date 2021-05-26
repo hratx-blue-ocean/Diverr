@@ -11,8 +11,12 @@ import Header from "common/widgets/Header";
 const useStyles = makeStyles({
   root: {
     height: "100vh",
-    width: "100vw",
-    overflow: "hidden",
+    width: "auto",
+    overflowX: "hidden",
+  },
+  content: {
+    height: "100%",
+    width: "auto",
   },
 });
 
@@ -20,7 +24,7 @@ export default function Home(props) {
   const classes = useStyles();
   const [session, loading] = useSession();
   return (
-    <main>
+    <main className={classes.root}>
       <Head>
         <title>Caspian</title>
         <meta name="home" content="caspian-holder" />
@@ -30,7 +34,7 @@ export default function Home(props) {
         container
         justify="center"
         alignItems="center"
-        className={classes.root}
+        className={classes.content}
       >
         <Grid container justify="center" alignItems="center">
           <Typography variant="h1">Welcome to Diverr!</Typography>
