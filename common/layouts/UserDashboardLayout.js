@@ -1,12 +1,49 @@
 import Typography from "@material-ui/core/Typography";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import data from "lib/dummyData/dummyData.js";
 import TagList from "common/components/dashboard/DashboardTagList";
 import LogList from "common/components/dashboard/DashboardLogList";
 import LogDisplay from "common/components/dashboard/DashboardLogDisplay";
 import { Grid, Card } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100vh",
+    width: "100vw",
+  },
+  spacer: {
+    height: "5%",
+  },
+  horizontalSpacer: {
+    width: "15px",
+  },
+  col1Container: {
+    padding: "25px",
+  },
+  scrollTags: {
+    overflowX: "scroll",
+    height: "30%",
+    boxShadow: "1px 1px 1px 1px black",
+  },
+  scrollLogs: {
+    overflowX: "scroll",
+    height: "60%",
+    boxShadow: "1px 1px 1px 1px black",
+  },
+  logContainer: {
+    height: "85%",
+    width: "85%",
+  },
+  col2Container: {
+    height: "100%",
+    width: "100%",
+  },
+}));
 
 export default function UserDashboardLayout({ email }) {
+  const classes = useStyles();
   const [tagList, changeTagList] = useState(data.userTags.tags);
   const [logList, changeLogList] = useState(data.userLogs.user.logs);
   const [selectedTags, changeSelectedTags] = useState({});
@@ -26,32 +63,41 @@ export default function UserDashboardLayout({ email }) {
     changeLog(logListIndex);
   };
   return (
-    <Grid container spacing={2}>
-      <Grid item container spacing={0} xs={3}>
-        <Grid item xs={12}>
-          <Card>
-            <Typography variant="span" color="primary">
-              {`Hello, ${email}`}
-            </Typography>
-          </Card>
-        </Grid>
-        <Grid item xs={12}>
+    <Grid container direction="row" className={classes.root}>
+      <Grid item xs={4} className={classes.col1Container}>
+        <Card className={classes.col1Item}>
+          <Typography variant="span" color="primary">
+            {`Hello, ${email}`}
+          </Typography>
+        </Card>
+        <Box className={classes.spacer} />
+        <Box className={classes.scrollTags}>
           <TagList
             tags={tagList}
             selectedTags={selectedTags}
             toggleSelected={toggleSelected}
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Box>
+        <Box className={classes.spacer} />
+        <Box className={classes.scrollLogs}>
           <LogList
             logs={logList}
             selectLog={selectLog}
             selectedTags={selectedTags}
           />
-        </Grid>
+        </Box>
       </Grid>
-      <Grid item xs={8}>
-        <LogDisplay log={logList[currentLog]} />
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        item
+        xs={8}
+        className={classes.col2Container}
+      >
+        <Box className={classes.logContainer}>
+          <LogDisplay log={logList[currentLog]} />
+        </Box>
       </Grid>
     </Grid>
   );
