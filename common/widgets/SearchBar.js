@@ -2,16 +2,25 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(2),
+  },
+}));
 
 export default function SearchBar() {
+  const classes = useStyles();
   return (
     <Autocomplete
-      id="combo-box-demo"
+    className={classes.root}
+      id="search box"
       options={top100Films}
       getOptionLabel={(option) => option.title}
       style={{ width: 300 }}
       renderInput={(params) => (
-        <TextField {...params} label="Combo box" variant="outlined" />
+        <TextField {...params} label="Search the tag you like" variant="outlined" />
       )}
     />
   );
