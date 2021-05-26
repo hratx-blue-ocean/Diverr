@@ -2,9 +2,11 @@ import Header from "common/widgets/Header";
 import Grid from "@material-ui/core/Grid";
 
 import Post from "common/widgets/Post.js";
-//import SearchBar from "common/widgets/SearchBar.js";
+// import SearchBar from "common/widgets/SearchBar.js";
+import data from "lib/dummyData/dummyData.js";
 
 export default function Feed() {
+  console.log(data.allLogs.logs);
   return (
     <>
       <Header />
@@ -14,13 +16,11 @@ export default function Feed() {
         justify="flex-start"
         alignItems="center"
       >
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {data.allLogs.logs.map((log) => (
+          <div key={log.id}>
+            <Post log={log} />
+          </div>
+        ))}
       </Grid>
     </>
   );

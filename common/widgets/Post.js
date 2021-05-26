@@ -43,52 +43,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Post() {
+export default function Post( {log} ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  console.log(log)
+  const {first_name, last_name, dive_site, city, country,photos ,tags, date} = log
   return (
     <Card className={classes.root}>
-      <PostHeader userName={"jeff"} location={"middle of no where"} />
+      <PostHeader firstName={first_name} lastName={last_name} location={`${dive_site}`} date={date}/>
       <CardContent>
-        <PostImages />
+        <PostImages photos={photos}/>
       </CardContent>
       <CardContent>
         <SmallTagContainer
-          tags={[
-            "Bobo's Lagoon",
-            "Panama City",
-            "United States",
-            "#wow",
-            "#ballin",
-            "sea turtle",
-            "jellyfish",
-            "Bobo's Lagoon",
-            "Panama City",
-            "United States",
-            "#wow",
-            "#ballin",
-            "sea turtle",
-            "jellyfish",
-            "Bobo's Lagoon",
-            "Panama City",
-            "United States",
-            "#wow",
-            "#ballin",
-            "sea turtle",
-            "jellyfish",
-            "Bobo's Lagoon",
-            "Panama City",
-            "United States",
-            "#wow",
-            "#ballin",
-            "sea turtle",
-            "jellyfish",
-          ]}
+          tags={tags}
         />
       </CardContent>
     </Card>

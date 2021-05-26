@@ -10,11 +10,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FeedHeader({ userName, location }) {
+export default function FeedHeader({ firstName, lastName, location, date }) {
   const classes = useStyles();
   return (
     <CardHeader
-      avatar={<Avatar className={classes.avatar}>JJ</Avatar>}
+      avatar={
+        <Avatar
+          className={classes.avatar}
+        >{`${firstName[0]} ${lastName[0]}`}</Avatar>
+      }
       title={
         <Grid
           container
@@ -22,13 +26,11 @@ export default function FeedHeader({ userName, location }) {
           justify="space-between"
           alignItems="center"
         >
-          <Typography>userName</Typography>
-          <Typography>time</Typography>
+          <Typography>{`${firstName} ${lastName}`}</Typography>
+          <Typography>{date}</Typography>
         </Grid>
       }
       subheader={location}
-    >
-      tyujjnbg
-    </CardHeader>
+    />
   );
 }

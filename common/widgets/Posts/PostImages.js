@@ -56,12 +56,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PostImages() {
+export default function PostImages({photos}) {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = tutorialSteps.length;
-
+  const maxSteps = photos.length;
+  console.log(photos)
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -74,8 +74,8 @@ export default function PostImages() {
     <div className={classes.root}>
       <img
         className={classes.img}
-        src={tutorialSteps[activeStep].imgPath}
-        alt={tutorialSteps[activeStep].label}
+        src={photos[activeStep].url}
+        alt={photos[activeStep].id}
       />
       <MobileStepper
         steps={maxSteps}
