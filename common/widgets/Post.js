@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Post({ log }) {
+export default function Post({ log, handleClick }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
@@ -60,7 +60,7 @@ export default function Post({ log }) {
         <PostImages photos={photos} />
       </CardContent>
       <CardContent>
-        <SmallTagContainer tags={tags} />
+        <SmallTagContainer tags={tags} handleClick={handleClick}/>
       </CardContent>
     </Card>
   );
