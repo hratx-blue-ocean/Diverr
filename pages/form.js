@@ -9,6 +9,7 @@ import Column1 from "common/widgets/Form/formCol1.js";
 import Column2 from "common/widgets/Form/formCol2.js";
 import Column3 from "common/widgets/Form/formCol3.js";
 import Column4 from "common/widgets/Form/formCol4.js";
+import FormTags from "common/widgets/Form/tags.js";
 import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +62,7 @@ export default function AddNewLogForm() {
           <Column3 formik={formik} />
           <Column4 formik={formik} />
           <div className={classes.col}>
-            <h1>Placeholder for tags</h1>
+            <FormTags />
             <AddButton text={"Add Photos or Videos"} />
             {/* <AddButton type="submit" text={"Submit New Log"} /> */}
             <Button color="primary" variant="contained" fullWidth type="submit">
