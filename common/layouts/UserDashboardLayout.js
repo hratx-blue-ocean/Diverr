@@ -44,13 +44,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserDashboardLayout({ }) {
+export default function UserDashboardLayout({ session, userTags, userLogs}) {
   const classes = useStyles();
   const [tagList, changeTagList] = useState(data.userTags.tags);
   const [logList, changeLogList] = useState(data.userLogs.user.logs);
   const [selectedTags, changeSelectedTags] = useState({});
   const [currentLog, changeLog] = useState(0);
-  const [session, loading] = useSession();
   const toggleSelected = (tag) => {
     changeSelectedTags((prev) => {
       let newSelected = { ...prev };
