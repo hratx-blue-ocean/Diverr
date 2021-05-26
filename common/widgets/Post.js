@@ -53,7 +53,7 @@ export default function Post({ log }) {
       <PostHeader
         firstName={first_name}
         lastName={last_name}
-        location={`${dive_site}`}
+        location={`${dive_site}, ${city}, ${country}`}
         date={date}
       />
       <CardContent>
