@@ -20,6 +20,7 @@ export default function Carousel({ log, changeCurrentPhotos }) {
         {log.photos.map((photo, i) => {
           return (
             <Grid
+              key={i}
               className={styles.imageContainer}
               item
               xs={12 / log.photos.length}
@@ -46,7 +47,7 @@ export default function Carousel({ log, changeCurrentPhotos }) {
               .slice(currentPhotos - 4, currentPhotos)
               .map((photo, i) => {
                 return (
-                  <Box className={styles.imageContainer}>
+                  <Box className={styles.imageContainer} key={i}>
                     <img className={styles.image} src={photo.url} />
                   </Box>
                 );

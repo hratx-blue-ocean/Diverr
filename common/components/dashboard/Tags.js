@@ -4,9 +4,9 @@ import splitArrayRows from "common/utils/splitArray.js";
 
 export default function Tags({ log }) {
   return (
-    <Grid item xs={12}>
+    <Grid container item xs={12} spacing={1}>
       {log.tags.map((tag, tagIndex) => {
-        return <Chip key={tagIndex} label={tag} size="small" />;
+        return <Grid><Chip key={tagIndex} label={tag} size="small" /></Grid>;
       })}
     </Grid>
   );

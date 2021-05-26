@@ -64,9 +64,9 @@ export default function UserDashboardLayout({ email }) {
   };
   return (
     <Grid container direction="row" className={classes.root}>
-      <Grid item xs={4} className={classes.col1Container}>
+      <Grid item xs={3} className={classes.col1Container}>
         <Card className={classes.col1Item}>
-          <Typography variant="span" color="primary">
+          <Typography variant="h6" color="primary">
             {`Hello, ${email}`}
           </Typography>
         </Card>
