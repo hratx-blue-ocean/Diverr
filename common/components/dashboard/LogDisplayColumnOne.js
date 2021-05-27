@@ -6,15 +6,18 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   itemOne: {
     padding: "8px",
-    minHeight: '25%'
+    minHeight: '25%',
+    backgroundColor: theme.palette.lightBlue.main
   },
   itemTwo: {
     padding: "8px",
-    minHeight: '25%'
+    minHeight: '25%',
+    backgroundColor: theme.palette.lightBlue.main
   },
   itemThree: {
     padding: "8px",
-    minHeight: '35%'
+    minHeight: '35%',
+    backgroundColor: theme.palette.lightBlue.main
   },
   spacer: {
     height: "10px",

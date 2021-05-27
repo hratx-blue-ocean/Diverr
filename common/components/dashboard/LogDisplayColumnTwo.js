@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   item: {
     padding: "8px",
+    backgroundColor: theme.palette.lightBlue.main
   },
   spacer: {
     height: "10px",

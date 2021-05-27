@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
     height: 5,
   },
   log: {
-    cursor: 'pointer'
+    cursor: 'pointer',
+    backgroundColor: theme.palette.primary.main
   }
 }));
 export default function LogList({ logs, selectLog, selectedTags }) {
@@ -19,7 +20,7 @@ export default function LogList({ logs, selectLog, selectedTags }) {
       {logs.map((log, i) => {
         if (
           Object.keys(selectedTags).length === 0 ||
-          filterLogs(selectedTags, log.tags)
+          (log.tags && filterLogs(selectedTags, log.tags))
         ) {
           return (
             <>
