@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
     paddingTop: "5px",
     maxWidth: "500px",
+    maxHeight: "350px",
   },
   postContainer: {
     minWidth: "400px",
@@ -78,7 +79,7 @@ export default function Home(props) {
           <Grid item xs={12} container justify="center">
             <Box className={classes.spacer} />
           </Grid>
-          <Grow timeout={5000} in={true}>
+          <Grow timeout={1750} in={true}>
             <Grid container>
               <Grid
                 container
