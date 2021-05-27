@@ -115,17 +115,8 @@ export default function Home(props) {
 //   };
 // }
 export async function getServerSideProps(context) {
-  const { req, res } = context;
-  const session = await getSession({ req });
 
   // Redirect user if visiting signIn page while signed in
-  if (!session) {
-    res.writeHead(302, {
-      Location: "/",
-    });
-    res.end();
-    return { props: {} };
-  }
   const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);
   const result = {
     props: {resultLogs: resultLogs.data[0].logs}
