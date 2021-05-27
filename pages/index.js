@@ -115,7 +115,6 @@ export default function Home(props) {
 //   };
 // }
 export async function getServerSideProps(context) {
-
   // Redirect user if visiting signIn page while signed in
   const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);
   const result = {
