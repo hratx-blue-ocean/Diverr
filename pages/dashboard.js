@@ -11,7 +11,6 @@ import { getSession } from "next-auth/client";
 import axios from 'axios';
 
 export default function Dashboard({session, userTags, userLogs}) {
-  console.log('SESSION: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs)
   return (
     <main>
       <Head>
@@ -19,7 +18,7 @@ export default function Dashboard({session, userTags, userLogs}) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      <UserDashboard session={session} userTags={userTags[0]} userLogs={userLogs[0].logs}/>
+      <UserDashboard session={session} userTags={userTags} userLogs={userLogs[0].logs}/>
     </main>
   );
 }
@@ -39,7 +38,6 @@ export async function getServerSideProps(context) {
   }
   const email = session.user.email;
   const resultUserTags = await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
-
   if (!resultUserTags.data) {
     return {
       props: {notFound: true}

@@ -19,7 +19,7 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                 color="primary"
                 label={tag}
                 onDelete={() => {
-                  toggleSelected(tag);
+                  toggleSelected(tag.name);
                 }}
               />
             );
@@ -35,7 +35,7 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                   <Chip
                     key={tagIndex}
                     className="dashboard-tag"
-                    label={tag}
+                    label={tag.name}
                     onClick={() => {
                       toggleSelected(tag);
                     }}

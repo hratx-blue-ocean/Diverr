@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     width: 500,
     height: 80,
     display: 'flex',
-    minHeight: '100vh',
   },
 }));
 
@@ -21,12 +20,12 @@ export default function Tags({ name, logs }) {
       direction="column"
       alignItems="center"
       justify="center"
-      style={classes.root}
+      style={{ minHeight: '100vh' }}
     >
       <Grid item xs={12}>
         <UserInfo name={name} logs={logs}/>
       </Grid>
-      <Grid item xs={12}>Spacer</Grid>
+      <Grid item xs={12}></Grid>
       <Grid item xs={12}>
         <Card className={classes.card}>
           <Typography variant="h3">YOU HAVE NO LOGS!</Typography>

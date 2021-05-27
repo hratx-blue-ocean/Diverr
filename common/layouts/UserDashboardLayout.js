@@ -64,8 +64,8 @@ export default function UserDashboardLayout({ session, userTags, userLogs}) {
   const selectLog = (logListIndex) => {
     changeLog(logListIndex);
   };
-  console.log('SESSION: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs);
-  userLogs = [];
+  console.log('SESSIONp: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs);
+  // userLogs = [];
   if (session) {
     if (userLogs.length) {
       return (
@@ -104,7 +104,7 @@ export default function UserDashboardLayout({ session, userTags, userLogs}) {
         </Grid>
       );
     } else {
-      return <NoLogs name={session.user.name} logs={userLogs}/>
+      return <NoLogs name={session.user.name} logs={[]}/>
     }
   } else {
     return (
