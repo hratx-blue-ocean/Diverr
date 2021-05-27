@@ -62,7 +62,7 @@ export default function FormMedia({ images, setImages }) {
             <GridListTile key={media}>
               <img className={classes.img} src={media} />
             </GridListTile>
-          ))}
+          )}
         </GridList>
       </Grid>
     </Grid>
