@@ -8,6 +8,14 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
   },
+  button: {
+    height: 56,
+    margin: 5
+  },
+  tags: {
+    justifyContent: "center",
+    alignItems: "center"
+  }
 }));
 
 export default function FormTags({ tags, setTags }) {
@@ -38,11 +46,11 @@ export default function FormTags({ tags, setTags }) {
         />
       </Grid>
       <Grid item xs={2}>
-        <Button onClick={handleSubmit} color="primary" variant="contained" fullWidth>
+        <Button onClick={handleSubmit} className={classes.button} color="primary" variant="contained" fullWidth>
           Add a Tag
           </Button>
       </Grid>
-      <Grid item xs={8}>
+      <Grid className={classes.tags} item xs={8}>
         {tags.map(chip => <FormSmallTag key={chip} chip={chip} tags={tags} setTags={setTags} />)}
       </Grid>
     </Grid>

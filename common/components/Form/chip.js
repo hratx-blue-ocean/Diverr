@@ -19,5 +19,5 @@ export default function FormSmallTag({ tags, setTags, chip }) {
     setTags(copy);
   };
 
-  return <Chip onClick={handleDelete} icon={<HighlightOffIcon />} label={chip} size="small" className={classes.chip} />;
+  return <Chip onClick={handleDelete} icon={<HighlightOffIcon />} label={chip} size="medium" className={classes.chip} />;
 }

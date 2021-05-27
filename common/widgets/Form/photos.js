@@ -6,7 +6,21 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
+    marginTop: 50
   },
+  button: {
+    height: 56,
+    margin: 5,
+    marginTop: 50
+  },
+  img: {
+    maxWidth: 200,
+    maxHeight: 200,
+    objectFit: 'contain'
+  },
+  gridlist: {
+    flexWrap: 'no-wrap'
+  }
 }));
 
 export default function FormMedia({ images, setImages }) {
@@ -38,15 +52,15 @@ export default function FormMedia({ images, setImages }) {
         />
       </Grid>
       <Grid item xs={2}>
-        <Button onClick={handleSubmit} color="primary" variant="contained" fullWidth>
+        <Button onClick={handleSubmit} className={classes.button} color="primary" variant="contained" fullWidth>
           Add a Photo/Video
         </Button>
       </Grid>
       <Grid item xs={8}>
-        <GridList>
+        <GridList className={classes.gridlist} cellHeight={160} cols={4}>
           {images.map(media =>
             <GridListTile key={media}>
-              <img src={media} />
+              <img className={classes.img} src={media} />
             </GridListTile>
           )}
         </GridList>
@@ -54,3 +68,4 @@ export default function FormMedia({ images, setImages }) {
     </Grid>
   )
 }
+

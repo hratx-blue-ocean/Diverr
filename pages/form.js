@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
   },
+  submit: {
+    height: 56,
+    width: '25%',
+    marginTop: 50,
+    marginBottom: 10
+  }
 }));
 
 export default function AddNewLogForm() {
@@ -76,15 +82,15 @@ export default function AddNewLogForm() {
           <Grid item xs={3}>
             <Column4 formik={formik} />
           </Grid>
-          {/* <div className={classes.col}> */}
           <Grid className={classes.col} container spacing={3}>
             <FormTags tags={tags} setTags={setTags}/>
             <FormMedia images={images} setImages={setImages} />
-            <Button className={classes.textfield} onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
+          </Grid>
+          <Grid justify="center" container spacing={3}>
+            <Button className={classes.submit} onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
               Submit
             </Button>
           </Grid>
-          {/* </div> */}
         </Grid>
       </form>
     </>
