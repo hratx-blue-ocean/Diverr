@@ -79,9 +79,10 @@ export default function AddNewLogForm() {
       </Grow>
       <form>
         <Grid container spacing={1} className={classes.main}>
+          <Grid item xs={1} />
           <Grid
             item
-            xs={3}
+            xs={2}
             container
             direction="column"
             justify="space-around"
@@ -94,7 +95,7 @@ export default function AddNewLogForm() {
           </Grid>
           <Grid
             item
-            xs={3}
+            xs={2}
             container
             direction="column"
             className={classes.col}
@@ -105,6 +106,7 @@ export default function AddNewLogForm() {
           <Grid item xs={3} className={classes.col2}>
             <Column4 formik={formik} container direction="column" />
           </Grid>
+          <Grid item xs={1} />
         </Grid>
         <Box className={classes.spacer} />
         <Grid container className={classes.col}>
