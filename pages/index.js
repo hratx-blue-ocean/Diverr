@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 const useStyles = makeStyles((theme) => ({
   content: {
     height: "100%",
-    width: "auto",
+    width: "100vw",
   },
   spacer: {
     height: "50px",
@@ -29,11 +29,12 @@ const useStyles = makeStyles((theme) => ({
   },
   infoContainer: {
     padding: "15px",
-    minWidth: "300px",
-    maxWidth: "700px",
+    minWidth: "450",
+    // maxWidth: "700px",
+    // width: '100%'
   },
   info: {
-    width: "75%",
+    width: "100%",
     height: "50%",
     backgroundColor: "rgba(0, 0, 20, 0.6)",
     borderRadius: "5px",
@@ -44,8 +45,9 @@ const useStyles = makeStyles((theme) => ({
     top: 25,
   },
   postContainer: {
-    minWidth: "400px",
-    maxWidth: "750px",
+    minWidth: "450px",
+    // maxWidth: "700px",
+    width: "100%",
   },
 }));
 
@@ -60,8 +62,8 @@ export default function Home(props) {
       </Head>
       <Header />
       <Box className={classes.smallSpacer} />
-      <Grid container className={classes.content}>
-        <Grid container>
+      <Grid container justify="center" className={classes.content}>
+        <Grid container justify="center">
           <Greeting />
           <Grid item xs={12} container justify="center">
             <Box className={classes.spacer} />
@@ -83,7 +85,7 @@ export default function Home(props) {
                   </div>
                 ))}
               </Grid>
-              <Grid item xs={6} className={classes.infoContainer} container>
+              <Grid item xs={6} className={classes.infoContainer}>
                 <Box className={classes.info}>
                   <Info />
                 </Box>
