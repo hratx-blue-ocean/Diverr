@@ -37,13 +37,14 @@ export async function getServerSideProps(context) {
     return { props: {} };
   }
   const email = session.user.email;
-  const resultUserTags = await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
+  let host = (process.env.NEXTAUTH_URL);
+  const resultUserTags = await axios.get(`${host}/api/user/19ccrow99@gmail.com/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
   if (!resultUserTags.data) {
     return {
       props: {notFound: true}
     }
   }
-  const resultUserLogs =  await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com/logs`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
+  const resultUserLogs =  await axios.get(`${host}/api/user/19ccrow99@gmail.com/logs`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
   if (!resultUserLogs.data) {
     return {
       notFound: true,
@@ -52,7 +53,6 @@ export async function getServerSideProps(context) {
   const result = {
     props: {session: session, userTags: resultUserTags.data, userLogs: resultUserLogs.data}
   }
-  console.log('RESULT: ', result);
   return result;
   // return {
   //   props: {
