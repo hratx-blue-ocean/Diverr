@@ -5,14 +5,13 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  tags: {
-    display: "inline-flex",
-    flexDirection: "column",
-    marginLeft: 50,
+  textfield: {
+    margin: 5,
   },
 }));
 
 export default function FormTags({ tags, setTags }) {
+  const classes = useStyles();
   const [tag, setTag] = useState('');
 
   const handleChange = (e) => {
@@ -35,6 +34,7 @@ export default function FormTags({ tags, setTags }) {
           name="tags"
           variant="outlined"
           value={tag}
+          className={classes.textfield}
         />
       </Grid>
       <Grid item xs={2}>

@@ -3,15 +3,15 @@ import { TextField, Button } from "@material-ui/core";
 import { Grid, GridList, GridListTile } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// const useStyles = makeStyles((theme) => ({
-//   tags: {
-//     display: "inline-flex",
-//     flexDirection: "column",
-//     marginLeft: 50,
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  textfield: {
+    margin: 5,
+  },
+}));
 
 export default function FormMedia({ images, setImages }) {
+  const classes = useStyles();
+
   const [image, setImage] = useState('');
 
   const handleChange = (e) => {
@@ -34,6 +34,7 @@ export default function FormMedia({ images, setImages }) {
           name="images"
           variant="outlined"
           value={image}
+          className={classes.textfield}
         />
       </Grid>
       <Grid item xs={2}>

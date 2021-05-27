@@ -15,8 +15,11 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    width: '100%',
-    marginLeft: 50,
+    // width: '100%',
+    marginLeft: 200,
+  },
+  textfield: {
+    margin: 5,
   },
 }));
 
@@ -60,18 +63,28 @@ export default function AddNewLogForm() {
     <>
       <Header />
       <form>
-        <Grid container spacing={3} direction="row">
-          <Column1 formik={formik} />
-          <Column2 formik={formik} />
-          <Column3 formik={formik} />
-          <Column4 formik={formik} />
-          <div className={classes.col}>
+        <Grid container justify="center" alignItems="center" spacing={1} direction="row">
+          <Grid item xs={3}>
+            <Column1 formik={formik} />
+          </Grid>
+          <Grid item xs={3}>
+            <Column2 formik={formik} />
+          </Grid>
+          <Grid item xs={3}>
+            <Column3 formik={formik} />
+          </Grid>
+          <Grid item xs={3}>
+            <Column4 formik={formik} />
+          </Grid>
+          {/* <div className={classes.col}> */}
+          <Grid className={classes.col} container spacing={3}>
             <FormTags tags={tags} setTags={setTags}/>
             <FormMedia images={images} setImages={setImages} />
-            <Button onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
+            <Button className={classes.textfield} onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
               Submit
             </Button>
-          </div>
+          </Grid>
+          {/* </div> */}
         </Grid>
       </form>
     </>
