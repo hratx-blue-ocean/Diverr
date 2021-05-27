@@ -18,38 +18,19 @@ import AddButton from "common/components/buttons/AddButton.js";
 import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
-  col: {
-    flexDirection: "column",
+  formContainer: {
+    width: "100%",
   },
-  checkboxArea: {
-    display: "inline-flex",
-    flexDirection: "row",
-    margin: 50,
-    marginLeft: -50
-  },
-  textfield: {
-    margin: 5,
-  },
-  expAndCondit: {
-    borderRadius: 4,
-    padding: 10,
-    margin: 10
-  },
-  environment: {
-    marginBottom: 20
-  },
-  title: {
-    marginBottom: 10
-  }
 }));
 
 export default function ColumnFour({ formik }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.checkboxArea}>
-      <Grid className={classes.expAndCondit} item xs={6}>
-        <Typography className={classes.title} variant="h6">Exposure Protection</Typography>
+    <>
+      <Grid>
+        <Typography variant="h6">Exposure Protection</Typography>
+        <hr />
         <FormControl>
           <FormLabel component="legend">Thermal Insulation</FormLabel>
           <RadioGroup onChange={formik.handleChange} name="suitUp">
@@ -98,32 +79,37 @@ export default function ColumnFour({ formik }) {
           />
         </FormGroup>
       </Grid>
-      <Grid item xs={6} className={classes.expAndCondit}>
-        <Typography className={classes.title} variant="h6">Conditions</Typography>
+      <Grid className={classes.back}>
+        <Typography className={classes.title} variant="h6">
+          Conditions
+        </Typography>
+        <hr />
         <FormControl>
-          <FormLabel component="legend">Environment</FormLabel>
-          <RadioGroup onChange={formik.handleChange} className={classes.environment} name="environment">
-            <FormControlLabel value="boat" control={<Radio />} label="Boat" />
-            <FormControlLabel
-              value="shore"
-              control={<Radio />}
-              label="Shore"
-            />
-            <FormControlLabel
-              value="controlled"
-              control={<Radio />}
-              label="Controlled"
-            />
-          </RadioGroup>
+          <Grid item xs={6} container justify="space-between">
+            <FormLabel component="legend">Environment</FormLabel>
+            <RadioGroup
+              onChange={formik.handleChange}
+              className={classes.environment}
+              name="environment"
+            >
+              <FormControlLabel value="boat" control={<Radio />} label="Boat" />
+              <FormControlLabel
+                value="shore"
+                control={<Radio />}
+                label="Shore"
+              />
+              <FormControlLabel
+                value="controlled"
+                control={<Radio />}
+                label="Controlled"
+              />
+            </RadioGroup>
+          </Grid>
         </FormControl>
         <FormControl>
           <FormLabel component="legend">Water</FormLabel>
           <RadioGroup onChange={formik.handleChange} name="water">
-            <FormControlLabel
-              value="fresh"
-              control={<Radio />}
-              label="Fresh"
-            />
+            <FormControlLabel value="fresh" control={<Radio />} label="Fresh" />
             <FormControlLabel value="salt" control={<Radio />} label="Salt" />
           </RadioGroup>
         </FormControl>
@@ -150,6 +136,6 @@ export default function ColumnFour({ formik }) {
           />
         </FormGroup>
       </Grid>
-    </div>
+    </>
   );
 }

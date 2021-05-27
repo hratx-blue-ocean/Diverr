@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Box } from "@material-ui/core";
 import Header from "common/widgets/Header";
 import { useSession } from "next-auth/client";
 import AddButton from "common/components/buttons/AddButton.js";
@@ -12,21 +12,22 @@ import Column4 from "common/widgets/Form/formCol4.js";
 import FormTags from "common/widgets/Form/tags.js";
 import FormMedia from "common/widgets/Form/photos.js";
 import { useFormik } from "formik";
+import blue from "@material-ui/core/colors/blue";
 
 const useStyles = makeStyles((theme) => ({
   col: {
     width: "100%",
-    marginLeft: 50,
+    backgroundColor: "#e9f7f96e",
+  },
+  col2: {
+    backgroundColor: "#e3f2fd4a",
   },
   textfield: {
-    margin: 5,
+    // margin: 5,
   },
-  submit: {
-    height: 56,
-    width: '25%',
-    marginTop: 50,
-    marginBottom: 10
-  }
+  spacer: {
+    height: "15px",
+  },
 }));
 
 export default function AddNewLogForm() {
@@ -69,25 +70,49 @@ export default function AddNewLogForm() {
     <>
       <Header />
       <form>
-        <Grid container justify="center" alignItems="center" spacing={1} direction="row">
-          <Grid item xs={3}>
-            <Column1 formik={formik} />
+        <Grid container spacing={1}>
+          <Grid
+            item
+            xs={3}
+            container
+            direction="column"
+            justify="space-around"
+            className={classes.col}
+          >
+            <Column1 formik={formik} container direction="column" />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={3} container direction="row" className={classes.col2}>
             <Column2 formik={formik} />
           </Grid>
-          <Grid item xs={3}>
-            <Column3 formik={formik} />
+          <Grid
+            item
+            xs={3}
+            container
+            direction="column"
+            className={classes.col}
+          >
+            <Column3 formik={formik} container direction="column" />
           </Grid>
-          <Grid item xs={3}>
-            <Column4 formik={formik} />
+          <Grid item xs={3} className={classes.col2}>
+            <Column4 formik={formik} container direction="column" />
           </Grid>
-          <Grid className={classes.col} container spacing={3}>
-            <FormTags tags={tags} setTags={setTags}/>
+        </Grid>
+        <Box className={classes.spacer} />
+        <Grid container className={classes.col}>
+          <Grid item xs={6} container direction="column">
+            <FormTags tags={tags} setTags={setTags} />
+          </Grid>
+          <Grid item xs={6} container direction="column">
             <FormMedia images={images} setImages={setImages} />
           </Grid>
-          <Grid justify="center" container spacing={3}>
-            <Button className={classes.submit} onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
+          <Grid item xs={12}>
+            <Button
+              className={classes.submit}
+              onClick={formik.handleSubmit}
+              color="primary"
+              variant="contained"
+              fullWidth
+            >
               Submit
             </Button>
           </Grid>

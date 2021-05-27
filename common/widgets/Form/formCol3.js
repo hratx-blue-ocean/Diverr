@@ -7,8 +7,7 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    margin: 50,
-    marginRight: 0,
+    backgroundColor: "white",
   },
   textfield: {
     margin: 5,
@@ -19,7 +18,7 @@ export default function ColumnThree({ formik }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.col}>
+    <>
       <TextField
         className={classes.textfield}
         label="Visibility"
@@ -62,6 +61,6 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
       />
-    </div>
+    </>
   );
 }

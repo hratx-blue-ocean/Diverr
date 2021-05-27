@@ -14,13 +14,10 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    flexDirection: "column",
-    margin: 50,
-    marginLeft: 200,
-    marginRight: 0,
+    backgroundColor: "white",
   },
   textfield: {
-    margin: 5,
+    marginRight: "5px",
   },
 }));
 
@@ -28,20 +25,27 @@ export default function ColumnOne({ formik }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.col}>
+    <>
       <FormControl>
         <FormLabel component="legend">Privacy</FormLabel>
+        <hr />
         <RadioGroup onChange={formik.handleChange} name="privacy">
-          <FormControlLabel
-            value="private"
-            control={<Radio />}
-            label="Private"
-          />
-          <FormControlLabel
-            value="public"
-            control={<Radio />}
-            label="Public"
-          />
+          <Grid container>
+            <Grid item xs={6}>
+              <FormControlLabel
+                value="private"
+                control={<Radio />}
+                label="Private"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <FormControlLabel
+                value="public"
+                control={<Radio />}
+                label="Public"
+              />
+            </Grid>
+          </Grid>
         </RadioGroup>
       </FormControl>
       <TextField
@@ -107,6 +111,6 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
       />
-    </div>
+    </>
   );
 }
