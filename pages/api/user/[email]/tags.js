@@ -1,7 +1,7 @@
-import executeUserQuery from "lib/db/userQuery";
+import executeUserTagsQuery from "lib/db/userTagsQuery";
 
-export default function getUser(req, res) {
-    executeUserQuery(req.query.email, (err, response) => {
+export default function getUserTags(req, res) {
+    executeUserTagsQuery(req.query.email, (err, response) => {
       if (err) {
         console.error(err);
       } else {
