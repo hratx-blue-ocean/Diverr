@@ -1,30 +1,37 @@
 import { React, useState } from "react";
 import { Chip, TextField, Button } from "@material-ui/core";
-import FormSmallTag from 'common/components/Form/chip.js';
+import FormSmallTag from "common/components/Form/chip.js";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  tags: {
-    display: "inline-flex",
-    flexDirection: "column",
-    marginLeft: 50,
+  textfield: {
+    margin: 5,
   },
+  button: {
+    height: 56,
+    margin: 5
+  },
+  tags: {
+    justifyContent: "center",
+    alignItems: "center"
+  }
 }));
 
 export default function FormTags({ tags, setTags }) {
+  const classes = useStyles();
   const [tag, setTag] = useState('');
 
   const handleChange = (e) => {
     setTag(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     let copy = tags.slice();
     copy.push(tag);
     setTags(copy);
-    setTag('');
-  }
+    setTag("");
+  };
 
   return (
     <Grid container spacing={3} direction="row">
@@ -35,16 +42,17 @@ export default function FormTags({ tags, setTags }) {
           name="tags"
           variant="outlined"
           value={tag}
+          className={classes.textfield}
         />
       </Grid>
       <Grid item xs={2}>
-        <Button onClick={handleSubmit} color="primary" variant="contained" fullWidth>
+        <Button onClick={handleSubmit} className={classes.button} color="primary" variant="contained" fullWidth>
           Add a Tag
-          </Button>
+        </Button>
       </Grid>
-      <Grid item xs={8}>
+      <Grid className={classes.tags} item xs={8}>
         {tags.map(chip => <FormSmallTag key={chip} chip={chip} tags={tags} setTags={setTags} />)}
       </Grid>
     </Grid>
-  )
+  );
 }
