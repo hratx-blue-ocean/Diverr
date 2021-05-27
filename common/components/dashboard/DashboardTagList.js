@@ -19,7 +19,7 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                 color="primary"
                 label={tag}
                 onDelete={() => {
-                  toggleSelected(tag.name);
+                  toggleSelected(tag);
                 }}
               />
             );
@@ -37,9 +37,9 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                     className="dashboard-tag"
                     label={tag.name}
                     onClick={() => {
-                      toggleSelected(tag);
+                      toggleSelected(tag.name);
                     }}
-                    color={selectedTags[tag] ? "primary" : "secondary"}
+                    color={selectedTags[tag.name] ? "primary" : "secondary"}
                     size="small"
                   />
                 );

@@ -65,6 +65,7 @@ export default function UserDashboardLayout({ session, userTags, userLogs}) {
     changeLog(logListIndex);
   };
   console.log('SESSIONp: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs);
+  //  COMMENT THIS IN TO VIEW NO LOGS
   // userLogs = [];
   if (session) {
     if (userLogs.length) {
