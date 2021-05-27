@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
   menu: {
     display: "inline-block",
   },
-  title: {},
-  icon: {},
 }));
 
 export default function Header() {
