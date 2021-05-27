@@ -15,6 +15,7 @@ import data from "lib/dummyData/dummyData.js";
 import Greeting from "common/components/home/Greeting";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -79,7 +80,7 @@ export default function Home(props) {
                 xs={6}
                 className={classes.postContainer}
               >
-                {data.allLogs.logs.map((log) => (
+                {props.resultLogs.map((log) => (
                   <div key={log.id}>
                     <Post log={log} />
                   </div>
@@ -113,3 +114,23 @@ export default function Home(props) {
 //     props: {},
 //   };
 // }
+export async function getServerSideProps(context) {
+  const { req, res } = context;
+  const session = await getSession({ req });
+
+  // Redirect user if visiting signIn page while signed in
+  if (!session) {
+    res.writeHead(302, {
+      Location: "/",
+    });
+    res.end();
+    return { props: {} };
+  }
+  const resultTags = await axios.get(`${process.env.NEXTAUTH_URL}/api/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
+  const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
+  const result = {
+    props: {resultTags: resultTags.data, resultLogs: resultLogs.data[0].logs}
+  }
+  return result;
+}
+
