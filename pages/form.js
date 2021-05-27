@@ -12,6 +12,8 @@ import Column4 from "common/widgets/Form/formCol4.js";
 import FormTags from "common/widgets/Form/tags.js";
 import FormMedia from "common/widgets/Form/photos.js";
 import { useFormik } from "formik";
+import { getSession } from "next-auth/client";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -20,10 +22,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddNewLogForm() {
+export async function getServerSideProps(context) {
+  const { req, res } = context;
+  const session = await getSession({ req });
+  console.log(session.user.email)
+
+  return {
+    props: {
+      email: session.user.email,
+    },
+  };
+}
+
+
+export default function AddNewLogForm({ email }) {
   const classes = useStyles();
   const [tags, setTags] = useState([]);
   const [images, setImages] = useState([]);
+  const [userId, setUserId] = useState(0);
+  const [cumulativeTime, setCumulativeTime] = useState(0)
+
+useEffect(() => {
+  // const getUserInfo = async (email) => {
+  //   const userInfo = await axios.get(`/api/user/${email}`);
+  //   setUserId(userInfo.data)
+  //   console.log({userId})
+  // }
+  const getCumumlativeTime = async (email) => {
+    const cumulativeTime = await axios.get(`/api/user/${email}`);
+    setUserId(userInfo.data)
+    console.log({userId})
+  }
+})
 
   const formik = useFormik({
     initialValues: {
@@ -81,6 +111,11 @@ export default function AddNewLogForm() {
         values[item] = true;
       }
 
+      //times
+      values.abt = Number(values.abt);
+      values.rnt = Number(values.rnt);
+      values.tbt = Number(values.tbt);
+
       console.log({values})
       alert(JSON.stringify(values, null, 2));
       console.log(JSON.stringify(values, null, 2));
@@ -108,3 +143,4 @@ export default function AddNewLogForm() {
     </>
   );
 }
+
