@@ -29,7 +29,7 @@ export default function LogList({ logs, selectLog, selectedTags }) {
                 onClick={() => {
                   selectLog(i);
                 }}>
-                  Log No. {log.id}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}
+                  Log No. {i + 1}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}
               </Card>
               <Box className={classes.spacer} />
             </>

@@ -15,10 +15,10 @@ export default function logDisplayColumn1({ name, logs }) {
             {`Hello, ${name}`}
           </Typography>
           <Typography variant="h6">
-            You've been on 2 {/* {logs.length} */}dives!
+            You've been on {logs.length} dives!
           </Typography>
           <Typography variant="h6">
-            Cumulative Dive Hours: 2{/* {logs[0].cumulative_time} */} Hours
+            Cumulative Dive Hours: 2{/* {logs[logs.length - 1].cumulative_time} */} Hours
           </Typography>
         </Card>
   );
