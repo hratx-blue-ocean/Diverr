@@ -19,7 +19,13 @@ export default function ColumnTwo({ formik }) {
 
   return (
     <>
-      <Grid item xs={6} container alignItems="center">
+      <Grid
+        item
+        xs={6}
+        container
+        alignItems="center"
+        style={{ padding: "7px" }}
+      >
         <TextField
           className={classes.textfield}
           required

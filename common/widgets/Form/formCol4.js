@@ -28,7 +28,7 @@ export default function ColumnFour({ formik }) {
 
   return (
     <>
-      <Grid>
+      <Grid style={{ width: "7px" }}>
         <Typography variant="h6">Exposure Protection</Typography>
         <hr />
         <FormControl>

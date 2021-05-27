@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
-import { Grid, Button, Box } from "@material-ui/core";
+import { Grid, Button, Box, Typography, Grow } from "@material-ui/core";
 import Header from "common/widgets/Header";
 import { useSession } from "next-auth/client";
 import AddButton from "common/components/buttons/AddButton.js";
@@ -17,16 +17,19 @@ import blue from "@material-ui/core/colors/blue";
 const useStyles = makeStyles((theme) => ({
   col: {
     width: "100%",
-    backgroundColor: "#e9f7f96e",
   },
-  col2: {
-    backgroundColor: "#e3f2fd4a",
-  },
-  textfield: {
-    // margin: 5,
-  },
+  col2: {},
   spacer: {
     height: "15px",
+  },
+  title: {
+    color: theme.palette.lightBlue.main,
+    textAlign: "center",
+  },
+  main: {
+    backgroundImage:
+      "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 20, 1))",
+    color: theme.palette.lightBlue.main,
   },
 }));
 
@@ -69,8 +72,13 @@ export default function AddNewLogForm() {
   return (
     <>
       <Header />
+      <Grow timeout={1400} in={true}>
+        <Typography variant="h1" className={classes.title}>
+          Store a Log
+        </Typography>
+      </Grow>
       <form>
-        <Grid container spacing={1}>
+        <Grid container spacing={1} className={classes.main}>
           <Grid
             item
             xs={3}
@@ -90,6 +98,7 @@ export default function AddNewLogForm() {
             container
             direction="column"
             className={classes.col}
+            style={{ padding: "7px" }}
           >
             <Column3 formik={formik} container direction="column" />
           </Grid>

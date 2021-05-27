@@ -26,7 +26,7 @@ export default function ColumnOne({ formik }) {
 
   return (
     <>
-      <FormControl>
+      <FormControl style={{ padding: "7px" }}>
         <FormLabel component="legend">Privacy</FormLabel>
         <hr />
         <RadioGroup onChange={formik.handleChange} name="privacy">
