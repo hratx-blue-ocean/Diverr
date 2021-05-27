@@ -46,9 +46,6 @@ export default function useCustomTheme() {
             "@global": {
               body: {
                 maxHeight: "100vh",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundAttachment: "scroll",
                 overflowX: "hidden",
                 backgroundColor: "rgb(0, 0, 20)",
               },

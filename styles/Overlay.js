@@ -20,14 +20,17 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     backgroundImage: `linear-gradient(to bottom, ${lg.one}, ${lg.two}, ${lg.three}, ${lg.four}, ${lg.five}, ${lg.six}, ${lg.seven}, ${lg.eight}, ${lg.nine}, ${lg.ten})`,
     maxHeight: "100vh",
+    position: "relative",
+    zIndex: 1,
   },
   img: {
-    height: "100%",
-    width: "100%",
+    height: "100vh",
+    width: "auto",
     backgroundImage: "url(/underwater.jpeg)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundAttachment: "scroll",
+    backgroundAttachment: "local",
+    maxHeight: "100vh",
   },
 }));
 

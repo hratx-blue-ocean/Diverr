@@ -17,11 +17,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-    width: "auto",
-    overflowX: "hidden",
-  },
   content: {
     height: "100%",
     width: "auto",
@@ -45,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "5px",
     maxWidth: "500px",
     maxHeight: "350px",
+    position: "sticky",
+    top: 25,
   },
   postContainer: {
     minWidth: "400px",
@@ -66,7 +63,7 @@ export default function Home(props) {
   }, []);
 
   return (
-    <main className={classes.root}>
+    <>
       <Head>
         <title>Caspian</title>
         <meta name="home" content="caspian-holder" />
@@ -105,6 +102,6 @@ export default function Home(props) {
           </Grow>
         </Grid>
       </Grid>
-    </main>
+    </>
   );
 }
