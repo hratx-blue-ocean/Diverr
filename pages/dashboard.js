@@ -10,7 +10,8 @@ import Header from "common/widgets/Header";
 import { getSession } from "next-auth/client";
 import axios from 'axios';
 
-export default function Dashboard({session, userData, userLogs}) {
+export default function Dashboard({session, userTags, userLogs}) {
+  console.log('SESSION: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs)
   return (
     <main>
       <Head>
@@ -18,7 +19,7 @@ export default function Dashboard({session, userData, userLogs}) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      <UserDashboard session={session} userTags={userData[0].tags} userLogs={userLogs[0]}/>
+      <UserDashboard session={session} userTags={userTags[0]} userLogs={userLogs[0].logs}/>
     </main>
   );
 }
@@ -37,9 +38,9 @@ export async function getServerSideProps(context) {
     return { props: {} };
   }
   const email = session.user.email;
-  const resultUser = await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
+  const resultUserTags = await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
 
-  if (!resultUser.data) {
+  if (!resultUserTags.data) {
     return {
       props: {notFound: true}
     }
@@ -51,7 +52,7 @@ export async function getServerSideProps(context) {
     }
   }
   const result = {
-    props: {session: session, userData: resultUser.data, userLogs: resultUserLogs.data}
+    props: {session: session, userTags: resultUserTags.data, userLogs: resultUserLogs.data}
   }
   console.log('RESULT: ', result);
   return result;
