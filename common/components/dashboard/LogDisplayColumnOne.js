@@ -27,7 +27,10 @@ export default function logDisplayColumn1({ log }) {
     <>
       <Card className={classes.itemOne}>
         <Typography variant="body1" data-testid="date">
-          Date: {new Date(log.date).toDateString()} Dive Number: {log.id}
+        <Typography variant="h6" data-testid="notes" color="primary">
+          Basic Dive Data:
+        </Typography>
+          <Typography display="inline" color="primary" variant="body1">Date:</Typography>{' ' + new Date(log.date).toDateString()} <Typography display="inline" color="primary" variant="body1">Dive Number:</Typography> {'' + log.id}
         </Typography>
         <Typography variant="body1" data-testid="location">
           {log.dive_site}, {log.city}, {log.country} {"\n"}
@@ -39,30 +42,32 @@ export default function logDisplayColumn1({ log }) {
       <Box className={classes.spacer} />
       <Card className={classes.itemTwo}>
         <Typography variant="body1" data-testid="rnt">
-          {" "}
-          RNT {log.rnt}
+        <Typography variant="h6" data-testid="notes" color="primary">
+          Dive Time Metrics:{" "}
         </Typography>
-        <Typography variant="body1" data-testid="abt">
+          <Typography display="inline" color="primary" variant="body1">RNT: </Typography> {log.rnt}
+        </Typography>
+        <Typography variant="body1" color="black" data-testid="tbt">
           {" "}
-          ABT {log.abt}
+          <Typography display="inline" color="primary" variant="body1">ABT: </Typography> {log.abt}
         </Typography>
         <Typography variant="body1" data-testid="tbt">
           {" "}
-          TBT {log.tbt}
+          <Typography display="inline" color="primary" variant="body1">TBT: </Typography> {log.tbt}
         </Typography>
         <Typography variant="body1" data-testid="cumulative">
           {" "}
-          Cumulative Time: FILL THIS OUT WITH NEW DATA
+          <Typography display="inline" color="primary" variant="body1">Cumulative Time:</Typography> FILL THIS OUT WITH NEW DATA
         </Typography>
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemThree}>
-        <Typography variant="h6" data-testid="notes">
+        <Typography variant="h6" data-testid="notes" color="primary">
           Notes:{" "}
         </Typography>
         <Typography variant="body1" data-testid="notes-text">
           {log.notes}
-          <Tags log={log} />
+          {log.tags && <Tags log={log} />}
         </Typography>
       </Card>
     </>

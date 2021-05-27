@@ -17,19 +17,19 @@ export default function logDisplayColumn1({ log }) {
   return (
     <>
       <Card className={classes.item}>
-        <Typography variant="h6">Dive Conditions</Typography>
-        <Typography variant="body1">Visibility: {log.visibility}</Typography>
-        <Typography variant="body1">Air Temp: {log.air_temp}</Typography>
-        <Typography variant="body1">Water Temp: {log.water_temp}</Typography>
+        <Typography variant="h6" color="primary">Dive Conditions</Typography>
+        <Typography variant="body1"> <Typography display="inline" color="primary" variant="body1">Visibility:</Typography>{' ' + log.visibility}</Typography>
+        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">Air Temp:</Typography> {' ' + log.air_temp}</Typography>
+        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">Water Temp: </Typography> {log.water_temp}</Typography>
         <Typography variant="body1">
-          Conditions: {log.salt_water ? "Salt-Water" : "Fresh-Water?"},{" "}
+        <Typography display="inline" color="primary" variant="body1">Conditions: </Typography> {log.salt_water ? "Salt-Water" : "Fresh-Water?"},{" "}
           {log.boat ? "Boat" : "No Boat"},{" "}
           {log.current ? "Current" : "No Current"}
         </Typography>
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.item}>
-        <Typography variant="h6">Dive Gear</Typography>
+        <Typography variant="h6" color="primary">Dive Gear</Typography>
         <Typography variant="body1">
           {log.wetsuit ? "Wet Suit" : "Dry Suit"}
         </Typography>
@@ -41,15 +41,15 @@ export default function logDisplayColumn1({ log }) {
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.item}>
-        <Typography variant="h6">Dive Metrics</Typography>
+        <Typography variant="h6" color="primary">Dive Metrics</Typography>
         <Typography variant="body1">
-          Start Pressure: {log.start_pressure}
+        <Typography display="inline" color="primary" variant="body1">Start Pressure: </Typography> {log.start_pressure}
         </Typography>
         <Typography variant="body1">
-          End Pressure: {log.end_pressure}
+        <Typography display="inline" color="primary" variant="body1">End Pressure: </Typography> {log.end_pressure}
         </Typography>
-        <Typography variant="body1">Start Time: {new Date(log.time_in).toTimeString()}</Typography>
-        <Typography variant="body1">End Time: {new Date(log.time_out).toTimeString()}</Typography>
+        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">Start Time: </Typography> {log.time_in}</Typography>
+        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">End Time: </Typography> {log.time_out}</Typography>
       </Card>
     </>
   );
