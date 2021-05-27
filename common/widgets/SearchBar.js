@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(2),
+    backgroundColor: theme.palette.lightBlue.main,
   },
 }));
 
@@ -25,7 +26,8 @@ export default function SearchBar({ tags, onSelect, search }) {
         <TextField
           {...params}
           label="Search the tag you like"
-          variant="outlined"
+          variant="filled"
+          color="primary"
         />
       )}
     />

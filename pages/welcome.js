@@ -19,7 +19,7 @@ export default function Welcome() {
   const router = useRouter();
 
   useEffect(() => {
-    session && setTimeout(() => router.push("/"), 2000);
+    session && setTimeout(() => router.push("/feed"), 2000);
   }, [session]);
 
   return (

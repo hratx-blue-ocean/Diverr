@@ -20,10 +20,16 @@ export default function useCustomTheme() {
         palette: {
           type: "light",
           primary: {
-            main: blue[300],
+            main: blue[500],
           },
           secondary: {
-            main: deepOrange[300],
+            main: deepOrange[500],
+          },
+          lightBlue: {
+            main: "#E9F7F9",
+          },
+          gray: {
+            main: "#4E5255",
           },
           warning: {
             main: orange[500],

@@ -3,7 +3,7 @@ import Image from "next/image";
 import AddButton from "common/components/buttons/AddButton";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
-import { useSession } from "next-auth/client";
+import { useSession, getSession } from "next-auth/client";
 import Dashboard from "common/layouts/Dashboard";
 import Typography from "@material-ui/core/Typography";
 import Header from "common/widgets/Header";
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   info: {
     width: "75%",
     height: "50%",
-    backgroundColor: "rgba(0, 0, 20, 0.3)",
+    backgroundColor: "rgba(0, 0, 20, 0.6)",
     borderRadius: "5px",
     paddingTop: "5px",
     maxWidth: "500px",
@@ -51,16 +51,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyles();
-  const [session, loading] = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    (async () => {
-      if (session) {
-        router.push("/feed");
-      }
-    })();
-  }, []);
 
   return (
     <>
@@ -105,3 +95,19 @@ export default function Home(props) {
     </>
   );
 }
+
+// export async function getServerSideProps(context) {
+//   const { req, res } = context;
+//   const session = await getSession({ req });
+
+//   if (session) {
+//     res.writeHead(302, {
+//       Location: "/feed",
+//     });
+//     res.end();
+//     return { props: {} };
+//   }
+//   return {
+//     props: {},
+//   };
+// }

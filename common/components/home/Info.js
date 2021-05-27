@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     color: theme.palette.primary.light,
+    fontWeight: "700",
   },
   buttonContainer: {
     height: "10%",
@@ -26,7 +27,11 @@ export default function Info() {
   const classes = useStyles();
   return (
     <>
-      <Typography variant="h5" style={{ textAlign: "center" }} color="primary">
+      <Typography
+        variant="h5"
+        style={{ textAlign: "center", fontWeight: "700" }}
+        color="primary"
+      >
         What is diverr?
       </Typography>
       <Typography
@@ -42,8 +47,11 @@ export default function Info() {
             <ArrowRightSharpIcon color="primary" />
           </ListItemIcon>
           <ListItemText
-            primary="Store and view your dive logs"
-            className={classes.text}
+            primary={
+              <Typography className={classes.text}>
+                Store and view your dive logs
+              </Typography>
+            }
           />
         </ListItem>
         <Box className={classes.tinySpacer} />
@@ -52,8 +60,11 @@ export default function Info() {
             <ArrowRightSharpIcon color="primary" />
           </ListItemIcon>
           <ListItemText
-            primary="See photos of dives that others have taken"
-            className={classes.text}
+            primary={
+              <Typography className={classes.text}>
+                See photos of dives that others have taken
+              </Typography>
+            }
           />
         </ListItem>
         <Box className={classes.tinySpacer} />
@@ -62,8 +73,11 @@ export default function Info() {
             <ArrowRightSharpIcon color="primary" />
           </ListItemIcon>
           <ListItemText
-            primary="Upload and share your own dive photos"
-            className={classes.text}
+            primary={
+              <Typography className={classes.text}>
+                Upload and share your own dive photos
+              </Typography>
+            }
           />
         </ListItem>
       </List>

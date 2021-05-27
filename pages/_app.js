@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   root: {
     width: "auto",
     height: "100vh",
+    overflowX: "hidden",
   },
 });
 
