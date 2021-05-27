@@ -11,7 +11,7 @@ const lg = {
   seven: "rgba(0, 0, 20, 0.6)",
   eight: "rgba(0, 0, 20, 0.7)",
   nine: "rgba(0, 0, 20, 0.8)",
-  ten: "rgba(0, 0, 20, 0.9)",
+  ten: "rgba(0, 0, 20, 1)",
 };
 
 const useStyles = makeStyles((theme) => ({

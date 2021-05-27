@@ -50,7 +50,7 @@ export default function useCustomTheme() {
                 backgroundSize: "cover",
                 backgroundAttachment: "scroll",
                 overflowX: "hidden",
-                backgroundColor: "rgb(0, 0,20)",
+                backgroundColor: "rgb(0, 0, 20)",
               },
               "@font-face": ["Rajdhani"],
             },
