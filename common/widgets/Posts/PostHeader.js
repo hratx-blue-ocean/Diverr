@@ -9,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FeedHeader({ firstName, lastName, location, date }) {
+export default function FeedHeader({ name, location, date }) {
   const classes = useStyles();
+  const [firstName, lastName] = name.split(' ')
   return (
     <CardHeader
       avatar={
@@ -25,7 +26,7 @@ export default function FeedHeader({ firstName, lastName, location, date }) {
           justify="space-between"
           alignItems="center"
         >
-          <Typography>{`${firstName} ${lastName}`}</Typography>
+          <Typography>{name}</Typography>
           <Typography>{moment(date).fromNow()}</Typography>
         </Grid>
       }
