@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     height: "100%",
     width: "100%",
-    zIndex: "-1",
+    zIndex: "10",
     overflow: "hidden",
   },
   video: {

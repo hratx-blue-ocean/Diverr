@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@material-ui/core";
 import filterLogs from "common/utils/filterLogs";
+
 export default function LogList({ logs, selectLog, selectedTags }) {
   return (
     <Box className="logList">

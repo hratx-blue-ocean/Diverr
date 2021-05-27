@@ -3,7 +3,7 @@ import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { TextField } from "@material-ui/core";
-import { useFormik } from 'formik';
+import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ColumnTwo({formik}) {
+export default function ColumnTwo({ formik }) {
   const classes = useStyles();
 
   return (

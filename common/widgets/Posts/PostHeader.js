@@ -1,8 +1,7 @@
-import CardHeader from "@material-ui/core/CardHeader";
-import Avatar from "@material-ui/core/Avatar";
 import { red } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography,Grid } from "@material-ui/core";
+import { Typography, Grid, Avatar, CardHeader } from "@material-ui/core";
+import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -10,11 +9,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FeedHeader({ userName, location }) {
+export default function FeedHeader({ firstName, lastName, location, date }) {
   const classes = useStyles();
   return (
     <CardHeader
-      avatar={<Avatar className={classes.avatar}>JJ</Avatar>}
+      avatar={
+        <Avatar
+          className={classes.avatar}
+        >{`${firstName[0]} ${lastName[0]}`}</Avatar>
+      }
       title={
         <Grid
           container
@@ -22,13 +25,11 @@ export default function FeedHeader({ userName, location }) {
           justify="space-between"
           alignItems="center"
         >
-          <Typography>userName</Typography>
-          <Typography>time</Typography>
+          <Typography>{`${firstName} ${lastName}`}</Typography>
+          <Typography>{moment(date).fromNow()}</Typography>
         </Grid>
       }
       subheader={location}
-    >
-      tyujjnbg
-    </CardHeader>
+    />
   );
 }
