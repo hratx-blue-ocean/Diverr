@@ -8,5 +8,5 @@ export default function getUser(req, res) {
     } else {
       res.send(response);
     }
-  })
+  });
 }

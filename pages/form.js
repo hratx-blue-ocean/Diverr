@@ -15,7 +15,7 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    width: '100%',
+    width: "100%",
     marginLeft: 50,
   },
 }));
@@ -66,9 +66,14 @@ export default function AddNewLogForm() {
           <Column3 formik={formik} />
           <Column4 formik={formik} />
           <div className={classes.col}>
-            <FormTags tags={tags} setTags={setTags}/>
+            <FormTags tags={tags} setTags={setTags} />
             <FormMedia images={images} setImages={setImages} />
-            <Button onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
+            <Button
+              onClick={formik.handleSubmit}
+              color="primary"
+              variant="contained"
+              fullWidth
+            >
               Submit
             </Button>
           </div>
