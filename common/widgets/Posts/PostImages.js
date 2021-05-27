@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
   },
   img: {
-    maxHeight: 500,
+    maxHeight: 450,
     overflow: "hidden",
     display: "block",
     width: "100%",
@@ -47,11 +47,19 @@ export default function PostImages({ photos }) {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = photos.length;
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (activeStep === maxSteps - 1) {
+      setActiveStep(0);
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if (activeStep === 0) {
+      setActiveStep(maxSteps - 1);
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    }
   };
 
   return (
@@ -67,11 +75,7 @@ export default function PostImages({ photos }) {
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
+          <Button size="small" onClick={handleNext}>
             Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
@@ -81,7 +85,7 @@ export default function PostImages({ photos }) {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="small" onClick={handleBack}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (

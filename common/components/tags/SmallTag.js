@@ -7,7 +7,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SmallTag({ tagName }) {
+export default function SmallTag({ tagName, handleClick }) {
   const classes = useStyles();
-  return <Chip label={tagName} size="small" className={classes.chip} />;
+  return (
+    <>
+      {handleClick ? (
+        <Chip
+          label={tagName}
+          size="small"
+          className={classes.chip}
+          clickable
+          onClick={() => handleClick(tagName)}
+        />
+      ) : (
+        <Chip label={tagName} size="small" className={classes.chip} />
+      )}
+    </>
+  );
 }
