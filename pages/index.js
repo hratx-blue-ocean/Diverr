@@ -126,10 +126,9 @@ export async function getServerSideProps(context) {
     res.end();
     return { props: {} };
   }
-  const resultTags = await axios.get(`${process.env.NEXTAUTH_URL}/api/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
-  const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
+  const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);
   const result = {
-    props: {resultTags: resultTags.data, resultLogs: resultLogs.data[0].logs}
+    props: {resultLogs: resultLogs.data[0].logs}
   }
   return result;
 }
