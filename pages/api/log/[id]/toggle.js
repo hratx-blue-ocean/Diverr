@@ -8,5 +8,5 @@ export default function changeToPublic(req, res) {
     } else {
       res.send(response);
     }
-  })
+  });
 }

@@ -7,5 +7,5 @@ export default function updateCumulative(req, res) {
     } else {
       res.send(response);
     }
-  })
+  });
 }

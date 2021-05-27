@@ -2,11 +2,13 @@ import React from "react";
 import ThemeWrapper from "styles/Theme";
 import { makeStyles } from "@material-ui/core/styles";
 import { Provider } from "next-auth/client";
+import Overlay from "styles/Overlay";
 
 const useStyles = makeStyles({
   root: {
-    width: "100vw",
+    width: "auto",
     height: "100vh",
+    overflowX: "hidden",
   },
 });
 
@@ -24,7 +26,9 @@ function MyApp({ Component, pageProps }) {
     <main className={classes.root}>
       <ThemeWrapper>
         <Provider session={pageProps.session}>
-          <Component {...pageProps} />
+          <Overlay>
+            <Component {...pageProps} />
+          </Overlay>
         </Provider>
       </ThemeWrapper>
     </main>
