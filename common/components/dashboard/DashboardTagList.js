@@ -35,11 +35,11 @@ export default function TagList({ tags, selectedTags, toggleSelected }) {
                   <Chip
                     key={tagIndex}
                     className="dashboard-tag"
-                    label={tag}
+                    label={tag.name}
                     onClick={() => {
-                      toggleSelected(tag);
+                      toggleSelected(tag.name);
                     }}
-                    color={selectedTags[tag] ? "primary" : "secondary"}
+                    color={selectedTags[tag.name] ? "primary" : "secondary"}
                     size="small"
                   />
                 );
