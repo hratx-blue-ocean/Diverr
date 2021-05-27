@@ -8,9 +8,9 @@ import { useSession } from "next-auth/client";
 import UserDashboard from "common/layouts/UserDashboardLayout.js";
 import Header from "common/widgets/Header";
 import { getSession } from "next-auth/client";
+import axios from 'axios';
 
 export default function Dashboard({session, userData, userLogs}) {
-  console.log('Session: ', session, 'User: ',userData, 'Logs: ', userLogs)
   return (
     <main>
       <Head>
@@ -36,27 +36,24 @@ export async function getServerSideProps(context) {
     res.end();
     return { props: {} };
   }
-  console.log(session);
   const email = session.user.email;
-  const resultUser = await fetch(`http://localhost:3000//api/user/${email}`)
-  const userData = await resultUser.json()
+  const resultUser = await axios.get(`http://localhost:3000/api/user/${email}`);
 
-  if (!userData) {
+  if (!resultUser.data) {
     return {
-      notFound: true,
+      props: {notFound: true}
     }
   }
-  const resultUserLogs =  await fetch(`http://localhost:3000//api/user/${email}/logs`);
-  const userLogs = await resultUserLogs.json();
-  if (!userLogs) {
+  const resultUserLogs =  await axios.get(`http://localhost:3000/api/user/${email}/logs`);
+  if (!resultUserLogs.data) {
     return {
       notFound: true,
     }
   }
   const result = {
-    props: {session: session, userData: userData, userLogs: userLogs}
+    props: {session: session, userData: resultUser.data, userLogs: resultUserLogs.data}
   }
-  console.log(result);
+  console.log('RESULT: ', result);
   return result;
   // return {
   //   props: {
