@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {},
   item: {
-    height: "25%",
     padding: "8px",
   },
   spacer: {
@@ -49,8 +48,8 @@ export default function logDisplayColumn1({ log }) {
         <Typography variant="body1">
           End Pressure: {log.end_pressure}
         </Typography>
-        <Typography variant="body1">Start Time: {log.time_in}</Typography>
-        <Typography variant="body1">End Time: {log.time_out}</Typography>
+        <Typography variant="body1">Start Time: {new Date(log.time_in).toTimeString()}</Typography>
+        <Typography variant="body1">End Time: {new Date(log.time_out).toTimeString()}</Typography>
       </Card>
     </>
   );
