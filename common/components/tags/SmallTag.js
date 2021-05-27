@@ -11,11 +11,17 @@ export default function SmallTag({ tagName, handleClick }) {
   const classes = useStyles();
   return (
     <>
-      {
-        handleClick
-        ? <Chip label={tagName} size="small" className={classes.chip} clickable onClick={() => handleClick(tagName)}/>
-        : <Chip label={tagName} size="small" className={classes.chip} />
-      }
+      {handleClick ? (
+        <Chip
+          label={tagName}
+          size="small"
+          className={classes.chip}
+          clickable
+          onClick={() => handleClick(tagName)}
+        />
+      ) : (
+        <Chip label={tagName} size="small" className={classes.chip} />
+      )}
     </>
-  )
+  );
 }

@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 500,
     margin: theme.spacing(2),
+    backgroundColor: theme.palette.lightBlue.main,
   },
   media: {
     height: 0,
@@ -60,7 +61,7 @@ export default function Post({ log, handleClick }) {
         <PostImages photos={photos} />
       </CardContent>
       <CardContent>
-        <SmallTagContainer tags={tags} handleClick={handleClick}/>
+        <SmallTagContainer tags={tags} handleClick={handleClick} />
       </CardContent>
     </Card>
   );

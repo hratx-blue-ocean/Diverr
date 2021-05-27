@@ -16,12 +16,12 @@ export default function Error404({ timer }) {
   const classes = useStyles();
   return (
     <>
-      <Typography data-testId="status" color="error" variant="h1">
+      <Typography data-testid="status" color="error" variant="h1">
         404
       </Typography>
       <Grid container direction="column" alignItems="center">
         <Typography
-          data-testId="message"
+          data-testid="message"
           color="error"
           variant="body1"
           className={classes.message}
@@ -34,7 +34,7 @@ export default function Error404({ timer }) {
           width={300}
           height={300}
           alt="drowning"
-          data-testId="img"
+          data-testid="img"
         />
       </Grid>
     </>

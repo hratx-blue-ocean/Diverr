@@ -30,14 +30,14 @@ export default function FormMedia({ images, setImages }) {
 
   const handleChange = (e) => {
     setImage(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     let copy = images.slice();
     copy.push(image);
     setImages(copy);
-    setImage('');
-  }
+    setImage("");
+  };
 
   return (
     <Grid container spacing={3} direction="row">
@@ -62,7 +62,7 @@ export default function FormMedia({ images, setImages }) {
             <GridListTile key={media}>
               <img className={classes.img} src={media} />
             </GridListTile>
-          )}
+          ))}
         </GridList>
       </Grid>
     </Grid>

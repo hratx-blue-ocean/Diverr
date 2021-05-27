@@ -1,8 +1,8 @@
-import executeUserLogsQuery from "lib/db/userLogsQuery";
+import executeUserQuery from "lib/db/userQuery";
 import { getSession } from "next-auth/client";
 
 export default function getUser(req, res) {
-  executeUserLogsQuery(req.query.email, (err, response) => {
+  executeUserQuery(req.query.email, (err, response) => {
     if (err) {
       console.error(err);
     } else {

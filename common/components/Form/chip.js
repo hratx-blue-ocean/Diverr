@@ -1,7 +1,6 @@
 import Chip from "@material-ui/core/Chip";
 import { makeStyles } from "@material-ui/core/styles";
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 
 const useStyles = makeStyles((theme) => ({
   chip: {
@@ -19,5 +18,13 @@ export default function FormSmallTag({ tags, setTags, chip }) {
     setTags(copy);
   };
 
-  return <Chip onClick={handleDelete} icon={<HighlightOffIcon />} label={chip} size="medium" className={classes.chip} />;
+  return (
+    <Chip
+      onClick={handleDelete}
+      icon={<HighlightOffIcon />}
+      label={chip}
+      size="small"
+      className={classes.chip}
+    />
+  );
 }

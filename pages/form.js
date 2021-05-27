@@ -15,8 +15,8 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    // width: '100%',
-    marginLeft: 200,
+    width: "100%",
+    marginLeft: 50,
   },
   textfield: {
     margin: 5,
