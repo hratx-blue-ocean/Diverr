@@ -51,6 +51,37 @@ export default function AddNewLogForm() {
     onSubmit: (values) => {
       values.tags = tags;
       values.images = images;
+
+      //determines privacy
+      if (values.privacy === 'public') {
+        values.public = true;
+      }
+
+      //thermal insulation
+      if (values.suitUp === 'wetsuit') {
+        values.wet_suit = true;
+      }
+
+      //environment
+      if (values.environment === 'controlled') {
+        values.controlled_env = true;
+      } else {
+        if (values.environment === 'boat') {
+          values.boat = true;
+        }
+      }
+
+      //fresh v salt
+      if (values.water === 'salt') {
+        values.salt_water = true;
+      }
+
+      //checkboxes
+      for (let item of values.checked) {
+        values[item] = true;
+      }
+
+      console.log({values})
       alert(JSON.stringify(values, null, 2));
       console.log(JSON.stringify(values, null, 2));
     },
