@@ -3,16 +3,30 @@ import { TextField, Button } from "@material-ui/core";
 import { Grid, GridList, GridListTile } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// const useStyles = makeStyles((theme) => ({
-//   tags: {
-//     display: "inline-flex",
-//     flexDirection: "column",
-//     marginLeft: 50,
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  textfield: {
+    margin: 5,
+    marginTop: 50
+  },
+  button: {
+    height: 56,
+    margin: 5,
+    marginTop: 50
+  },
+  img: {
+    maxWidth: 200,
+    maxHeight: 200,
+    objectFit: 'contain'
+  },
+  gridlist: {
+    flexWrap: 'no-wrap'
+  }
+}));
 
 export default function FormMedia({ images, setImages }) {
-  const [image, setImage] = useState("");
+  const classes = useStyles();
+
+  const [image, setImage] = useState('');
 
   const handleChange = (e) => {
     setImage(e.target.value);
@@ -34,27 +48,24 @@ export default function FormMedia({ images, setImages }) {
           name="images"
           variant="outlined"
           value={image}
+          className={classes.textfield}
         />
       </Grid>
       <Grid item xs={2}>
-        <Button
-          onClick={handleSubmit}
-          color="primary"
-          variant="contained"
-          fullWidth
-        >
+        <Button onClick={handleSubmit} className={classes.button} color="primary" variant="contained" fullWidth>
           Add a Photo/Video
         </Button>
       </Grid>
       <Grid item xs={8}>
-        <GridList>
-          {images.map((media) => (
+        <GridList className={classes.gridlist} cellHeight={160} cols={4}>
+          {images.map(media =>
             <GridListTile key={media}>
-              <img src={media} />
+              <img className={classes.img} src={media} />
             </GridListTile>
-          ))}
+          )}
         </GridList>
       </Grid>
     </Grid>
-  );
+  )
 }
+
