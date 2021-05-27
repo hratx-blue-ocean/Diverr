@@ -18,7 +18,7 @@ export default function Dashboard({session, userData, userLogs}) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      <UserDashboard session={session} userTags={userData.tags} userLogs={userLogs}/>
+      <UserDashboard session={session} userTags={userData[0].tags} userLogs={userLogs[0]}/>
     </main>
   );
 }
@@ -37,14 +37,14 @@ export async function getServerSideProps(context) {
     return { props: {} };
   }
   const email = session.user.email;
-  const resultUser = await axios.get(`http://localhost:3000/api/user/${email}`);
+  const resultUser = await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
 
   if (!resultUser.data) {
     return {
       props: {notFound: true}
     }
   }
-  const resultUserLogs =  await axios.get(`http://localhost:3000/api/user/${email}/logs`);
+  const resultUserLogs =  await axios.get(`http://localhost:3000/api/user/19ccrow99@gmail.com/logs`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
   if (!resultUserLogs.data) {
     return {
       notFound: true,

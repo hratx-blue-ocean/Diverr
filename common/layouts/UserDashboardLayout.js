@@ -64,6 +64,7 @@ export default function UserDashboardLayout({ session, userTags, userLogs}) {
   const selectLog = (logListIndex) => {
     changeLog(logListIndex);
   };
+  console.log('SESSION: ', session, 'USERTAGS: ', userTags, 'USERLOGS: ', userLogs);
   if (session) {
     return (
       <Grid container direction="row" className={classes.root}>
