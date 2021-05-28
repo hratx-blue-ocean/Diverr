@@ -19,11 +19,11 @@ export default function Dashboard({ session, userTags, userLogs }) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      {userLogs && userLogs.logs ? (
+      {userLogs && userLogs[0].logs ? (
         <UserDashboard
           session={session}
           userTags={userTags}
-          userLogs={userLogs.logs[0]}
+          userLogs={userLogs[0].logs}
         />
       ) : (
         <NoLogs name={session.user.name} logs={[]} />
@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
   }
   const email = session.user.email;
   let host = process.env.NEXTAUTH_URL;
-  const resultUserTags = await fetch(`${host}/api/user/${email}/tags`);
+  const resultUserTags = await fetch(`${host}/api/user/19ccrow99@gmail.com/tags`);
   const finalResultUserTags = await resultUserTags.json();
 
   if (!finalResultUserTags) {
@@ -56,7 +56,7 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const resultUserLogs = await fetch(`${host}/api/user/${email}/logs`);
+  const resultUserLogs = await fetch(`${host}/api/user/19ccrow99@gmail.com/logs`);
   const finalResultUserLogs = await resultUserLogs.json();
 
   console.log("WHAT DO LOGS LOOK LIKE", finalResultUserLogs);
@@ -73,5 +73,6 @@ export async function getServerSideProps(context) {
       userLogs: finalResultUserLogs,
     },
   };
+  console.log(result);
   return result;
 }

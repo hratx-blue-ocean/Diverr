@@ -43,14 +43,14 @@ export default function logDisplayColumn1({ log }) {
           </Typography>{" "}
           {log.water_temp}
         </Box>
-        <Typography variant="body1" className={classes.detail}>
-          <Typography display="inline" color="primary" variant="body1">
-            Conditions:{" "}
-          </Typography>{" "}
+        <Box className={classes.detail}>
+          <Typography display="inline" color="primary" variant="body1" >
+            Conditions:
+          </Typography>
           {log.salt_water ? "Salt-Water" : "Fresh-Water"},{" "}
           {log.boat ? "Boat" : "No Boat"},{" "}
           {log.current ? "Current" : "No Current"}
-        </Typography>
+        </Box>
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.item}>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   itemThree: {
     padding: "8px",
-    minHeight: "35%",
+    minHeight: "30%",
     backgroundColor: theme.palette.lightBlue.main,
   },
   spacer: {
@@ -102,7 +102,7 @@ export default function logDisplayColumn1({ log }) {
           <Typography display="inline" color="primary" variant="body1">
             Cumulative Time:
           </Typography>{" "}
-          {log.cumulative_time} minutes
+          2 minutes
         </Typography>
       </Card>
       <Box className={classes.spacer} />
