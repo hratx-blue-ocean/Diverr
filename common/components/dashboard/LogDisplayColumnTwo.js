@@ -22,9 +22,9 @@ export default function logDisplayColumn1({ log }) {
     <>
       <Card className={classes.item}>
         <Typography variant="h6" color="primary">Dive Conditions</Typography>
-        <Typography variant="body1" className={classes.detail}> <Typography display="inline" color="primary" variant="body1">Visibility:</Typography>{' ' + log.visibility}</Typography>
-        <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">Air Temp:</Typography> {' ' + log.air_temp}</Typography>
-        <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">Water Temp: </Typography> {log.water_temp}</Typography>
+        <Box className={classes.detail}> <Typography display="inline" color="primary" variant="body1">Visibility:</Typography>{' ' + log.visibility}</Box>
+        <Box className={classes.detail}><Typography display="inline" color="primary" variant="body1">Air Temp:</Typography> {' ' + log.air_temp}</Box>
+        <Box className={classes.detail}><Typography display="inline" color="primary" variant="body1">Water Temp: </Typography> {log.water_temp}</Box>
         <Typography variant="body1" className={classes.detail}>
         <Typography display="inline" color="primary" variant="body1">Conditions: </Typography> {log.salt_water ? "Salt-Water" : "Fresh-Water"},{" "}
           {log.boat ? "Boat" : "No Boat"},{" "}
