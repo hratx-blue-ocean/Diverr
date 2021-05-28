@@ -102,7 +102,7 @@ export default function logDisplayColumn1({ log }) {
           <Typography display="inline" color="primary" variant="body1">
             Cumulative Time:
           </Typography>{" "}
-          2 minutes
+          {log.cumulative_time} minutes
         </Typography>
       </Card>
       <Box className={classes.spacer} />
