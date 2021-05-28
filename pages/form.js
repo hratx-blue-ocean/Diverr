@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
     }
   }
   if (session) {
-    const timeAndId = await axios.get(`${process.env.NEXTAUTH_URL}/api/user/sunilrgadgil@gmail.com/cumulative`);
+    const timeAndId = await axios.get(`${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`);
     console.log({timeAndId})
     return {
       props: {
@@ -56,6 +56,8 @@ export async function getServerSideProps(context) {
 
 export default function AddNewLogForm({ email, cumulative_time, userId }) {
   console.log({cumulative_time})
+  console.log({email})
+  console.log({userId})
   const classes = useStyles();
   const [tags, setTags] = useState([]);
   const [images, setImages] = useState([]);
@@ -86,6 +88,7 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
     onSubmit: (values) => {
       values.tags = tags;
       values.images = images;
+      values.userId = userId;
 
       //determines privacy
       if (values.privacy === 'public') {
@@ -132,21 +135,12 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
       alert(JSON.stringify(values, null, 2));
       console.log(JSON.stringify(values, null, 2));
 
-      // const tagsToBeAdded = [];
-      // for (let tag of values.tags) {
-      //   if (!allTags.includes(tag)) {
-      //     tagsToBeAdded.push(tag)
-      //   }
-      // }
+      let host = process.env.NEXTAUTH_URL
 
-      // const addNewTags = (tagsToBeAdded) => {
-      // axios.post(`http://localhost:3000/api/tags`, {tags: tagsToBeAdded})
-      // .then(result => console.log('Tags added!'))
-      // .catch(err => console.log('Error adding tags'))
-      // }
-
-      // addNewTags(tagsToBeAdded);
-    },
+      axios.post(`${host}/api/user/${email}/add/log`, values)
+      .then(result => console.log('Post successful'))
+      .catch(err => console.log('Error adding form'))
+    }
   });
 
   return (
