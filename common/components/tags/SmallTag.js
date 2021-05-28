@@ -8,10 +8,9 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.primary.main,
     "& .MuiChip-label": {
       fontWeight: "bold",
-      color: theme.palette.primary.main
+      color: theme.palette.primary.main,
     },
   },
-
 }));
 
 export default function SmallTag({ tagName, handleClick }) {
@@ -28,7 +27,12 @@ export default function SmallTag({ tagName, handleClick }) {
           variant="outlined"
         />
       ) : (
-        <Chip label={tagName} size="small" className={classes.chip} variant="outlined"/>
+        <Chip
+          label={tagName}
+          size="small"
+          className={classes.chip}
+          variant="outlined"
+        />
       )}
     </>
   );
