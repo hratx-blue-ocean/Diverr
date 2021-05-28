@@ -41,27 +41,22 @@ export async function getServerSideProps(context) {
     }
   }
   if (session) {
-    console.log('Session is: ', session)
-    const timeAndId = await axios.get(`${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`);
-    console.log(session.user.email)
-    // console.log({timeAndId})
-    console.log('Time and ID is: ', timeAndId.data)
+    const timeAndId = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`)
+    const finalTimeAndId = await timeAndId.json();
+
     return {
       props: {
         email: session.user.email,
-        cumulative_time: Number(timeAndId.data.sum),
-        userId: timeAndId.data.id
-        // userId: null
+        cumulative_time: Number(finalTimeAndId.sum),
+        userId: finalTimeAndId.id,
+        session: session.user
       },
     };
   }
 }
 
 
-export default function AddNewLogForm({ email, cumulative_time, userId }) {
-  // console.log({cumulative_time})
-  // console.log({email})
-  // console.log({userId})
+export default function AddNewLogForm({ email, cumulative_time, userId, session }) {
   const classes = useStyles();
   const [tags, setTags] = useState([]);
   const [images, setImages] = useState([]);
@@ -135,15 +130,20 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
       values.tbt = Number(values.tbt);
       values.cumulative_time = cumulative_time + values.abt;
 
-      // console.log({ values })
-      alert(JSON.stringify(values, null, 2));
-      // console.log(JSON.stringify(values, null, 2));
+      //POST new log
+      let host = process.env.NEXTAUTH_URL;
 
-      let host = process.env.NEXTAUTH_URL
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      }
 
-      axios.post(`http://localhost:3000/api/user/${email}/add/log`, values)
-      .then(result => console.log('Post successful'))
-      .catch(err => console.log('Error adding form'))
+      fetch(`/api/user/${email}/add/log`, options)
+        .then(result => console.log('Post successful'))
+        .catch(err => console.log('Error adding form'))
     }
   });
 
@@ -151,8 +151,8 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
     <>
       <Header />
       <form className={classes.root}>
-        <Grid  container justify="center" alignItems="center" spacing={1} direction="row">
-          <Grid  item xs={3}>
+        <Grid container justify="center" alignItems="center" spacing={1} direction="row">
+          <Grid item xs={3}>
             <Column1 formik={formik} />
           </Grid>
           <Grid item xs={3}>

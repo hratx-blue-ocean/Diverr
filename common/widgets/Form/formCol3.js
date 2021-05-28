@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     color: '#2196f3'
+  },
+  values: {
+    color: '#2196f3'
   }
 }));
 
@@ -46,6 +49,9 @@ export default function ColumnThree({ formik }) {
         InputLabelProps={{
           className: classes.input
         }}
+        InputProps={{
+          className: classes.values
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -56,6 +62,9 @@ export default function ColumnThree({ formik }) {
         variant="outlined"
         InputLabelProps={{
           className: classes.input
+        }}
+        InputProps={{
+          className: classes.values
         }}
       />
       <TextField
@@ -68,6 +77,9 @@ export default function ColumnThree({ formik }) {
         InputLabelProps={{
           className: classes.input
         }}
+        InputProps={{
+          className: classes.values
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -78,6 +90,9 @@ export default function ColumnThree({ formik }) {
         variant="outlined"
         InputLabelProps={{
           className: classes.input
+        }}
+        InputProps={{
+          className: classes.values
         }}
       />
       <TextField
@@ -91,6 +106,9 @@ export default function ColumnThree({ formik }) {
         variant="outlined"
         InputLabelProps={{
           className: classes.input
+        }}
+        InputProps={{
+          className: classes.values
         }}
       />
     </div>

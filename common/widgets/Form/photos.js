@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     color: '#2196f3'
+  },
+  values: {
+    color: '#2196f3'
   }
 }));
 
