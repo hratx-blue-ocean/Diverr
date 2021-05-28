@@ -12,7 +12,16 @@ const useStyles = makeStyles((theme) => ({
   text: {
     color: theme.palette.primary.main,
     fontWeight: "bold",
-    borderRadius: "0 0 10px 10px"
+  },
+  imgFooter: {
+    color: theme.palette.primary.main,
+    borderRadius: "0 0 10px 10px",
+    borderBottom: "2px solid",
+    borderLeft: "2px solid",
+    borderRight: "2px solid",
+    borderBottomColor: theme.palette.primary.main,
+    borderLeftColor: theme.palette.primary.main,
+    borderRightColor: theme.palette.primary.main,
   },
   img: {
     maxHeight: 450,
@@ -52,7 +61,7 @@ export default function PostImages({ photos }) {
         alt={photos[activeStep].id}
       />
       <MobileStepper
-        className={classes.text}
+        className={classes.imgFooter}
         steps={maxSteps}
         position="static"
         variant="text"
