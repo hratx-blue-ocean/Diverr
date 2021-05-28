@@ -18,15 +18,6 @@ const useStyles = makeStyles((theme) => ({
   col: {
     width: "100%",
   },
-  smlCol: {
-    // minWidth: 201
-  },
-  bigCol: {
-    // minWidth: 300
-  },
-  colSpacer: {
-    // minWidth: 10
-  },
   spacer: {
     height: "15px",
   },
@@ -36,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   main: {
     backgroundImage:
-      "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 20, 1))",
+      "linear-gradient(to bottom, rgba(0, 0, 20, 0.1), rgba(0, 0, 20, 1))",
     color: theme.palette.lightBlue.main,
     width: "100vw",
   },
@@ -88,39 +79,39 @@ export default function AddNewLogForm() {
       </Grow>
       <form style={{ width: "100vw" }}>
         {/* <Grid item xs={1} className={classes.colSpacer}/> */}
-        <Grid container justify="center" spacing={1} className={classes.main}>
-          <Grid
+        <Grid container spacing={1} className={classes.main}>
+          {/* <Grid
             item
-            xs={2}
-            container
-            direction="column"
-            justify="space-around"
-            className={classes.smallCol}
-          >
-            <Column1 formik={formik} container direction="column" />
-          </Grid>
-          <Grid
-            item
-            xs={3}
+            xs={12}
             container
             direction="row"
-            className={classes.bigCol}
-          >
-            <Column2 formik={formik} />
-          </Grid>
-          <Grid
+            // justify="space-around"
+            className={classes.col}
+          > */}
+          <Column1 formik={formik} container direction="column" />
+          {/* </Grid> */}
+          {/* <Grid
             item
-            xs={2}
+            xs={6}
+            container
+            direction="row"
+            className={classes.col}
+          > */}
+          <Column2 formik={formik} />
+          {/* </Grid> */}
+          {/* <Grid
+            item
+            xs={6}
             container
             direction="column"
-            className={classes.smlCol}
+            className={classes.col}
             style={{ padding: "7px" }}
-          >
-            <Column3 formik={formik} container direction="column" />
-          </Grid>
-          <Grid item xs={3} className={classes.bigCol}>
-            <Column4 formik={formik} container direction="column" />
-          </Grid>
+          > */}
+          <Column3 formik={formik} container direction="column" />
+          {/* </Grid> */}
+          {/* <Grid item xs={6} className={classes.col}> */}
+          <Column4 formik={formik} container direction="column" />
+          {/* </Grid> */}
           {/* <Grid item xs={1} className={classes.colSpacer}/> */}
         </Grid>
         <Box className={classes.spacer} />

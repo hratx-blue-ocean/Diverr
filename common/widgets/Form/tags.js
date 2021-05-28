@@ -9,6 +9,14 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "200px",
     minWidth: "100%",
   },
+  text: {
+    color: theme.palette.lightBlue.main,
+    fontSize: "1rem",
+  },
+  input: {
+    borderWidth: "2px",
+    borderColor: "#E9F7F9",
+  },
 }));
 
 export default function FormTags({ tags, setTags }) {
@@ -34,16 +42,25 @@ export default function FormTags({ tags, setTags }) {
         name="tags"
         variant="outlined"
         value={tag}
-      />
-      <Button
-        onClick={handleSubmit}
-        className={classes.button}
         color="primary"
-        variant="contained"
-        fullWidth
-      >
-        Add a Tag
-      </Button>
+        InputProps={{
+          classes: { notchedOutline: classes.input },
+          className: classes.text,
+        }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
+        fullWidth={true}
+      />
+      <Box style={{ padding: "10px" }}>
+        <Button
+          onClick={handleSubmit}
+          className={classes.button}
+          color="primary"
+          variant="contained"
+          fullWidth
+        >
+          Add a Tag
+        </Button>
+      </Box>
       <Box className={classes.tags}>
         {tags.map((chip) => (
           <FormSmallTag key={chip} chip={chip} tags={tags} setTags={setTags} />
