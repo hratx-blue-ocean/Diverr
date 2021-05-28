@@ -7,24 +7,21 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   col: {
-    display: "inline-flex",
-    flexDirection: "column",
-    margin: 50,
-    marginRight: 50,
-    marginLeft: 125,
+    paddingRight: 50,
+    paddingTop: 50,
   },
   textfield: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
     },
   },
   input: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   values: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
 }));
 
@@ -49,6 +46,7 @@ export default function ColumnTwo({ formik }) {
           className: classes.values,
         }}
         variant="outlined"
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -66,6 +64,7 @@ export default function ColumnTwo({ formik }) {
           className: classes.values,
         }}
         variant="outlined"
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -81,6 +80,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -96,6 +96,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -111,6 +112,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -127,6 +129,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -142,6 +145,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -157,6 +161,7 @@ export default function ColumnTwo({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
     </div>
   );

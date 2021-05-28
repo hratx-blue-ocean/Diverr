@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   textright: {
-    borderTop:"2px solid",
+    borderTop: "2px solid",
     borderBottom: "2px solid",
     borderRight: "2px solid",
     borderTopColor: theme.palette.primary.main,
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "0 25px 25px 0",
   },
   textleft: {
-    borderTop:"2px solid",
+    borderTop: "2px solid",
     borderBottom: "2px solid",
     borderLeft: "2px solid",
     borderTopColor: theme.palette.primary.main,
@@ -86,7 +86,11 @@ export default function PostImages({ photos }) {
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button className={classes.textright} size="small" onClick={handleNext}>
+          <Button
+            className={classes.textright}
+            size="small"
+            onClick={handleNext}
+          >
             Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
@@ -96,7 +100,11 @@ export default function PostImages({ photos }) {
           </Button>
         }
         backButton={
-          <Button className={classes.textleft} size="small" onClick={handleBack}>
+          <Button
+            className={classes.textleft}
+            size="small"
+            onClick={handleBack}
+          >
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (

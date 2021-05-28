@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
     },
   },
@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   input: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   values: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
 }));
 
@@ -55,6 +55,9 @@ export default function FormTags({ tags, setTags }) {
           className={classes.textfield}
           InputLabelProps={{
             className: classes.input,
+          }}
+          InputProps={{
+            className: classes.values,
           }}
         />
       </Grid>

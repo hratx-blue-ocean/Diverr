@@ -6,31 +6,29 @@ import { TextField } from "@material-ui/core";
 import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
-  col: {
-    margin: 50,
-    marginRight: 0,
-    marginTop: -225,
-  },
+  // col: {
+  //   margin: 50,
+  // },
   textfield: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
     },
   },
   notes: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
       height: 300,
     },
   },
   input: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   values: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
 }));
 
@@ -38,7 +36,8 @@ export default function ColumnThree({ formik }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.col}>
+    // <div className={classes.col}>
+    <>
       <TextField
         className={classes.textfield}
         label="Visibility"
@@ -52,6 +51,7 @@ export default function ColumnThree({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -66,6 +66,7 @@ export default function ColumnThree({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -80,6 +81,7 @@ export default function ColumnThree({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -94,6 +96,7 @@ export default function ColumnThree({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.notes}
@@ -110,7 +113,8 @@ export default function ColumnThree({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
-    </div>
+    </>
   );
 }
