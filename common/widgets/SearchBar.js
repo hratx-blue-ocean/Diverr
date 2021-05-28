@@ -24,9 +24,8 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiInputBase-root": {
       color: theme.palette.lightBlue.main,
       fontWeight: "bold",
-    }
-  }
-
+    },
+  },
 }));
 
 export default function SearchBar({ tags, onSelect, search }) {

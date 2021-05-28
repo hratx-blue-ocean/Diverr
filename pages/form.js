@@ -17,16 +17,15 @@ import axios from "axios";
 const useStyles = makeStyles((theme) => ({
   col: {
     width: "100%",
-    marginLeft: 50,
+    padding: 50,
   },
   submit: {
     height: 56,
     width: "25%",
-    marginTop: 50,
     marginBottom: 10,
   },
   root: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
 }));
 
@@ -148,8 +147,13 @@ export default function AddNewLogForm({
       };
 
       fetch(`/api/user/${email}/add/log`, options)
-        .then((result) => console.log("Post successful"))
-        .catch((err) => console.log("Error adding form"));
+        .then((result) => {
+          alert("Log added successfully!");
+          formik.handleReset();
+        })
+        .catch((err) => {
+          alert("Sorry, please try again!");
+        });
     },
   });
 
@@ -159,21 +163,21 @@ export default function AddNewLogForm({
       <form className={classes.root}>
         <Grid
           container
-          justify="center"
-          alignItems="center"
+          // justify="center"
+          // alignItems="center"
           spacing={1}
           direction="row"
         >
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <Column1 formik={formik} />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={4}>
             <Column2 formik={formik} />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={4} style={{ marginTop: 50, paddingRight: 50 }}>
             <Column3 formik={formik} />
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} container>
             <Column4 formik={formik} />
           </Grid>
           <Grid className={classes.col} container spacing={3}>
@@ -187,6 +191,7 @@ export default function AddNewLogForm({
               color="primary"
               variant="contained"
               fullWidth
+              // type="submit"
             >
               Submit
             </Button>

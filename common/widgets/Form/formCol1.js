@@ -16,25 +16,27 @@ const useStyles = makeStyles((theme) => ({
   col: {
     flexDirection: "column",
     margin: 50,
-    marginLeft: 200,
-    marginRight: 0,
   },
   textfield: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
     },
   },
   title: {
     marginBottom: 10,
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   input: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   values: {
-    color: "#2196f3",
+    color: "#E9F7F9",
+  },
+  text: {
+    color: theme.palette.lightBlue.main,
+    fontSize: "1rem",
   },
 }));
 
@@ -50,10 +52,14 @@ export default function ColumnOne({ formik }) {
         <RadioGroup onChange={formik.handleChange} name="privacy">
           <FormControlLabel
             value="private"
-            control={<Radio />}
+            control={<Radio className={classes.text} color="primary" />}
             label="Private"
           />
-          <FormControlLabel value="public" control={<Radio />} label="Public" />
+          <FormControlLabel
+            value="public"
+            control={<Radio className={classes.text} color="primary" />}
+            label="Public"
+          />
         </RadioGroup>
       </FormControl>
       <TextField
@@ -72,7 +78,8 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
-        style={{ color: "#2196f3" }}
+        style={{ color: "#E9F7F9" }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -88,6 +95,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -98,7 +106,7 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         style={{
-          color: "#2196f3 !important",
+          color: "#E9F7F9 !important",
         }}
         InputLabelProps={{
           className: classes.input,
@@ -106,6 +114,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -121,6 +130,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -136,6 +146,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -153,6 +164,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
       <TextField
         className={classes.textfield}
@@ -167,6 +179,7 @@ export default function ColumnOne({ formik }) {
         InputProps={{
           className: classes.values,
         }}
+        fullWidth={true}
       />
     </div>
   );

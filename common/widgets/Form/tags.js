@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
     "& input + fieldset": {
-      borderColor: "#2196f3",
+      borderColor: "#E9F7F9",
       borderWidth: 1,
     },
   },
@@ -21,10 +21,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   input: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
   values: {
-    color: "#2196f3",
+    color: "#E9F7F9",
   },
 }));
 
@@ -45,7 +45,7 @@ export default function FormTags({ tags, setTags }) {
 
   return (
     <Grid container spacing={3} direction="row">
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <TextField
           onChange={handleChange}
           label="Add Tags"
@@ -56,9 +56,12 @@ export default function FormTags({ tags, setTags }) {
           InputLabelProps={{
             className: classes.input,
           }}
+          InputProps={{
+            className: classes.values,
+          }}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <Button
           onClick={handleSubmit}
           className={classes.button}
