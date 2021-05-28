@@ -10,17 +10,17 @@ const useStyles = makeStyles((theme) => ({
     width: 300,
     "& .MuiFormLabel-root": {
       color: theme.palette.lightBlue.main,
-      fontWeight: 900
+      fontWeight: 900,
     },
     "& .MuiIconButton-root": {
       color: theme.palette.lightBlue.main,
-    }
+    },
   },
   textfill: {
     "& .MuiFilledInput-underline:before": {
-      borderBottom: 'none'
+      borderBottom: "none",
     },
-  }
+  },
 }));
 
 export default function SearchBar({ tags, onSelect, search }) {

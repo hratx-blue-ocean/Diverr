@@ -4,7 +4,7 @@ import { useSession, getSession } from "next-auth/client";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import axios from 'axios';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +21,16 @@ export async function getServerSideProps(context) {
 
   if (session) {
     try {
-      const newUser = await fetch(`${process.env.NEXTAUTH_URL}/api/new/${user.email}`, {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {"Content-type": "application/json"}
-      });
-      console.log('New user created - welcome!')
-    } catch(err) {
+      const newUser = await fetch(
+        `${process.env.NEXTAUTH_URL}/api/new/${user.email}`,
+        {
+          method: "POST",
+          body: JSON.stringify(user),
+          headers: { "Content-type": "application/json" },
+        }
+      );
+      console.log("New user created - welcome!");
+    } catch (err) {
       console.error(err);
     }
   }

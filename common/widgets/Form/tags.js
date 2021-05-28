@@ -10,17 +10,17 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     height: 56,
-    margin: 5
+    margin: 5,
   },
   tags: {
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
 export default function FormTags({ tags, setTags }) {
   const classes = useStyles();
-  const [tag, setTag] = useState('');
+  const [tag, setTag] = useState("");
 
   const handleChange = (e) => {
     setTag(e.target.value);
@@ -46,12 +46,20 @@ export default function FormTags({ tags, setTags }) {
         />
       </Grid>
       <Grid item xs={2}>
-        <Button onClick={handleSubmit} className={classes.button} color="primary" variant="contained" fullWidth>
+        <Button
+          onClick={handleSubmit}
+          className={classes.button}
+          color="primary"
+          variant="contained"
+          fullWidth
+        >
           Add a Tag
         </Button>
       </Grid>
       <Grid className={classes.tags} item xs={8}>
-        {tags.map(chip => <FormSmallTag key={chip} chip={chip} tags={tags} setTags={setTags} />)}
+        {tags.map((chip) => (
+          <FormSmallTag key={chip} chip={chip} tags={tags} setTags={setTags} />
+        ))}
       </Grid>
     </Grid>
   );

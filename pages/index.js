@@ -15,7 +15,7 @@ import data from "lib/dummyData/dummyData.js";
 import Greeting from "common/components/home/Greeting";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import axios from 'axios';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -100,11 +100,10 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  const resultLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/public`)
+  const resultLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/public`);
   const finalResult = await resultLogs.json();
   const result = {
-    props: {resultLogs: finalResult[0].logs}
-  }
+    props: { resultLogs: finalResult[0].logs },
+  };
   return result;
 }
-

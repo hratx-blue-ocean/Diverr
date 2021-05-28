@@ -1,20 +1,20 @@
 import { Typography, Grid, Card, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Tags from 'common/components/dashboard/Tags.js';
+import Tags from "common/components/dashboard/Tags.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   itemOne: {
     padding: "8px",
-    minHeight: '25%'
+    minHeight: "25%",
   },
   itemTwo: {
     padding: "8px",
-    minHeight: '25%'
+    minHeight: "25%",
   },
   itemThree: {
     padding: "8px",
-    minHeight: '35%'
+    minHeight: "35%",
   },
   spacer: {
     height: "10px",

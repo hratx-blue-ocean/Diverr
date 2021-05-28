@@ -5,7 +5,7 @@ import Carousel from "common/components/dashboard/Carousel";
 import LogDisplayColumn1 from "common/components/dashboard/LogDisplayColumnOne";
 import LogDisplayColumn2 from "common/components/dashboard/LogDisplayColumnTwo";
 import { makeStyles } from "@material-ui/core/styles";
-import NewCarousel from "common/components/dashboard/NewCarousel.js"
+import NewCarousel from "common/components/dashboard/NewCarousel.js";
 
 const useStyles = makeStyles((theme) => ({
   widthSpacer: {
@@ -30,14 +30,12 @@ export default function LogDisplay({ log }) {
           <LogDisplayColumn2 log={log} />
         </Grid>
       </Grid>
-      <Grid container >
+      <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h3">
-            Photos:
-          </Typography>
+          <Typography variant="h3">Photos:</Typography>
         </Grid>
         <Grid item xs={12}>
-          <NewCarousel tileData={log.photos}/>
+          <NewCarousel tileData={log.photos} />
         </Grid>
       </Grid>
     </>

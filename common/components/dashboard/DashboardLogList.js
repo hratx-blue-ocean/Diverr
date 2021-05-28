@@ -8,8 +8,8 @@ const useStyles = makeStyles((theme) => ({
     height: 5,
   },
   log: {
-    cursor: 'pointer'
-  }
+    cursor: "pointer",
+  },
 }));
 export default function LogList({ logs, selectLog, selectedTags }) {
   const classes = useStyles();
@@ -28,8 +28,10 @@ export default function LogList({ logs, selectLog, selectedTags }) {
                 className={classes.log}
                 onClick={() => {
                   selectLog(i);
-                }}>
-                  Log No. {i + 1}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}
+                }}
+              >
+                Log No. {i + 1}: {new Date(log.date).toDateString()} @{" "}
+                {log.dive_site}{" "}
               </Card>
               <Box className={classes.spacer} />
             </>

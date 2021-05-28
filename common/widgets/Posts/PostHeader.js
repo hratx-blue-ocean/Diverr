@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   subtext: {
     color: theme.palette.lightBlue.main,
-  }
+  },
 }));
 
 export default function FeedHeader({ name, location, date }) {
   const classes = useStyles();
-  const [firstName, lastName] = name.split(' ')
+  const [firstName, lastName] = name.split(" ");
   return (
     <CardHeader
       avatar={
@@ -43,10 +43,14 @@ export default function FeedHeader({ name, location, date }) {
           alignItems="center"
         >
           <Typography className={classes.text}>{name}</Typography>
-          <Typography className={classes.text}>{moment(date).fromNow()}</Typography>
+          <Typography className={classes.text}>
+            {moment(date).fromNow()}
+          </Typography>
         </Grid>
       }
-      subheader={<Typography className={classes.subtext}>{location}</Typography>}
+      subheader={
+        <Typography className={classes.subtext}>{location}</Typography>
+      }
       className={classes.header}
     />
   );

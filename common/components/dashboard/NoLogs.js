@@ -1,13 +1,13 @@
-import { Box, Grid, Card, Typography, Button} from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import Link from 'next/link'
-import UserInfo from 'common/components/dashboard/UserInfo.js';
+import { Box, Grid, Card, Typography, Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Link from "next/link";
+import UserInfo from "common/components/dashboard/UserInfo.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 500,
     height: 80,
-    display: 'flex',
+    display: "flex",
   },
 }));
 
@@ -20,16 +20,18 @@ export default function Tags({ name, logs }) {
       direction="column"
       alignItems="center"
       justify="center"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: "100vh" }}
     >
       <Grid item xs={12}>
-        <UserInfo name={name} logs={logs}/>
+        <UserInfo name={name} logs={logs} />
       </Grid>
       <Grid item xs={12}></Grid>
       <Grid item xs={12}>
         <Card className={classes.card}>
           <Typography variant="h3">YOU HAVE NO LOGS!</Typography>
-          <Link href='/form'><Button>CLICK HERE TO START LOGGING</Button></Link>
+          <Link href="/form">
+            <Button>CLICK HERE TO START LOGGING</Button>
+          </Link>
         </Card>
       </Grid>
     </Grid>

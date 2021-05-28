@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 export default function SmallTagContainer({ tags, handleClick }) {
   const classes = useStyles();
   return (
-    tags &&
+    tags && (
       <Paper elevation={3} component="ul" className={classes.paper}>
         {tags.map((tag) => {
           return (
@@ -27,5 +27,6 @@ export default function SmallTagContainer({ tags, handleClick }) {
           );
         })}
       </Paper>
+    )
   );
 }

@@ -48,8 +48,12 @@ export default function logDisplayColumn1({ log }) {
         <Typography variant="body1">
           End Pressure: {log.end_pressure}
         </Typography>
-        <Typography variant="body1">Start Time: {new Date(log.time_in).toTimeString()}</Typography>
-        <Typography variant="body1">End Time: {new Date(log.time_out).toTimeString()}</Typography>
+        <Typography variant="body1">
+          Start Time: {new Date(log.time_in).toTimeString()}
+        </Typography>
+        <Typography variant="body1">
+          End Time: {new Date(log.time_out).toTimeString()}
+        </Typography>
       </Card>
     </>
   );
