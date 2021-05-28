@@ -50,3 +50,4 @@ export default function LogList({ logs, selectLog, selectedTags }) {
     </Box>
   );
 }
+//
