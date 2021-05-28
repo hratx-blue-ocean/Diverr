@@ -38,29 +38,25 @@ export async function getServerSideProps(context) {
   }
   const email = session.user.email;
   let host = (process.env.NEXTAUTH_URL);
-  const resultUserTags = await axios.get(`${host}/api/user/19ccrow99@gmail.com/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
-  if (!resultUserTags.data) {
+  const resultUserTags = await fetch(`http://localhost:3000/api/user/${email}/tags`);
+  const finalResultUserTags = await resultUserTags.json();
+
+  if (!finalResultUserTags) {
     return {
       props: {notFound: true}
     }
   }
-  const resultUserLogs =  await axios.get(`${host}/api/user/19ccrow99@gmail.com/logs`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
-  if (!resultUserLogs.data) {
+
+  const resultUserLogs = await fetch(`http://localhost:3000/api/user/${email}/logs`);
+  const finalResultUserLogs = await resultUserLogs.json();
+
+  if (!finalResultUserLogs) {
     return {
-      notFound: true,
+      props: {notFound: true},
     }
   }
   const result = {
-    props: {session: session, userTags: resultUserTags.data, userLogs: resultUserLogs.data}
+    props: {session: session, userTags: finalResultUserTags, userLogs: finalResultUserLogs}
   }
   return result;
-  // return {
-  //   props: {
-  //     session: null,
-  //     providers: (await providers(context)) || {},
-  //   },
-  // };
 }
-// {!session && <Dashboard selection={"noUser"} />}
-// {session && <Dashboard selection={"user"} email={session.user.email} />}
-// {session && loading && <Dashboard selection={"loading"} />}
