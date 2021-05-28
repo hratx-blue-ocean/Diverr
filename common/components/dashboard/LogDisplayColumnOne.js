@@ -58,8 +58,7 @@ export default function logDisplayColumn1({ log }) {
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemTwo}>
-        <Typography
-          variant="body1"
+        <Box
           className={classes.detail}
           data-testid="rnt"
         >
@@ -70,20 +69,17 @@ export default function logDisplayColumn1({ log }) {
             RNT:{" "}
           </Typography>{" "}
           {log.rnt}
-        </Typography>
-        <Typography
-          variant="body1"
+        </Box>
+        <Box
           className={classes.detail}
-          data-testid="tbt"
         >
           {" "}
           <Typography display="inline" color="primary" variant="body1">
             ABT:{" "}
           </Typography>{" "}
           {log.abt}
-        </Typography>
-        <Typography
-          variant="body1"
+        </Box>
+        <Box
           className={classes.detail}
           data-testid="tbt"
         >
@@ -92,7 +88,7 @@ export default function logDisplayColumn1({ log }) {
             TBT:{" "}
           </Typography>{" "}
           {log.tbt}
-        </Typography>
+        </Box>
         <Typography
           variant="body1"
           className={classes.detail}
@@ -102,7 +98,7 @@ export default function logDisplayColumn1({ log }) {
           <Typography display="inline" color="primary" variant="body1">
             Cumulative Time:
           </Typography>{" "}
-          2 minutes
+          {log.cumulative_time} minutes
         </Typography>
       </Card>
       <Box className={classes.spacer} />
