@@ -7,8 +7,20 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.lightBlue.main,
+    width: 300,
+    "& .MuiFormLabel-root": {
+      color: theme.palette.lightBlue.main,
+      fontWeight: 900
+    },
+    "& .MuiIconButton-root": {
+      color: theme.palette.lightBlue.main,
+    }
   },
+  textfill: {
+    "& .MuiFilledInput-underline:before": {
+      borderBottom: 'none'
+    },
+  }
 }));
 
 export default function SearchBar({ tags, onSelect, search }) {
@@ -21,13 +33,12 @@ export default function SearchBar({ tags, onSelect, search }) {
       id="search box"
       options={tags}
       getOptionLabel={(option) => option}
-      style={{ width: 300 }}
       renderInput={(params) => (
         <TextField
           {...params}
           label="Search the tag you like"
           variant="filled"
-          color="primary"
+          className={classes.textfill}
         />
       )}
     />

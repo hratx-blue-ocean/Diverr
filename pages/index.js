@@ -15,6 +15,7 @@ import data from "lib/dummyData/dummyData.js";
 import Greeting from "common/components/home/Greeting";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -79,7 +80,7 @@ export default function Home(props) {
                 xs={6}
                 className={classes.postContainer}
               >
-                {data.allLogs.logs.map((log) => (
+                {props.resultLogs.map((log) => (
                   <div key={log.id}>
                     <Post log={log} />
                   </div>
@@ -113,3 +114,12 @@ export default function Home(props) {
 //     props: {},
 //   };
 // }
+export async function getServerSideProps(context) {
+  // Redirect user if visiting signIn page while signed in
+  const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);
+  const result = {
+    props: {resultLogs: resultLogs.data[0].logs}
+  }
+  return result;
+}
+

@@ -4,13 +4,30 @@ import { Typography, Grid, Avatar, CardHeader } from "@material-ui/core";
 import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
+  header: {
+    display: "flex",
+    alignItems: "center",
+    height: 50,
+    paddingLeft: theme.spacing(4),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+    background: "rgb(33,150,243)",
+  },
   avatar: {
     backgroundColor: red[500],
   },
+  text: {
+    color: theme.palette.lightBlue.main,
+    fontWeight: "bold",
+  },
+  subtext: {
+    color: theme.palette.lightBlue.main,
+  }
 }));
 
-export default function FeedHeader({ firstName, lastName, location, date }) {
+export default function FeedHeader({ name, location, date }) {
   const classes = useStyles();
+  const [firstName, lastName] = name.split(' ')
   return (
     <CardHeader
       avatar={
@@ -25,11 +42,12 @@ export default function FeedHeader({ firstName, lastName, location, date }) {
           justify="space-between"
           alignItems="center"
         >
-          <Typography>{`${firstName} ${lastName}`}</Typography>
-          <Typography>{moment(date).fromNow()}</Typography>
+          <Typography className={classes.text}>{name}</Typography>
+          <Typography className={classes.text}>{moment(date).fromNow()}</Typography>
         </Grid>
       }
-      subheader={location}
+      subheader={<Typography className={classes.subtext}>{location}</Typography>}
+      className={classes.header}
     />
   );
 }

@@ -9,12 +9,19 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 600,
     flexGrow: 1,
   },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    height: 50,
-    paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
+  text: {
+    color: theme.palette.primary.main,
+    fontWeight: "bold",
+  },
+  imgFooter: {
+    color: theme.palette.primary.main,
+    borderRadius: "0 0 10px 10px",
+    borderBottom: "2px solid",
+    borderLeft: "2px solid",
+    borderRight: "2px solid",
+    borderBottomColor: theme.palette.primary.main,
+    borderLeftColor: theme.palette.primary.main,
+    borderRightColor: theme.palette.primary.main,
   },
   img: {
     maxHeight: 450,
@@ -24,22 +31,6 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "cover",
   },
 }));
-
-{
-  /* <img
-className={classes.img}
-src={photos[activeStep].url}
-alt={photos[activeStep].id}
-/>
-
-<Image
-  src={photos[activeStep].url}
-  alt={photos[activeStep].id}
-  width={500}
-  height={500}
-/>
-*/
-}
 
 export default function PostImages({ photos }) {
   const classes = useStyles();
@@ -70,12 +61,13 @@ export default function PostImages({ photos }) {
         alt={photos[activeStep].id}
       />
       <MobileStepper
+        className={classes.imgFooter}
         steps={maxSteps}
         position="static"
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext}>
+          <Button className={classes.text} size="small" onClick={handleNext}>
             Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
@@ -85,7 +77,7 @@ export default function PostImages({ photos }) {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack}>
+          <Button className={classes.text} size="small" onClick={handleBack}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
