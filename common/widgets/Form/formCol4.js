@@ -19,7 +19,7 @@ import { useFormik } from "formik";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
-    width: "100%",
+    // width: "100%",
   },
 }));
 
@@ -28,11 +28,13 @@ export default function ColumnFour({ formik }) {
 
   return (
     <>
-      <Grid style={{ width: "7px" }}>
+      <Grid>
         <Typography variant="h6">Exposure Protection</Typography>
         <hr />
         <FormControl>
-          <FormLabel component="legend">Thermal Insulation</FormLabel>
+          <FormLabel component="legend" style={{ color: "#E9F7F9" }}>
+            Thermal Insulation
+          </FormLabel>
           <RadioGroup onChange={formik.handleChange} name="suitUp">
             <FormControlLabel
               value="wetsuit"

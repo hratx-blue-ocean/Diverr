@@ -39,7 +39,7 @@ export default function ColumnOne({ formik }) {
   return (
     <>
       <FormControl style={{ padding: "7px" }}>
-        <FormLabel component="legend" style={{ color: "white" }}>
+        <FormLabel component="legend" style={{ color: "#E9F7F9" }}>
           Privacy
         </FormLabel>
         <hr />
@@ -79,7 +79,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -96,7 +96,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -113,7 +113,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -130,7 +130,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -147,7 +147,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -163,7 +163,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
       <TextField
         className={classes.textfield}
@@ -179,7 +179,7 @@ export default function ColumnOne({ formik }) {
           classes: { notchedOutline: classes.input },
           className: classes.text,
         }}
-        InputLabelProps={{ style: { color: "#fff" } }}
+        InputLabelProps={{ style: { color: "#E9F7F9" } }}
       />
     </>
   );

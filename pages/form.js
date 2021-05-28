@@ -18,7 +18,15 @@ const useStyles = makeStyles((theme) => ({
   col: {
     width: "100%",
   },
-  col2: {},
+  smlCol: {
+    // minWidth: 201
+  },
+  bigCol: {
+    // minWidth: 300
+  },
+  colSpacer: {
+    // minWidth: 10
+  },
   spacer: {
     height: "15px",
   },
@@ -30,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage:
       "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 20, 1))",
     color: theme.palette.lightBlue.main,
+    width: "100vw",
   },
 }));
 
@@ -77,20 +86,26 @@ export default function AddNewLogForm() {
           Store a Log
         </Typography>
       </Grow>
-      <form>
-        <Grid container spacing={1} className={classes.main}>
-          <Grid item xs={1} />
+      <form style={{ width: "100vw" }}>
+        {/* <Grid item xs={1} className={classes.colSpacer}/> */}
+        <Grid container justify="center" spacing={1} className={classes.main}>
           <Grid
             item
             xs={2}
             container
             direction="column"
             justify="space-around"
-            className={classes.col}
+            className={classes.smallCol}
           >
             <Column1 formik={formik} container direction="column" />
           </Grid>
-          <Grid item xs={3} container direction="row" className={classes.col2}>
+          <Grid
+            item
+            xs={3}
+            container
+            direction="row"
+            className={classes.bigCol}
+          >
             <Column2 formik={formik} />
           </Grid>
           <Grid
@@ -98,15 +113,15 @@ export default function AddNewLogForm() {
             xs={2}
             container
             direction="column"
-            className={classes.col}
+            className={classes.smlCol}
             style={{ padding: "7px" }}
           >
             <Column3 formik={formik} container direction="column" />
           </Grid>
-          <Grid item xs={3} className={classes.col2}>
+          <Grid item xs={3} className={classes.bigCol}>
             <Column4 formik={formik} container direction="column" />
           </Grid>
-          <Grid item xs={1} />
+          {/* <Grid item xs={1} className={classes.colSpacer}/> */}
         </Grid>
         <Box className={classes.spacer} />
         <Grid container className={classes.col}>
