@@ -1,12 +1,16 @@
 import Typography from "@material-ui/core/Typography";
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/client";
 import data from "lib/dummyData/dummyData.js";
 import TagList from "common/components/dashboard/DashboardTagList";
 import LogList from "common/components/dashboard/DashboardLogList";
 import LogDisplay from "common/components/dashboard/DashboardLogDisplay";
+import UserInfo from 'common/components/dashboard/UserInfo.js';
+import NoLogs from 'common/components/dashboard/NoLogs.js';
 import { Grid, Card } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,10 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function UserDashboardLayout({ email }) {
+export default function UserDashboardLayout({ session, userTags, userLogs}) {
   const classes = useStyles();
-  const [tagList, changeTagList] = useState(data.userTags.tags);
-  const [logList, changeLogList] = useState(data.userLogs.user.logs);
   const [selectedTags, changeSelectedTags] = useState({});
   const [currentLog, changeLog] = useState(0);
   const toggleSelected = (tag) => {
@@ -62,54 +64,55 @@ export default function UserDashboardLayout({ email }) {
   const selectLog = (logListIndex) => {
     changeLog(logListIndex);
   };
-  return (
-    <Grid container direction="row" className={classes.root}>
-      <Grid item xs={4} className={classes.col1Container}>
-        <Card className={classes.col1Item}>
-          <Typography variant="span" color="primary">
-            {`Hello, ${email}`}
-          </Typography>
-        </Card>
-        <Box className={classes.spacer} />
-        <Box className={classes.scrollTags}>
-          <TagList
-            tags={tagList}
-            selectedTags={selectedTags}
-            toggleSelected={toggleSelected}
-          />
-        </Box>
-        <Box className={classes.spacer} />
-        <Box className={classes.scrollLogs}>
-          <LogList
-            logs={logList}
-            selectLog={selectLog}
-            selectedTags={selectedTags}
-          />
-        </Box>
-      </Grid>
-      <Grid
-        container
-        justify="center"
-        alignItems="center"
-        item
-        xs={8}
-        className={classes.col2Container}
-      >
-        <Box className={classes.logContainer}>
-          <LogDisplay log={logList[currentLog]} />
-        </Box>
-      </Grid>
-    </Grid>
-  );
+  //  COMMENT THIS IN TO VIEW NO LOGS
+  // userLogs = [];
+  if (session) {
+    if (userLogs.length) {
+      return (
+        <Grid container direction="row" className={classes.root}>
+          <Grid item xs={3} className={classes.col1Container}>
+            <UserInfo name={session.user.name} logs={userLogs}/>
+            <Box className={classes.spacer} />
+            <Box className={classes.scrollTags}>
+              <TagList
+                tags={userTags}
+                selectedTags={selectedTags}
+                toggleSelected={toggleSelected}
+              />
+            </Box>
+            <Box className={classes.spacer} />
+            <Box className={classes.scrollLogs}>
+              <LogList
+                logs={userLogs}
+                selectLog={selectLog}
+                selectedTags={selectedTags}
+              />
+            </Box>
+          </Grid>
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            item
+            xs={8}
+            className={classes.col2Container}
+          >
+            <Box className={classes.logContainer}>
+              <LogDisplay log={userLogs[currentLog]} />
+            </Box>
+          </Grid>
+        </Grid>
+      );
+    } else {
+      return <NoLogs name={session.user.name} logs={[]}/>
+    }
+  } else {
+    return (
+      <>
+        <Typography variant="h2" color="primary">
+          Loading...
+        </Typography>
+      </>
+    );
+  }
 }
-
-/*
-Grid Container for whole page
-  Grid Container Item for page: direction column, xs 12
-    Grid Container Item : Column 1 xs 3
-      Grid Item for column 1: User Info xs 12
-      Grid Item for column 1: Tag List xs 12
-      Grid Item for column 1: Log List xs 12
-    Grid Item For Column 2: Log Display xs 9
-
-*/

@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, Card } from "@material-ui/core";
 import filterLogs from "common/utils/filterLogs";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles((theme) => ({
+  spacer: {
+    height: 5,
+  },
+  log: {
+    cursor: 'pointer'
+  }
+}));
 export default function LogList({ logs, selectLog, selectedTags }) {
+  const classes = useStyles();
   return (
     <Box className="logList">
       <Typography variant="h5">Dive Logs:</Typography>
@@ -12,17 +22,17 @@ export default function LogList({ logs, selectLog, selectedTags }) {
           filterLogs(selectedTags, log.tags)
         ) {
           return (
-            <Box
-              key={i}
-              className="logTitle"
-              onClick={() => {
-                selectLog(i);
-              }}
-            >
-              <Box component="span">
-                Log No. {log.id}: {log.date} @ {log.dive_site}{" "}
-              </Box>
-            </Box>
+            <>
+              <Card
+                key={i}
+                className={classes.log}
+                onClick={() => {
+                  selectLog(i);
+                }}>
+                  Log No. {i + 1}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}
+              </Card>
+              <Box className={classes.spacer} />
+            </>
           );
         }
       })}
