@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FeedHeader({ name, location, date }) {
   const classes = useStyles();
   const [firstName, lastName] = name.split(" ");
+  const colors = ['red', 'orange', 'purple', 'green']
   return (
     <CardHeader
       avatar={
