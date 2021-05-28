@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "scroll",
     height: "30%",
     boxShadow: "1px 1px 1px 1px black",
+    backgroundColor: theme.palette.lightBlue.main,
   },
   scrollLogs: {
     overflowX: "scroll",

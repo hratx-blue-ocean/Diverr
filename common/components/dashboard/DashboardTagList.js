@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { Chip } from "@material-ui/core";
-import Box from "@material-ui/core/Box";
+import {Box, Typography} from "@material-ui/core";
 import splitArrayRows from "common/utils/splitArray.js";
+import { makeStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles((theme) => ({
+  tagList: {
+    backgroundColor: theme.palette.lightBlue.main
+  }
+}));
 
 export default function TagList({ tags, selectedTags, toggleSelected }) {
   let tagRows = splitArrayRows(tags, 3);
+  let classes = useStyles();
   return (
-    <Box>
+    <Box >
       <Box className="selectedTagList">
-        <Box component="span">Selected Tags: </Box>
+        <Typography variant="h6" color="primary">Selected Tags: </Typography>
         {
           /* will map over selectedTags, and display them in a list*/
           Object.keys(selectedTags).map((tag, index) => {

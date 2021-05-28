@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
   spacer: {
     height: "10px",
   },
+  detail: {
+    color: theme.palette.gray.main
+  }
 }));
 
 export default function logDisplayColumn1({ log }) {
@@ -29,7 +32,7 @@ export default function logDisplayColumn1({ log }) {
   return (
     <>
       <Card className={classes.itemOne}>
-        <Typography variant="body1" data-testid="date">
+        <Typography variant="body1" className={classes.detail} data-testid="date">
         <Typography variant="h6" data-testid="notes" color="primary">
           Basic Dive Data:
         </Typography>
@@ -44,7 +47,7 @@ export default function logDisplayColumn1({ log }) {
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemTwo}>
-        <Typography variant="body1" data-testid="rnt">
+        <Typography variant="body1" className={classes.detail} data-testid="rnt">
         <Typography variant="h6" data-testid="notes" color="primary">
           Dive Time Metrics:{" "}
         </Typography>
@@ -68,7 +71,7 @@ export default function logDisplayColumn1({ log }) {
         <Typography variant="h6" data-testid="notes" color="primary">
           Notes:{" "}
         </Typography>
-        <Typography variant="body1" data-testid="notes-text">
+        <Typography variant="body1" className={classes.detail} data-testid="notes-text">
           {log.notes}
           {log.tags && <Tags log={log} />}
         </Typography>

@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
   spacer: {
     height: "10px",
   },
+  detail: {
+    color: theme.palette.gray.main
+  }
 }));
 
 export default function logDisplayColumn1({ log }) {
@@ -19,11 +22,11 @@ export default function logDisplayColumn1({ log }) {
     <>
       <Card className={classes.item}>
         <Typography variant="h6" color="primary">Dive Conditions</Typography>
-        <Typography variant="body1"> <Typography display="inline" color="primary" variant="body1">Visibility:</Typography>{' ' + log.visibility}</Typography>
-        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">Air Temp:</Typography> {' ' + log.air_temp}</Typography>
-        <Typography variant="body1"><Typography display="inline" color="primary" variant="body1">Water Temp: </Typography> {log.water_temp}</Typography>
+        <Typography variant="body1" className={classes.detail}> <Typography display="inline" color="primary" variant="body1">Visibility:</Typography>{' ' + log.visibility}</Typography>
+        <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">Air Temp:</Typography> {' ' + log.air_temp}</Typography>
+        <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">Water Temp: </Typography> {log.water_temp}</Typography>
         <Typography variant="body1">
-        <Typography display="inline" color="primary" variant="body1">Conditions: </Typography> {log.salt_water ? "Salt-Water" : "Fresh-Water?"},{" "}
+        <Typography display="inline" color="primary" variant="body1">Conditions: </Typography> {log.salt_water ? "Salt-Water" : "Fresh-Water"},{" "}
           {log.boat ? "Boat" : "No Boat"},{" "}
           {log.current ? "Current" : "No Current"}
         </Typography>

@@ -10,13 +10,17 @@ const useStyles = makeStyles((theme) => ({
   log: {
     cursor: 'pointer',
     backgroundColor: theme.palette.primary.main
+  },
+  logList: {
+    backgroundColor: theme.palette.lightBlue.main
   }
+
 }));
 export default function LogList({ logs, selectLog, selectedTags }) {
   const classes = useStyles();
   return (
-    <Box className="logList">
-      <Typography variant="h5">Dive Logs:</Typography>
+    <Box className={classes.logList}>
+      <Typography variant="h5" color="primary">Dive Logs:</Typography>
       {logs.map((log, i) => {
         if (
           Object.keys(selectedTags).length === 0 ||
