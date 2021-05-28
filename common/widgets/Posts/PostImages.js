@@ -9,11 +9,30 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 600,
     flexGrow: 1,
   },
-  text: {
+  textright: {
+    borderTop:"2px solid",
+    borderBottom: "2px solid",
+    borderRight: "2px solid",
+    borderTopColor: theme.palette.primary.main,
+    borderBottomColor: theme.palette.primary.main,
+    borderRightColor: theme.palette.primary.main,
     color: theme.palette.primary.main,
     fontWeight: "bold",
+    borderRadius: "0 25px 25px 0",
+  },
+  textleft: {
+    borderTop:"2px solid",
+    borderBottom: "2px solid",
+    borderLeft: "2px solid",
+    borderTopColor: theme.palette.primary.main,
+    borderBottomColor: theme.palette.primary.main,
+    borderLeftColor: theme.palette.primary.main,
+    color: theme.palette.primary.main,
+    fontWeight: "bold",
+    borderRadius: "25px 0 0 25px",
   },
   imgFooter: {
+    fontWeight: "bold",
     color: theme.palette.primary.main,
     borderRadius: "0 0 10px 10px",
     borderBottom: "2px solid",
@@ -67,7 +86,7 @@ export default function PostImages({ photos }) {
         variant="text"
         activeStep={activeStep}
         nextButton={
-          <Button className={classes.text} size="small" onClick={handleNext}>
+          <Button className={classes.textright} size="small" onClick={handleNext}>
             Next
             {theme.direction === "rtl" ? (
               <KeyboardArrowLeft />
@@ -77,7 +96,7 @@ export default function PostImages({ photos }) {
           </Button>
         }
         backButton={
-          <Button className={classes.text} size="small" onClick={handleBack}>
+          <Button className={classes.textleft} size="small" onClick={handleBack}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
