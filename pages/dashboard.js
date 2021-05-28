@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
   }
   const email = session.user.email;
   let host = (process.env.NEXTAUTH_URL);
-  const resultUserTags = await fetch(`http://localhost:3000/api/user/${email}/tags`);
+  const resultUserTags = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${email}/tags`);
   const finalResultUserTags = await resultUserTags.json();
 
   if (!finalResultUserTags) {
@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
     }
   }
 
-  const resultUserLogs = await fetch(`http://localhost:3000/api/user/${email}/logs`);
+  const resultUserLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${email}/logs`);
   const finalResultUserLogs = await resultUserLogs.json();
 
   if (!finalResultUserLogs) {
