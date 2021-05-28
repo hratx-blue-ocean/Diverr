@@ -100,7 +100,7 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps(context) {
-  const resultLogs = await fetch(`http://localhost:3000/api/public`)
+  const resultLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/public`)
   const finalResult = await resultLogs.json();
   const result = {
     props: {resultLogs: finalResult[0].logs}

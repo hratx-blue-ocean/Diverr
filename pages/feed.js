@@ -49,10 +49,10 @@ export async function getServerSideProps(context) {
     return { props: {} };
   }
 
-  const resultTags = await fetch(`http://localhost:3000/api/tags`);
+  const resultTags = await fetch(`${process.env.NEXTAUTH_URL}/api/tags`);
   const finalResultTags = await resultTags.json();
 
-  const resultLogs = await fetch(`http://localhost:3000/api/public`);
+  const resultLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/public`);
   const finalResultLogs = await resultLogs.json();
 
   const result = {
