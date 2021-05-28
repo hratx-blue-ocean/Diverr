@@ -23,7 +23,7 @@ export default function Feed({resultTags, resultLogs}) {
       >
         <SearchBar tags={resultTags} onSelect={setSearch} search={search} />
         {resultLogs.map((log) => {
-          if ((log.tags.includes(search) || search === null) && log.photos.length > 0) {
+          if ((log.tags && log.tags.includes(search) || search === null) && log.photos.length > 0) {
             return (
               <div key={log.id}>
                 <Post log={log} handleClick={setSearch} />
