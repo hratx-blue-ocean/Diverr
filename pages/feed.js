@@ -48,10 +48,15 @@ export async function getServerSideProps(context) {
     res.end();
     return { props: {} };
   }
-  const resultTags = await axios.get(`${process.env.NEXTAUTH_URL}/api/tags`); // REPLACE EMAIL WITH ${email} IN THE FUTURE
-  const resultLogs =  await axios.get(`${process.env.NEXTAUTH_URL}/api/public`);// REPLACE EMAIL WITH ${email} IN THE FUTURE
+
+  const resultTags = await fetch(`http://localhost:3000/api/tags`);
+  const finalResultTags = await resultTags.json();
+
+  const resultLogs = await fetch(`http://localhost:3000/api/public`);
+  const finalResultLogs = await resultLogs.json();
+
   const result = {
-    props: {resultTags: resultTags.data, resultLogs: resultLogs.data[0].logs}
+    props: {resultTags: finalResultTags, resultLogs: finalResultLogs[0].logs}
   }
   return result;
 }

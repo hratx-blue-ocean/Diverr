@@ -26,14 +26,7 @@ export async function getServerSideProps(context) {
     }
   }
   return {
-<<<<<<< HEAD
-    props: {
-      session: null,
-      // providers: (await providers(context)) || {},
-    },
-=======
     props: {},
->>>>>>> db8e47ab7a748fcf82043f0c701447eb4fd1409f
   };
 }
 
