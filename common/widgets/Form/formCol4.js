@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginBottom: 10,
+    color: "#2196f3",
   },
 }));
 
@@ -53,7 +54,9 @@ export default function ColumnFour({ formik }) {
           Exposure Protection
         </Typography>
         <FormControl>
-          <FormLabel component="legend">Thermal Insulation</FormLabel>
+          <FormLabel className={classes.title} component="legend">
+            Thermal Insulation
+          </FormLabel>
           <RadioGroup onChange={formik.handleChange} name="suitUp">
             <FormControlLabel
               value="wetsuit"
@@ -105,7 +108,9 @@ export default function ColumnFour({ formik }) {
           Conditions
         </Typography>
         <FormControl>
-          <FormLabel component="legend">Environment</FormLabel>
+          <FormLabel className={classes.title} component="legend">
+            Environment
+          </FormLabel>
           <RadioGroup
             onChange={formik.handleChange}
             className={classes.environment}
@@ -121,7 +126,9 @@ export default function ColumnFour({ formik }) {
           </RadioGroup>
         </FormControl>
         <FormControl>
-          <FormLabel component="legend">Water</FormLabel>
+          <FormLabel className={classes.title} component="legend">
+            Water
+          </FormLabel>
           <RadioGroup onChange={formik.handleChange} name="water">
             <FormControlLabel value="fresh" control={<Radio />} label="Fresh" />
             <FormControlLabel value="salt" control={<Radio />} label="Salt" />

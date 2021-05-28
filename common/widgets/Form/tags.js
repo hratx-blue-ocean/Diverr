@@ -7,6 +7,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
+    "& input + fieldset": {
+      borderColor: "#2196f3",
+      borderWidth: 1,
+    },
   },
   button: {
     height: 56,
@@ -15,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
   tags: {
     justifyContent: "center",
     alignItems: "center",
+  },
+  input: {
+    color: "#2196f3",
+  },
+  values: {
+    color: "#2196f3",
   },
 }));
 
@@ -43,6 +53,9 @@ export default function FormTags({ tags, setTags }) {
           variant="outlined"
           value={tag}
           className={classes.textfield}
+          InputLabelProps={{
+            className: classes.input,
+          }}
         />
       </Grid>
       <Grid item xs={2}>
