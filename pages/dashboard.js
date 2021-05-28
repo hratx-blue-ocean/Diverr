@@ -1,16 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps } from "next";
 import AddButton from "common/components/buttons/AddButton";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/styles";
 import { useSession } from "next-auth/client";
 import UserDashboard from "common/layouts/UserDashboardLayout.js";
+import NoLogs from "common/components/dashboard/NoLogs.js";
 import Header from "common/widgets/Header";
 import { getSession } from "next-auth/client";
-import axios from 'axios';
+import axios from "axios";
 
-export default function Dashboard({session, userTags, userLogs}) {
+export default function Dashboard({ session, userTags, userLogs }) {
   return (
     <main>
       <Head>
@@ -18,7 +19,15 @@ export default function Dashboard({session, userTags, userLogs}) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      <UserDashboard session={session} userTags={userTags} userLogs={userLogs[0].logs}/>
+      {userLogs && userLogs.logs ? (
+        <UserDashboard
+          session={session}
+          userTags={userTags}
+          userLogs={userLogs.logs}
+        />
+      ) : (
+        <NoLogs name={session.user.name} logs={[]} />
+      )}
     </main>
   );
 }
@@ -31,32 +40,38 @@ export async function getServerSideProps(context) {
   // Redirect user if visiting signIn page while signed in
   if (!session) {
     res.writeHead(302, {
-      Location: "/signin",
+      Location: "/",
     });
     res.end();
     return { props: {} };
   }
   const email = session.user.email;
-  let host = (process.env.NEXTAUTH_URL);
-  const resultUserTags = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${email}/tags`);
+  let host = process.env.NEXTAUTH_URL;
+  const resultUserTags = await fetch(`${host}/api/user/${email}/tags`);
   const finalResultUserTags = await resultUserTags.json();
 
   if (!finalResultUserTags) {
     return {
-      props: {notFound: true}
-    }
+      props: { notFound: true },
+    };
   }
 
-  const resultUserLogs = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${email}/logs`);
+  const resultUserLogs = await fetch(`${host}/api/user/${email}/logs`);
   const finalResultUserLogs = await resultUserLogs.json();
+
+  console.log("WHAT DO LOGS LOOK LIKE", finalResultUserLogs);
 
   if (!finalResultUserLogs) {
     return {
-      props: {notFound: true},
-    }
+      props: { notFound: true },
+    };
   }
   const result = {
-    props: {session: session, userTags: finalResultUserTags, userLogs: finalResultUserLogs}
-  }
+    props: {
+      session: session,
+      userTags: finalResultUserTags,
+      userLogs: finalResultUserLogs[0],
+    },
+  };
   return result;
 }

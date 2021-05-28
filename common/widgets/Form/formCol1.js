@@ -37,11 +37,7 @@ export default function ColumnOne({ formik }) {
             control={<Radio />}
             label="Private"
           />
-          <FormControlLabel
-            value="public"
-            control={<Radio />}
-            label="Public"
-          />
+          <FormControlLabel value="public" control={<Radio />} label="Public" />
         </RadioGroup>
       </FormControl>
       <TextField
