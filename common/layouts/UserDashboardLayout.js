@@ -24,18 +24,16 @@ const useStyles = makeStyles((theme) => ({
     width: "15px",
   },
   col1Container: {
-    padding: "25px",
+    paddingTop: "50px",
+    paddingLeft: 25
   },
   scrollTags: {
     overflowX: "scroll",
-    height: "30%",
-    boxShadow: "1px 1px 1px 1px black",
     backgroundColor: theme.palette.lightBlue.main,
+    borderRadius: 5
   },
   scrollLogs: {
     overflowX: "scroll",
-    height: "60%",
-    boxShadow: "1px 1px 1px 1px black",
   },
   logContainer: {
     height: "85%",

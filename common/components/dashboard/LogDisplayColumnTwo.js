@@ -49,9 +49,9 @@ export default function logDisplayColumn1({ log }) {
         <Typography variant="body1" className={classes.detail}>
         <Typography display="inline" color="primary" variant="body1">Start Pressure: </Typography> {log.start_pressure}
         </Typography>
-        <Typography variant="body1" className={classes.detail}>
+        <Box className={classes.detail}>
         <Typography display="inline" color="primary" variant="body1">End Pressure: </Typography> {log.end_pressure}
-        </Typography>
+        </Box>
         <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">Start Time: </Typography> {log.time_in}</Typography>
         <Typography variant="body1" className={classes.detail}><Typography display="inline" color="primary" variant="body1">End Time: </Typography> {log.time_out}</Typography>
       </Card>

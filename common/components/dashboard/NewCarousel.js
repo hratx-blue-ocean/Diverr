@@ -12,16 +12,15 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.primary.main,
+    justify: 'center'
   },
   gridList: {
     flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
   image: {
     maxHeight: 250,
-    maxWidth: 250
+    maxWidth: 400
   }
 }));
 
@@ -45,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SingleLineGridList({tileData}) {
   const classes = useStyles();
-
   return (
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5}>

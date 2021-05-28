@@ -53,17 +53,17 @@ export default function logDisplayColumn1({ log }) {
         </Typography>
           <Typography display="inline" color="primary" variant="body1">RNT: </Typography> {log.rnt}
         </Typography>
-        <Typography variant="body1" color="black" data-testid="tbt">
+        <Typography variant="body1" className={classes.detail} data-testid="tbt">
           {" "}
           <Typography display="inline" color="primary" variant="body1">ABT: </Typography> {log.abt}
         </Typography>
-        <Typography variant="body1" data-testid="tbt">
+        <Typography variant="body1" className={classes.detail} data-testid="tbt">
           {" "}
           <Typography display="inline" color="primary" variant="body1">TBT: </Typography> {log.tbt}
         </Typography>
-        <Typography variant="body1" data-testid="cumulative">
+        <Typography variant="body1" className={classes.detail} data-testid="cumulative">
           {" "}
-          <Typography display="inline" color="primary" variant="body1">Cumulative Time:</Typography> FILL THIS OUT WITH NEW DATA
+          <Typography display="inline" color="primary" variant="body1">Cumulative Time:</Typography> 2 minutes
         </Typography>
       </Card>
       <Box className={classes.spacer} />

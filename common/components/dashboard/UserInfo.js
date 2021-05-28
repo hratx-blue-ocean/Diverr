@@ -2,11 +2,9 @@ import { Typography, Grid, Card, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  col1Container: {
-    padding: "25px",
-  },
   col1Item: {
-    backgroundColor: theme.palette.lightBlue.main
+    backgroundColor: theme.palette.lightBlue.main,
+    padding: "10px",
   }
 }));
 export default function logDisplayColumn1({ name, logs }) {

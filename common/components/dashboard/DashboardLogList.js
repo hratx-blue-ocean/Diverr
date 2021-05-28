@@ -12,7 +12,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main
   },
   logList: {
-    backgroundColor: theme.palette.lightBlue.main
+    backgroundColor: theme.palette.lightBlue.main,
+    borderRadius: '5px',
+    padding: 10,
+  },
+  logText: {
+    color: theme.palette.lightBlue.main,
+    padding: 3
   }
 
 }));
@@ -34,7 +40,7 @@ export default function LogList({ logs, selectLog, selectedTags }) {
                 onClick={() => {
                   selectLog(i);
                 }}>
-                  Log No. {logs.length - i}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}
+                  <Box className={classes.logText}>Log No. {logs.length - i}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}</Box>
               </Card>
               <Box className={classes.spacer} />
             </>
