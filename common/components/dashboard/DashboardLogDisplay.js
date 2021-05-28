@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
   heightSpacer: {
     height: "15px",
   },
+  title: {
+    color: theme.palette.lightBlue.main,
+  },
 }));
 
 export default function LogDisplay({ log }) {
@@ -32,7 +35,9 @@ export default function LogDisplay({ log }) {
       </Grid>
       <Grid container>
         <Grid item xs={12}>
-          <Typography variant="h3">Photos:</Typography>
+          <Typography variant="h3" className={classes.title}>
+            Photos:
+          </Typography>
         </Grid>
         <Grid item xs={12}>
           <NewCarousel tileData={log.photos} />

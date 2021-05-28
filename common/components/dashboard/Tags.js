@@ -4,5 +4,5 @@ import splitArrayRows from "common/utils/splitArray.js";
 import SmallTagContainer from "common/widgets/SmallTagContainer.js";
 
 export default function Tags({ log }) {
-  return <SmallTagContainer tags={log.tags} />;
+  return log.tags && <SmallTagContainer tags={log.tags} />;
 }

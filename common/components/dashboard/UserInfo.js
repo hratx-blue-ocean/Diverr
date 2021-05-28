@@ -2,8 +2,9 @@ import { Typography, Grid, Card, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  col1Container: {
-    padding: "25px",
+  col1Item: {
+    backgroundColor: theme.palette.lightBlue.main,
+    padding: "10px",
   },
 }));
 export default function logDisplayColumn1({ name, logs }) {
@@ -14,10 +15,19 @@ export default function logDisplayColumn1({ name, logs }) {
       <Typography variant="h5" color="primary">
         {`Hello, ${name}`}
       </Typography>
-      <Typography variant="h6">You've been on {logs.length} dives!</Typography>
-      <Typography variant="h6">
-        Cumulative Dive Hours: 2{/* {logs[logs.length - 1].cumulative_time} */}{" "}
-        Hours
+      <Box>
+        <Typography variant="h6" color="primary" display="inline">
+          You've been on{" "}
+        </Typography>
+        <Typography display="inline" color="secondary" variant="h6">
+          {logs.length} dives!
+        </Typography>
+      </Box>
+      <Typography variant="h6" color="secondary">
+        <Typography variant="h6" color="primary" display="inline">
+          Total Cumulative Dive Time:{" "}
+        </Typography>
+        2{/* {logs[logs.length - 1].cumulative_time} */} Minutes
       </Typography>
     </Card>
   );

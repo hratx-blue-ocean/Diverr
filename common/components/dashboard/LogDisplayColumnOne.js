@@ -7,17 +7,23 @@ const useStyles = makeStyles((theme) => ({
   itemOne: {
     padding: "8px",
     minHeight: "25%",
+    backgroundColor: theme.palette.lightBlue.main,
   },
   itemTwo: {
     padding: "8px",
     minHeight: "25%",
+    backgroundColor: theme.palette.lightBlue.main,
   },
   itemThree: {
     padding: "8px",
     minHeight: "35%",
+    backgroundColor: theme.palette.lightBlue.main,
   },
   spacer: {
     height: "10px",
+  },
+  detail: {
+    color: theme.palette.gray.main,
   },
 }));
 
@@ -26,8 +32,22 @@ export default function logDisplayColumn1({ log }) {
   return (
     <>
       <Card className={classes.itemOne}>
-        <Typography variant="body1" data-testid="date">
-          Date: {new Date(log.date).toDateString()} Dive Number: {log.id}
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="date"
+        >
+          <Typography variant="h6" data-testid="notes" color="primary">
+            Basic Dive Data:
+          </Typography>
+          <Typography display="inline" color="primary" variant="body1">
+            Date:
+          </Typography>
+          {" " + new Date(log.date).toDateString()}{" "}
+          <Typography display="inline" color="primary" variant="body1">
+            Dive Number:
+          </Typography>{" "}
+          {"" + log.id}
         </Typography>
         <Typography variant="body1" data-testid="location">
           {log.dive_site}, {log.city}, {log.country} {"\n"}
@@ -38,31 +58,65 @@ export default function logDisplayColumn1({ log }) {
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemTwo}>
-        <Typography variant="body1" data-testid="rnt">
-          {" "}
-          RNT {log.rnt}
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="rnt"
+        >
+          <Typography variant="h6" data-testid="notes" color="primary">
+            Dive Time Metrics:{" "}
+          </Typography>
+          <Typography display="inline" color="primary" variant="body1">
+            RNT:{" "}
+          </Typography>{" "}
+          {log.rnt}
         </Typography>
-        <Typography variant="body1" data-testid="abt">
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="tbt"
+        >
           {" "}
-          ABT {log.abt}
+          <Typography display="inline" color="primary" variant="body1">
+            ABT:{" "}
+          </Typography>{" "}
+          {log.abt}
         </Typography>
-        <Typography variant="body1" data-testid="tbt">
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="tbt"
+        >
           {" "}
-          TBT {log.tbt}
+          <Typography display="inline" color="primary" variant="body1">
+            TBT:{" "}
+          </Typography>{" "}
+          {log.tbt}
         </Typography>
-        <Typography variant="body1" data-testid="cumulative">
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="cumulative"
+        >
           {" "}
-          Cumulative Time: FILL THIS OUT WITH NEW DATA
+          <Typography display="inline" color="primary" variant="body1">
+            Cumulative Time:
+          </Typography>{" "}
+          2 minutes
         </Typography>
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemThree}>
-        <Typography variant="h6" data-testid="notes">
+        <Typography variant="h6" data-testid="notes" color="primary">
           Notes:{" "}
         </Typography>
-        <Typography variant="body1" data-testid="notes-text">
+        <Typography
+          variant="body1"
+          className={classes.detail}
+          data-testid="notes-text"
+        >
           {log.notes}
-          <Tags log={log} />
+          {log.tags && <Tags log={log} />}
         </Typography>
       </Card>
     </>
