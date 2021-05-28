@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiFilledInput-underline:before": {
       borderBottom: 'none'
     },
+    "& .MuiInputBase-root": {
+      color: theme.palette.lightBlue.main,
+      fontWeight: "bold",
+    }
   }
 }));
 
