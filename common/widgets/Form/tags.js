@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     height: 56,
-    margin: 5,
+    margin: 5
   },
   tags: {
     justifyContent: "center",
@@ -45,7 +45,7 @@ export default function FormTags({ tags, setTags }) {
 
   return (
     <Grid container spacing={3} direction="row">
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <TextField
           onChange={handleChange}
           label="Add Tags"
@@ -61,7 +61,7 @@ export default function FormTags({ tags, setTags }) {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <Button
           onClick={handleSubmit}
           className={classes.button}

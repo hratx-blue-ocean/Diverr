@@ -51,7 +51,7 @@ export default function FormMedia({ images, setImages }) {
 
   return (
     <Grid container spacing={3} direction="row">
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <TextField
           onChange={handleChange}
           label="Add Media"
@@ -67,7 +67,7 @@ export default function FormMedia({ images, setImages }) {
           }}
         />
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} style={{ padding: 15 }}>
         <Button
           onClick={handleSubmit}
           className={classes.button}

@@ -58,7 +58,7 @@ export default function ColumnFour({ formik }) {
         xs={6}
         direction="column"
       >
-        <Grid item>
+        <Grid item xs={12}>
           <Typography className={classes.title} variant="h6">
             Exposure Protection
           </Typography>

@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     height: 56,
     width: "25%",
-    marginTop: 50,
     marginBottom: 10,
   },
   root: {
@@ -148,8 +147,13 @@ export default function AddNewLogForm({
       };
 
       fetch(`/api/user/${email}/add/log`, options)
-        .then((result) => console.log("Post successful"))
-        .catch((err) => console.log("Error adding form"));
+        .then((result) => {
+          alert('Log added successfully!')
+          formik.handleReset()
+        })
+        .catch((err) => {
+          alert('Sorry, please try again!')
+        });
     },
   });
 
@@ -187,6 +191,7 @@ export default function AddNewLogForm({
               color="primary"
               variant="contained"
               fullWidth
+              // type="submit"
             >
               Submit
             </Button>
