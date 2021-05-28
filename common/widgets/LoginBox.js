@@ -9,9 +9,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.2)",
+    zIndex: "25",
+    position: "relative",
   },
   login: {
-    minHeight: "300px",
+    minHeight: "400px",
     minWidth: "200px",
     height: "35%",
     width: "25%",

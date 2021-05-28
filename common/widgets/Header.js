@@ -4,27 +4,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import LoggedOutNav from "common/components/nav/LoggedOutNav";
 import LoggedInNav from "common/components/nav/LoggedInNav";
 import Title from "common/components/nav/Title";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: "20px",
     paddingRight: "20px",
-    backgroundColor: "#D1FFFC",
+    backgroundImage: `linear-gradient(to bottom, #046499, rgba(0,0,20,0.3))`,
+    minHeight: "90px",
   },
   menuItem: {
     margin: "auto",
     cursor: "pointer",
-    color: theme.palette.primary.dark,
     fontWeight: 400,
   },
   menu: {
     display: "inline-block",
-  },
-  title: {
-    color: theme.palette.primary.dark,
-  },
-  icon: {
-    color: theme.palette.primary.dark,
   },
 }));
 
@@ -40,8 +35,9 @@ export default function Header() {
       position={"sticky"}
     >
       <Title classes={classes} />
-      {session && <LoggedInNav classes={classes} />}
-      {!session && <LoggedOutNav classes={classes} />}
+      {session && !loading && <LoggedInNav classes={classes} />}
+      {loading && <CircularProgress />}
+      {!session && !loading && <LoggedOutNav classes={classes} />}
     </Grid>
   );
 }
