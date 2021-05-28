@@ -12,7 +12,7 @@ import Column4 from "common/widgets/Form/formCol4.js";
 import FormTags from "common/widgets/Form/tags.js";
 import FormMedia from "common/widgets/Form/photos.js";
 import { useFormik } from "formik";
-import axios from 'axios';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   col: {
@@ -21,27 +21,29 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     height: 56,
-    width: '25%',
+    width: "25%",
     marginTop: 50,
-    marginBottom: 10
+    marginBottom: 10,
   },
   root: {
-    color: '#2196f3'
-  }
+    color: "#2196f3",
+  },
 }));
 
 export async function getServerSideProps(context) {
   const { req, res } = context;
   const session = await getSession({ req });
   if (!session) {
-    res.writeHead(302, { Location: '/' })
-    res.end()
+    res.writeHead(302, { Location: "/" });
+    res.end();
     return {
-      props: {}
-    }
+      props: {},
+    };
   }
   if (session) {
-    const timeAndId = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`)
+    const timeAndId = await fetch(
+      `${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`
+    );
     const finalTimeAndId = await timeAndId.json();
 
     return {
@@ -49,14 +51,18 @@ export async function getServerSideProps(context) {
         email: session.user.email,
         cumulative_time: Number(finalTimeAndId.sum),
         userId: finalTimeAndId.id,
-        session: session.user
+        session: session.user,
       },
     };
   }
 }
 
-
-export default function AddNewLogForm({ email, cumulative_time, userId, session }) {
+export default function AddNewLogForm({
+  email,
+  cumulative_time,
+  userId,
+  session,
+}) {
   const classes = useStyles();
   const [tags, setTags] = useState([]);
   const [images, setImages] = useState([]);
@@ -90,29 +96,29 @@ export default function AddNewLogForm({ email, cumulative_time, userId, session 
       values.userId = userId;
 
       //determines privacy
-      if (values.privacy === 'public') {
+      if (values.privacy === "public") {
         values.public = true;
       }
       delete values.privacy;
 
       //thermal insulation
-      if (values.suitUp === 'wetsuit') {
+      if (values.suitUp === "wetsuit") {
         values.wet_suit = true;
       }
       delete values.suitUp;
 
       //environment
-      if (values.environment === 'controlled') {
+      if (values.environment === "controlled") {
         values.controlled_env = true;
       } else {
-        if (values.environment === 'boat') {
+        if (values.environment === "boat") {
           values.boat = true;
         }
       }
       delete values.environment;
 
       //fresh v salt
-      if (values.water === 'salt') {
+      if (values.water === "salt") {
         values.salt_water = true;
       }
       delete values.water;
@@ -134,24 +140,30 @@ export default function AddNewLogForm({ email, cumulative_time, userId, session 
       let host = process.env.NEXTAUTH_URL;
 
       const options = {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(values)
-      }
+        body: JSON.stringify(values),
+      };
 
       fetch(`/api/user/${email}/add/log`, options)
-        .then(result => console.log('Post successful'))
-        .catch(err => console.log('Error adding form'))
-    }
+        .then((result) => console.log("Post successful"))
+        .catch((err) => console.log("Error adding form"));
+    },
   });
 
   return (
     <>
       <Header />
       <form className={classes.root}>
-        <Grid container justify="center" alignItems="center" spacing={1} direction="row">
+        <Grid
+          container
+          justify="center"
+          alignItems="center"
+          spacing={1}
+          direction="row"
+        >
           <Grid item xs={3}>
             <Column1 formik={formik} />
           </Grid>
@@ -169,7 +181,13 @@ export default function AddNewLogForm({ email, cumulative_time, userId, session 
             <FormMedia images={images} setImages={setImages} />
           </Grid>
           <Grid justify="center" container spacing={3}>
-            <Button className={classes.submit} onClick={formik.handleSubmit} color="primary" variant="contained" fullWidth>
+            <Button
+              className={classes.submit}
+              onClick={formik.handleSubmit}
+              color="primary"
+              variant="contained"
+              fullWidth
+            >
               Submit
             </Button>
           </Grid>
@@ -178,4 +196,3 @@ export default function AddNewLogForm({ email, cumulative_time, userId, session 
     </>
   );
 }
-

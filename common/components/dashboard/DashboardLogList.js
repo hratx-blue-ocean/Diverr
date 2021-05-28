@@ -8,25 +8,26 @@ const useStyles = makeStyles((theme) => ({
     height: 5,
   },
   log: {
-    cursor: 'pointer',
-    backgroundColor: theme.palette.primary.main
+    cursor: "pointer",
+    backgroundColor: theme.palette.primary.main,
   },
   logList: {
     backgroundColor: theme.palette.lightBlue.main,
-    borderRadius: '5px',
+    borderRadius: "5px",
     padding: 10,
   },
   logText: {
     color: theme.palette.lightBlue.main,
-    padding: 3
-  }
-
+    padding: 3,
+  },
 }));
 export default function LogList({ logs, selectLog, selectedTags }) {
   const classes = useStyles();
   return (
     <Box className={classes.logList}>
-      <Typography variant="h5" color="primary">Dive Logs:</Typography>
+      <Typography variant="h5" color="primary">
+        Dive Logs:
+      </Typography>
       {logs.map((log, i) => {
         if (
           Object.keys(selectedTags).length === 0 ||
@@ -39,8 +40,12 @@ export default function LogList({ logs, selectLog, selectedTags }) {
                 className={classes.log}
                 onClick={() => {
                   selectLog(i);
-                }}>
-                  <Box className={classes.logText}>Log No. {logs.length - i}: {new Date(log.date).toDateString()} @ {log.dive_site}{" "}</Box>
+                }}
+              >
+                <Box className={classes.logText}>
+                  Log No. {logs.length - i}: {new Date(log.date).toDateString()}{" "}
+                  @ {log.dive_site}{" "}
+                </Box>
               </Card>
               <Box className={classes.spacer} />
             </>

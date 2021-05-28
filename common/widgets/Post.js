@@ -39,7 +39,7 @@ export default function Post({ log, handleClick }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const { city, country, date, dive_site, name,photos, tags } = log;
+  const { city, country, date, dive_site, name, photos, tags } = log;
   return (
     <Card className={classes.root}>
       <PostHeader

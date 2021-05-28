@@ -9,29 +9,29 @@ const useStyles = makeStyles((theme) => ({
   col: {
     margin: 50,
     marginRight: 0,
-    marginTop: -225
+    marginTop: -225,
   },
   textfield: {
     margin: 5,
-    '& input + fieldset': {
-      borderColor: '#2196f3',
+    "& input + fieldset": {
+      borderColor: "#2196f3",
       borderWidth: 1,
-    }
+    },
   },
   notes: {
     margin: 5,
-    '& input + fieldset': {
-      borderColor: '#2196f3',
+    "& input + fieldset": {
+      borderColor: "#2196f3",
       borderWidth: 1,
       height: 300,
-    }
+    },
   },
   input: {
-    color: '#2196f3'
+    color: "#2196f3",
   },
   values: {
-    color: '#2196f3'
-  }
+    color: "#2196f3",
+  },
 }));
 
 export default function ColumnThree({ formik }) {
@@ -47,10 +47,10 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -61,10 +61,10 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -75,10 +75,10 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -89,10 +89,10 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -105,10 +105,10 @@ export default function ColumnThree({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
     </div>

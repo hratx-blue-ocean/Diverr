@@ -21,21 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     margin: 5,
-    '& input + fieldset': {
-      borderColor: '#2196f3',
+    "& input + fieldset": {
+      borderColor: "#2196f3",
       borderWidth: 1,
-    }
+    },
   },
   title: {
     marginBottom: 10,
-    color: '#2196f3'
+    color: "#2196f3",
   },
   input: {
-    color: '#2196f3'
+    color: "#2196f3",
   },
   values: {
-    color: '#2196f3'
-  }
+    color: "#2196f3",
+  },
 }));
 
 export default function ColumnOne({ formik }) {
@@ -44,18 +44,16 @@ export default function ColumnOne({ formik }) {
   return (
     <div className={classes.col}>
       <FormControl>
-        <FormLabel className={classes.title} component="legend">Privacy</FormLabel>
+        <FormLabel className={classes.title} component="legend">
+          Privacy
+        </FormLabel>
         <RadioGroup onChange={formik.handleChange} name="privacy">
           <FormControlLabel
             value="private"
             control={<Radio />}
             label="Private"
           />
-          <FormControlLabel
-            value="public"
-            control={<Radio />}
-            label="Public"
-          />
+          <FormControlLabel value="public" control={<Radio />} label="Public" />
         </RadioGroup>
       </FormControl>
       <TextField
@@ -69,12 +67,12 @@ export default function ColumnOne({ formik }) {
         variant="outlined"
         InputLabelProps={{
           shrink: true,
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
-        style={{ color: '#2196f3' }}
+        style={{ color: "#2196f3" }}
       />
       <TextField
         className={classes.textfield}
@@ -85,10 +83,10 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -100,13 +98,13 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         style={{
-          color: '#2196f3 !important'
+          color: "#2196f3 !important",
         }}
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -118,10 +116,10 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -133,10 +131,10 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -147,13 +145,13 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -164,10 +162,10 @@ export default function ColumnOne({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
     </div>

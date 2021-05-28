@@ -15,17 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     margin: 5,
-    '& input + fieldset': {
-      borderColor: '#2196f3',
+    "& input + fieldset": {
+      borderColor: "#2196f3",
       borderWidth: 1,
-    }
+    },
   },
   input: {
-    color: '#2196f3'
+    color: "#2196f3",
   },
   values: {
-    color: '#2196f3'
-  }
+    color: "#2196f3",
+  },
 }));
 
 export default function ColumnTwo({ formik }) {
@@ -43,10 +43,10 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         InputLabelProps={{
           shrink: true,
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
         variant="outlined"
       />
@@ -60,10 +60,10 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         InputLabelProps={{
           shrink: true,
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
         variant="outlined"
       />
@@ -76,10 +76,10 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -91,10 +91,10 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -106,10 +106,10 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -122,10 +122,10 @@ export default function ColumnTwo({ formik }) {
         variant="outlined"
         helperText="In minutes"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -137,10 +137,10 @@ export default function ColumnTwo({ formik }) {
         variant="outlined"
         helperText="In minutes"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
       <TextField
@@ -152,10 +152,10 @@ export default function ColumnTwo({ formik }) {
         variant="outlined"
         helperText="In minutes"
         InputLabelProps={{
-          className: classes.input
+          className: classes.input,
         }}
         InputProps={{
-          className: classes.values
+          className: classes.values,
         }}
       />
     </div>
