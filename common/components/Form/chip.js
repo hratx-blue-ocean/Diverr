@@ -5,6 +5,7 @@ import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 const useStyles = makeStyles((theme) => ({
   chip: {
     margin: theme.spacing(0.5),
+    backgroundColor: theme.palette.lightBlue.main,
   },
 }));
 

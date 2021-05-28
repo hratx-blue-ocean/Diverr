@@ -39,21 +39,11 @@ export default function Post({ log, handleClick }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const {
-    first_name,
-    last_name,
-    dive_site,
-    city,
-    country,
-    photos,
-    tags,
-    date,
-  } = log;
+  const { city, country, date, dive_site, name,photos, tags } = log;
   return (
     <Card className={classes.root}>
       <PostHeader
-        firstName={first_name}
-        lastName={last_name}
+        name={name}
         location={`${dive_site}, ${city}, ${country}`}
         date={date}
       />
