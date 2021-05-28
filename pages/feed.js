@@ -5,11 +5,11 @@ import Post from "common/widgets/Post.js";
 import SearchBar from "common/widgets/SearchBar.js";
 import data from "lib/dummyData/dummyData.js";
 import { useEffect, useState } from "react";
-import { getSession,useSession } from "next-auth/client";
-import { GetServerSideProps } from 'next'
-import axios from 'axios';
+import { getSession, useSession } from "next-auth/client";
+import { GetServerSideProps } from "next";
+import axios from "axios";
 
-export default function Feed({resultTags, resultLogs}) {
+export default function Feed({ resultTags, resultLogs }) {
   const [search, setSearch] = useState(null);
 
   return (
@@ -23,7 +23,10 @@ export default function Feed({resultTags, resultLogs}) {
       >
         <SearchBar tags={resultTags} onSelect={setSearch} search={search} />
         {resultLogs.map((log) => {
-          if ((log.tags && log.tags.includes(search) || search === null) && log.photos.length > 0) {
+          if (
+            ((log.tags && log.tags.includes(search)) || search === null) &&
+            log.photos.length > 0
+          ) {
             return (
               <div key={log.id}>
                 <Post log={log} handleClick={setSearch} />
@@ -56,8 +59,7 @@ export async function getServerSideProps(context) {
   const finalResultLogs = await resultLogs.json();
 
   const result = {
-    props: {resultTags: finalResultTags, resultLogs: finalResultLogs[0].logs}
-  }
+    props: { resultTags: finalResultTags, resultLogs: finalResultLogs[0].logs },
+  };
   return result;
 }
-

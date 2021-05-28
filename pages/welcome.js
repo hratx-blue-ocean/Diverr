@@ -4,7 +4,7 @@ import { useSession, getSession } from "next-auth/client";
 import { makeStyles } from "@material-ui/core/styles";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import axios from 'axios';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,8 +20,11 @@ export async function getServerSideProps(context) {
 
   if (session) {
     try {
-      await axios.post(`http://localhost:3000/api/new/${session.user.email}`, session.user);
-    } catch(err) {
+      await axios.post(
+        `http://localhost:3000/api/new/${session.user.email}`,
+        session.user
+      );
+    } catch (err) {
       console.error(err);
     }
   }
