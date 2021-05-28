@@ -5,6 +5,7 @@ import SmallTagContainer from 'common/widgets/SmallTagContainer.js';
 
 export default function Tags({ log }) {
   return (
+    log.tags &&
     <SmallTagContainer tags={log.tags}/>
   );
 }
