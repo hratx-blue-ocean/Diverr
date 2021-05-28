@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
   }
   const email = session.user.email;
   let host = process.env.NEXTAUTH_URL;
-  const resultUserTags = await fetch(`${host}/api/user/19ccrow99@gmail.com/tags`);
+  const resultUserTags = await fetch(`${host}/api/user/${email}/tags`);
   const finalResultUserTags = await resultUserTags.json();
 
   if (!finalResultUserTags) {
@@ -56,7 +56,7 @@ export async function getServerSideProps(context) {
     };
   }
 
-  const resultUserLogs = await fetch(`${host}/api/user/19ccrow99@gmail.com/logs`);
+  const resultUserLogs = await fetch(`${host}/api/user/${email}/logs`);
   const finalResultUserLogs = await resultUserLogs.json();
 
   console.log("WHAT DO LOGS LOOK LIKE", finalResultUserLogs);
