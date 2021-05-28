@@ -80,7 +80,10 @@ export default function ColumnOne({ formik }) {
           InputLabelProps={{ shrink: true, style: { color: "#E9F7F9" } }}
           color="secondary"
           InputProps={{
-            classes: { notchedOutline: classes.input },
+            classes: {
+              notchedOutline: classes.input,
+              root: classes.textFieldRoot,
+            },
             className: classes.text,
           }}
           style={{
