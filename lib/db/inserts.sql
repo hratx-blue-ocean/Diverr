@@ -62,3 +62,6 @@ insert into logs_tags (id_user, id_log, id_tag) values (1, 2, 3);
 insert into logs_tags (id_user, id_log, id_tag) values (1, 2, 4);
 -- id 10
 insert into logs_tags (id_user, id_log, id_tag) values (2, 3, 8);
+
+
+
