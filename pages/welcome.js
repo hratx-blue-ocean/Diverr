@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 
   if (session) {
     try {
-      await axios.post(`/api/new/${session.user.email}`, session.user);
+      await axios.post(`http://localhost:3000/api/new/${session.user.email}`, session.user);
     } catch(err) {
       console.error(err);
     }
