@@ -23,7 +23,7 @@ export default function Dashboard({ session, userTags, userLogs }) {
         <UserDashboard
           session={session}
           userTags={userTags}
-          userLogs={userLogs.logs}
+          userLogs={userLogs.logs[0]}
         />
       ) : (
         <NoLogs name={session.user.name} logs={[]} />
@@ -70,7 +70,7 @@ export async function getServerSideProps(context) {
     props: {
       session: session,
       userTags: finalResultUserTags,
-      userLogs: finalResultUserLogs[0],
+      userLogs: finalResultUserLogs,
     },
   };
   return result;
