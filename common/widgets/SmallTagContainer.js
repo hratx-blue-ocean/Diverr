@@ -17,14 +17,15 @@ const useStyles = makeStyles((theme) => ({
 export default function SmallTagContainer({ tags, handleClick }) {
   const classes = useStyles();
   return (
-    <Paper elevation={3} component="ul" className={classes.paper}>
-      {tags.map((tag) => {
-        return (
-          <li key={tag}>
-            <SmallTag tagName={tag} handleClick={handleClick} />
-          </li>
-        );
-      })}
-    </Paper>
+    tags &&
+      <Paper elevation={3} component="ul" className={classes.paper}>
+        {tags.map((tag) => {
+          return (
+            <li key={tag}>
+              <SmallTag tagName={tag} handleClick={handleClick} />
+            </li>
+          );
+        })}
+      </Paper>
   );
 }

@@ -26,10 +26,7 @@ export async function getServerSideProps(context) {
     }
   }
   return {
-    props: {
-      session: null,
-      providers: (await providers(context)) || {},
-    },
+    props: {},
   };
 }
 
