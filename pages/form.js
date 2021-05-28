@@ -78,41 +78,11 @@ export default function AddNewLogForm() {
         </Typography>
       </Grow>
       <form style={{ width: "100vw" }}>
-        {/* <Grid item xs={1} className={classes.colSpacer}/> */}
         <Grid container spacing={1} className={classes.main}>
-          {/* <Grid
-            item
-            xs={12}
-            container
-            direction="row"
-            // justify="space-around"
-            className={classes.col}
-          > */}
           <Column1 formik={formik} container direction="column" />
-          {/* </Grid> */}
-          {/* <Grid
-            item
-            xs={6}
-            container
-            direction="row"
-            className={classes.col}
-          > */}
           <Column2 formik={formik} />
-          {/* </Grid> */}
-          {/* <Grid
-            item
-            xs={6}
-            container
-            direction="column"
-            className={classes.col}
-            style={{ padding: "7px" }}
-          > */}
           <Column3 formik={formik} container direction="column" />
-          {/* </Grid> */}
-          {/* <Grid item xs={6} className={classes.col}> */}
           <Column4 formik={formik} container direction="column" />
-          {/* </Grid> */}
-          {/* <Grid item xs={1} className={classes.colSpacer}/> */}
         </Grid>
         <Box className={classes.spacer} />
         <Grid container className={classes.col}>
