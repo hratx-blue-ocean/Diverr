@@ -19,10 +19,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginLeft: 50,
   },
-  textfield: {
-    margin: 5,
-    border: '#2196f3'
-  },
   submit: {
     height: 56,
     width: '25%',
@@ -145,7 +141,7 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
 
       let host = process.env.NEXTAUTH_URL
 
-      axios.post(`${host}/api/user/${email}/add/log`, values)
+      axios.post(`http://localhost:3000/api/user/${email}/add/log`, values)
       .then(result => console.log('Post successful'))
       .catch(err => console.log('Error adding form'))
     }

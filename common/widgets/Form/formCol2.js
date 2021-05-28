@@ -15,7 +15,14 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     margin: 5,
+    '& input + fieldset': {
+      borderColor: '#2196f3',
+      borderWidth: 1,
+    }
   },
+  input: {
+    color: '#2196f3'
+  }
 }));
 
 export default function ColumnTwo({ formik }) {
@@ -33,6 +40,7 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         InputLabelProps={{
           shrink: true,
+          className: classes.input
         }}
         variant="outlined"
       />
@@ -46,6 +54,7 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         InputLabelProps={{
           shrink: true,
+          className: classes.input
         }}
         variant="outlined"
       />
@@ -57,6 +66,9 @@ export default function ColumnTwo({ formik }) {
         value={formik.values.startPressure}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -66,6 +78,9 @@ export default function ColumnTwo({ formik }) {
         value={formik.values.endPressure}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -75,6 +90,9 @@ export default function ColumnTwo({ formik }) {
         value={formik.values.depth}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -85,6 +103,9 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         helperText="In minutes"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -94,6 +115,9 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         helperText="In minutes"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -103,6 +127,9 @@ export default function ColumnTwo({ formik }) {
         onChange={formik.handleChange}
         variant="outlined"
         helperText="In minutes"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
     </div>
   );

@@ -9,10 +9,26 @@ const useStyles = makeStyles((theme) => ({
   col: {
     margin: 50,
     marginRight: 0,
+    marginTop: -225
   },
   textfield: {
     margin: 5,
+    '& input + fieldset': {
+      borderColor: '#2196f3',
+      borderWidth: 1,
+    }
   },
+  notes: {
+    margin: 5,
+    '& input + fieldset': {
+      borderColor: '#2196f3',
+      borderWidth: 1,
+      height: 300,
+    }
+  },
+  input: {
+    color: '#2196f3'
+  }
 }));
 
 export default function ColumnThree({ formik }) {
@@ -27,6 +43,9 @@ export default function ColumnThree({ formik }) {
         value={formik.values.visibility}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -35,6 +54,9 @@ export default function ColumnThree({ formik }) {
         value={formik.values.airTemp}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -43,6 +65,9 @@ export default function ColumnThree({ formik }) {
         value={formik.values.waterTemp}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -51,16 +76,22 @@ export default function ColumnThree({ formik }) {
         value={formik.values.weight}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
-        className={classes.textfield}
-        multiline
+        className={classes.notes}
+        // multiline
         rows={14}
         label="Notes"
         name="notes"
         value={formik.values.notes}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
     </div>
   );

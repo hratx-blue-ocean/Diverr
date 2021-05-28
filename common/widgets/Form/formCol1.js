@@ -21,7 +21,18 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     margin: 5,
+    '& input + fieldset': {
+      borderColor: '#2196f3',
+      borderWidth: 1,
+    }
   },
+  title: {
+    marginBottom: 10,
+    color: '#2196f3'
+  },
+  input: {
+    color: '#2196f3'
+  }
 }));
 
 export default function ColumnOne({ formik }) {
@@ -30,7 +41,7 @@ export default function ColumnOne({ formik }) {
   return (
     <div className={classes.col}>
       <FormControl>
-        <FormLabel component="legend">Privacy</FormLabel>
+        <FormLabel className={classes.title} component="legend">Privacy</FormLabel>
         <RadioGroup onChange={formik.handleChange} name="privacy">
           <FormControlLabel
             value="private"
@@ -53,7 +64,11 @@ export default function ColumnOne({ formik }) {
         value={formik.values.date}
         onChange={formik.handleChange}
         variant="outlined"
-        InputLabelProps={{ shrink: true }}
+        InputLabelProps={{
+          shrink: true,
+          className: classes.input
+        }}
+        style={{ color: '#2196f3' }}
       />
       <TextField
         className={classes.textfield}
@@ -63,6 +78,9 @@ export default function ColumnOne({ formik }) {
         value={formik.values.city}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -72,6 +90,12 @@ export default function ColumnOne({ formik }) {
         value={formik.values.country}
         onChange={formik.handleChange}
         variant="outlined"
+        style={{
+          color: '#2196f3 !important'
+        }}
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -81,6 +105,9 @@ export default function ColumnOne({ formik }) {
         value={formik.values.site}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -90,6 +117,9 @@ export default function ColumnOne({ formik }) {
         value={formik.values.center}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -98,6 +128,9 @@ export default function ColumnOne({ formik }) {
         value={formik.values.instructor}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
       <TextField
         className={classes.textfield}
@@ -106,6 +139,9 @@ export default function ColumnOne({ formik }) {
         value={formik.values.instructorCert}
         onChange={formik.handleChange}
         variant="outlined"
+        InputLabelProps={{
+          className: classes.input
+        }}
       />
     </div>
   );
