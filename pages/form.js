@@ -21,12 +21,16 @@ const useStyles = makeStyles((theme) => ({
   },
   textfield: {
     margin: 5,
+    border: '#2196f3'
   },
   submit: {
     height: 56,
     width: '25%',
     marginTop: 50,
     marginBottom: 10
+  },
+  root: {
+    color: '#2196f3'
   }
 }));
 
@@ -41,13 +45,17 @@ export async function getServerSideProps(context) {
     }
   }
   if (session) {
+    console.log('Session is: ', session)
     const timeAndId = await axios.get(`${process.env.NEXTAUTH_URL}/api/user/${session.user.email}/cumulative`);
-    console.log({timeAndId})
+    console.log(session.user.email)
+    // console.log({timeAndId})
+    console.log('Time and ID is: ', timeAndId.data)
     return {
       props: {
         email: session.user.email,
         cumulative_time: Number(timeAndId.data.sum),
         userId: timeAndId.data.id
+        // userId: null
       },
     };
   }
@@ -55,9 +63,9 @@ export async function getServerSideProps(context) {
 
 
 export default function AddNewLogForm({ email, cumulative_time, userId }) {
-  console.log({cumulative_time})
-  console.log({email})
-  console.log({userId})
+  // console.log({cumulative_time})
+  // console.log({email})
+  // console.log({userId})
   const classes = useStyles();
   const [tags, setTags] = useState([]);
   const [images, setImages] = useState([]);
@@ -131,9 +139,9 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
       values.tbt = Number(values.tbt);
       values.cumulative_time = cumulative_time + values.abt;
 
-      console.log({ values })
+      // console.log({ values })
       alert(JSON.stringify(values, null, 2));
-      console.log(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
 
       let host = process.env.NEXTAUTH_URL
 
@@ -146,9 +154,9 @@ export default function AddNewLogForm({ email, cumulative_time, userId }) {
   return (
     <>
       <Header />
-      <form>
-        <Grid container justify="center" alignItems="center" spacing={1} direction="row">
-          <Grid item xs={3}>
+      <form className={classes.root}>
+        <Grid  container justify="center" alignItems="center" spacing={1} direction="row">
+          <Grid  item xs={3}>
             <Column1 formik={formik} />
           </Grid>
           <Grid item xs={3}>
