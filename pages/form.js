@@ -46,8 +46,8 @@ export async function getServerSideProps(context) {
     return {
       props: {
         email: session.user.email,
-        // cumulative_time: Number(timeAndId.data.sum),
-        // userId: timeAndId.data.id
+        cumulative_time: Number(timeAndId.data.sum),
+        userId: timeAndId.data.id
       },
     };
   }
