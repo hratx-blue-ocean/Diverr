@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.secondary.light,
   },
+  message: {
+    color: theme.palette.lightBlue.main,
+  },
 }));
 
 export default function LoginBox({ provider, signIn }) {
@@ -44,7 +47,11 @@ export default function LoginBox({ provider, signIn }) {
         alignItems="center"
         className={classes.login}
       >
-        <Typography variant="h6" data-testId="message">
+        <Typography
+          variant="h6"
+          data-testId="message"
+          className={classes.message}
+        >
           Sign into <span className={classes.title}>Diverr</span>
         </Typography>
         <Box className={classes.spacer} />
