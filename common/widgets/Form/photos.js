@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
   textfield: {
     margin: 5,
     marginTop: 50,
+    "& input + fieldset": {
+      borderColor: "#2196f3",
+      borderWidth: 1,
+    },
   },
   button: {
     height: 56,
@@ -20,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
   gridlist: {
     flexWrap: "no-wrap",
+  },
+  input: {
+    color: "#2196f3",
+  },
+  values: {
+    color: "#2196f3",
   },
 }));
 
@@ -49,6 +59,9 @@ export default function FormMedia({ images, setImages }) {
           variant="outlined"
           value={image}
           className={classes.textfield}
+          InputLabelProps={{
+            className: classes.input,
+          }}
         />
       </Grid>
       <Grid item xs={2}>
