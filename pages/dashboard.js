@@ -19,11 +19,11 @@ export default function Dashboard({ session, userTags, userLogs }) {
         <meta name="home" content="caspian-holder" />
       </Head>
       <Header />
-      {userLogs && userLogs.logs ? (
+      {userLogs && userLogs[0].logs ? (
         <UserDashboard
           session={session}
           userTags={userTags}
-          userLogs={userLogs.logs}
+          userLogs={userLogs[0].logs}
         />
       ) : (
         <NoLogs name={session.user.name} logs={[]} />
@@ -70,8 +70,9 @@ export async function getServerSideProps(context) {
     props: {
       session: session,
       userTags: finalResultUserTags,
-      userLogs: finalResultUserLogs[0],
+      userLogs: finalResultUserLogs,
     },
   };
+  console.log(result);
   return result;
 }
