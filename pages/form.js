@@ -148,11 +148,11 @@ export default function AddNewLogForm({
 
       fetch(`/api/user/${email}/add/log`, options)
         .then((result) => {
-          alert('Log added successfully!')
-          formik.handleReset()
+          alert("Log added successfully!");
+          formik.handleReset();
         })
         .catch((err) => {
-          alert('Sorry, please try again!')
+          alert("Sorry, please try again!");
         });
     },
   });

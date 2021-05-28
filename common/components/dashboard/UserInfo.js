@@ -27,7 +27,7 @@ export default function logDisplayColumn1({ name, logs }) {
         <Typography variant="h6" color="primary" display="inline">
           Total Cumulative Dive Time:{" "}
         </Typography>
-        {logs.length ? logs[logs.length - 1].cumulative_time : '0'} Minutes
+        {logs.length ? logs[logs.length - 1].cumulative_time : "0"} Minutes
       </Typography>
     </Card>
   );

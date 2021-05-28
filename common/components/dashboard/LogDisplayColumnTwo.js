@@ -44,7 +44,7 @@ export default function logDisplayColumn1({ log }) {
           {log.water_temp}
         </Box>
         <Box className={classes.detail}>
-          <Typography display="inline" color="primary" variant="body1" >
+          <Typography display="inline" color="primary" variant="body1">
             Conditions:
           </Typography>
           {log.salt_water ? " Salt-Water" : " Fresh-Water"},{" "}

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     height: 56,
-    margin: 5
+    margin: 5,
   },
   tags: {
     justifyContent: "center",

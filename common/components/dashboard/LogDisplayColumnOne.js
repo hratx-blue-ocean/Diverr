@@ -58,10 +58,7 @@ export default function logDisplayColumn1({ log }) {
       </Card>
       <Box className={classes.spacer} />
       <Card className={classes.itemTwo}>
-        <Box
-          className={classes.detail}
-          data-testid="rnt"
-        >
+        <Box className={classes.detail} data-testid="rnt">
           <Typography variant="h6" data-testid="notes" color="primary">
             Dive Time Metrics:{" "}
           </Typography>
@@ -70,19 +67,14 @@ export default function logDisplayColumn1({ log }) {
           </Typography>{" "}
           {log.rnt}
         </Box>
-        <Box
-          className={classes.detail}
-        >
+        <Box className={classes.detail}>
           {" "}
           <Typography display="inline" color="primary" variant="body1">
             ABT:{" "}
           </Typography>{" "}
           {log.abt}
         </Box>
-        <Box
-          className={classes.detail}
-          data-testid="tbt"
-        >
+        <Box className={classes.detail} data-testid="tbt">
           {" "}
           <Typography display="inline" color="primary" variant="body1">
             TBT:{" "}
