@@ -12,7 +12,6 @@
     <br /><br />
     Built with Next.js, React, Material-UI, NextAuth, Formik, and Postgres, diverr boasts a simple and intuitive UI while providing a highly performant back end constructed with complex queries that abstract away the front end workload.
     <br /><br />
-    ![](gifs/about.gif)
     <img src="gifs/about.gif" alt="diverr homepage" />
     <h3 align="center">
       <strong>Contributors »</strong>
