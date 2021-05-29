@@ -10,7 +10,7 @@
     <br /><br />
     Upload your photos to your dive log and instantly share them with a worldwide community of divers who understand the thrill of swimming with manta rays, setting a new personal depth record, and passing the 24-hours-underwater mark.
     <br /><br />
-    Built with Next.js, React, Material-UI, NextAuth, Formik, and Postgres, diverr boasts a simple and intuitive UI while providing a highly performant back end constructed with complex queries that abstract away the front end workload.
+  Built with <em>Next.js</em>, <em>React</em>, <em>Material-UI</em>, <em>NextAuth</em>, <em>Formik</em>, and <em>Postgres</em>, diverr boasts a simple and intuitive UI while providing a highly performant back end constructed with complex queries that abstract away the front end workload.
     <br /><br />
     <img src="gifs/about.gif" alt="diverr homepage" />
     <h3 align="center">
@@ -145,7 +145,7 @@
 # Front End
 
 ## Welcome Page
-  The inspiration for the site theme was inspired by a photo of a manta ray where sunlight hit the top of the water, and loses permeation of that sunlight as you descend deeper underwater. So, our palette consisted of a range of blues, from an almost white, light blue, to pure black with a touch of blue.
+  The site theme was inspired by a photo of a manta ray where sunlight hit the top of the water, and loses permeation of that sunlight as you descend deeper underwater. So, our palette consisted of a range of blues, from an almost white, light blue, to pure black with a touch of blue.
 
 **Features:**
 
@@ -153,6 +153,7 @@
   * Sticky info box with a *Join Today* button to allow sign up no matter where users are in the feed
   * Dynamic Header based on session auth status
   * *Authentication*: OAuth sign in with Google built using NextAuth
+  * *Login*: A custom login page with video background
   * *Redirects*: Authentication checks to dynamically render secured pages
   * *Never Lost*: Descriptive and Assertive page routing to lead users to accessible areas
 
