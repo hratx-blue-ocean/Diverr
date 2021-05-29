@@ -10,7 +10,7 @@
     <br /><br />
     Upload your photos to your dive log and instantly share them with a worldwide community of divers who understand the thrill of swimming with manta rays, setting a new personal depth record, and passing the 24-hours-underwater mark.
     <br /><br />
-  Built with <em>Next.js</em>, <em>React</em>, <em>Material-UI</em>, <em>NextAuth</em>, <em>Formik</em>, and <em>Postgres</em>, diverr boasts a simple and intuitive UI while providing a highly performant back end constructed with complex queries that abstract away the front end workload.
+  Built by a six-person dev team with <em>Next.js</em>, <em>React</em>, <em>Material-UI</em>, <em>NextAuth</em>, <em>Formik</em>, and <em>Postgres</em>, diverr boasts a simple and intuitive UI while providing a highly performant back end constructed with complex queries that abstract away the front end workload.
     <br /><br />
     <img src="gifs/about.gif" alt="diverr homepage" />
     <h3 align="center">
