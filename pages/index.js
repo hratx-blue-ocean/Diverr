@@ -62,6 +62,7 @@ export default function Home(props) {
         <meta name="home" content="diverr" />
         <meta name="title" property="og:title" content="diverr" />
         <meta name="image" property="og:image" content="https://i.imgur.com/fdXUcU9.png" />
+        <meta name="description" property="og:description" content="Electronic logbook for storing scuba dive records with the ability to share photos from dives on a public feed " />
       </Head>
       <Header />
       <Box className={classes.smallSpacer} />

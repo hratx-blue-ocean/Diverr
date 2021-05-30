@@ -19,6 +19,7 @@ export default function Dashboard({ session, userTags, userLogs }) {
         <meta name="home" content="diverr" />
         <meta name="title" property="og:title" content="diverr" />
         <meta name="image" property="og:image" content="https://i.imgur.com/fdXUcU9.png" />
+        <meta name="description" property="og:description" content="Electronic logbook for storing scuba dive records with the ability to share photos from dives on a public feed " />
       </Head>
       <Header />
       {userLogs && userLogs[0].logs ? (
