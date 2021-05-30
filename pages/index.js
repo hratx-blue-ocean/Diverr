@@ -60,6 +60,8 @@ export default function Home(props) {
       <Head>
         <title>diverr</title>
         <meta name="home" content="diverr" />
+        <meta name="title" property="og:title" content="diverr" />
+        <meta name="image" property="og:image" content="https://i.imgur.com/fdXUcU9.png" />
       </Head>
       <Header />
       <Box className={classes.smallSpacer} />

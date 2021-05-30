@@ -17,6 +17,8 @@ export default function Dashboard({ session, userTags, userLogs }) {
       <Head>
         <title>diverr</title>
         <meta name="home" content="diverr" />
+        <meta name="title" property="og:title" content="diverr" />
+        <meta name="image" property="og:image" content="https://i.imgur.com/fdXUcU9.png" />
       </Head>
       <Header />
       {userLogs && userLogs[0].logs ? (
