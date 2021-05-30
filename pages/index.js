@@ -58,8 +58,8 @@ export default function Home(props) {
   return (
     <>
       <Head>
-        <title>Caspian</title>
-        <meta name="home" content="caspian-holder" />
+        <title>diverr</title>
+        <meta name="home" content="diverr" />
       </Head>
       <Header />
       <Box className={classes.smallSpacer} />

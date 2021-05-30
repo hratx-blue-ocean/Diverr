@@ -15,8 +15,8 @@ export default function Dashboard({ session, userTags, userLogs }) {
   return (
     <main>
       <Head>
-        <title>Caspian</title>
-        <meta name="home" content="caspian-holder" />
+        <title>diverr</title>
+        <meta name="home" content="diverr" />
       </Head>
       <Header />
       {userLogs && userLogs[0].logs ? (
